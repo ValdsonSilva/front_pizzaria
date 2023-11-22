@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import './App.css'
 import Texto from './components/Texto'
+import Header from './components/header/Header'
+import Main from "./components/main/Main"
+import TelaInicialCrud from './components/pages/TelaInicialCrud'
 
 function App() {
 
@@ -8,11 +11,7 @@ function App() {
 
   return (
     <>
-      <input type="text" 
-             value={texto}
-             onChange={(event) => setTexto(event.target.value)}/>
-      <h1>{texto}</h1>
-      <Texto/>
+      <TelaInicialCrud/>
     </>
   )
 }
