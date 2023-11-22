@@ -1,5 +1,9 @@
 @charset "utf-8";
 
+button {
+    cursor: pointer;
+}
+
 .cabecalho {
     background: #EA1D2C;
     display: flex;
@@ -11,27 +15,26 @@
 }
 
 .botoes_container {
-    background-color: #000000;
-    /* width: 590px;
-    height: 400px; */
-    /* display: flex;
-    justify-content: space-between;
-    align-items: center; */
+    margin-top: 200px;
+    /* background-color: #000000; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 11px;
-    padding-top: 190px;
-
-    /* flex-direction: column; */
-    /* margin-top: 185px; */
-    /* gap: 11px; */
+    column-gap: 69px;
+    position: static;
+    /* padding-top: 190px; */
 }
 
-.botao_cadastros {
+.botao_cadastros, .botao_itens_cadastros {
     border: none;
     background-color: transparent;
     color: #ffffff;
     font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.botao_cadastros:hover, .botao_itens_cadastros:hover {
+    color: rgba(252, 252, 252, 0.796);
 }
 
 .navegacao {
@@ -41,12 +44,16 @@
     align-items: center;
     flex-direction: column;
     background-color: #F3F0F0;
+    opacity: 0;
     width: 167px;
     height: 172px;
     margin-top: 11px;
     gap: 10px;
     border-radius: 5px;
-    
+}
+
+.navegacao.on {
+    opacity: 1;
 }
 
 .navegacao > a {
@@ -55,6 +62,13 @@
     font-weight: 400;
     font-size: 20px;
     line-height: 29.9px;
+    cursor: default;
+    touch-action: none;
+}
+
+.navegacao.on > a {
+    cursor: pointer;
+    touch-action: auto;
 }
 
 .barrinha_nav {
