@@ -1,0 +1,15 @@
+@charset "utf-8";
+
+button {
+    cursor: pointer;
+}
+
+.cabecalho {
+    background: #EA1D2C;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    position: fixed;
+}

@@ -4,6 +4,7 @@ import Texto from './components/Texto'
 import Header from './components/header/Header'
 import Main from "./components/main/Main"
 import TelaInicialCrud from './components/pages/TelaInicialCrud'
+import Mateusc from './components/mateusc/mateusc'
 
 function App() {
 
@@ -11,7 +12,8 @@ function App() {
 
   return (
     <>
-      <TelaInicialCrud/>
+      {/* <TelaInicialCrud/> */}
+      <Mateusc/>
     </>
   )
 }
