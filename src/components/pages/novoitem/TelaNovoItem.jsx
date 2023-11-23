@@ -16,13 +16,13 @@ function TelaNovoItem() {
                 <h1>Cadastrando Novo Item</h1>
                     <form action="" >
                         <span>Nome:</span>
-                        <input type="text" />
+                        <input type="text" required/>
                         <span>Estoque:</span>
-                        <input type="text" />
+                        <input type="text" required/>
                         <span>Unidade:</span>
-                        <input type="text" />
+                        <input type="text" required/>
                         <span>Preço:</span>
-                        <input type="text" />
+                        <input type="text" required/>
                         {/* comp reaproveitado */}
                         <BotaoConfirmar/>
                     </form>
