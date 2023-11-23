@@ -1,0 +1,70 @@
+@charset "utf-8";
+
+.father {
+    display: flex;
+    justify-content: center;
+}
+
+h1 {
+    color: black;
+    font-size: 64px;
+    color: #1E1E1E;
+    font-size: 64px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+/* .botao_voltar {
+    margin-left: 27px;
+    display: flex;
+    padding-top: 200px;
+} */
+
+.container_topo {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    /* background-color: black; */
+    width: 100%;
+}
+
+.container_form {
+    /* background-color: blueviolet; */
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form {
+    margin-top: 49px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 530px;
+    gap: 25px;
+    /* background-color: cadetblue; */
+}
+
+
+input {
+    width: 385px;
+    height: 56px;
+    border-radius: 10px;
+    border: 1px solid #EA1D2C;
+    background: #F6F5F5;
+    font-size: 25px;
+}
+
+span {
+    margin-bottom: -25px;
+    color: #1E1E1E;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-left: -318px;
+}

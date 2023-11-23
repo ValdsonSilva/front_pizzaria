@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+button {
+    cursor: pointer;
+}
+
+.cabecalho_comum {
+    background: #EA1D2C;
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    width: 100%;
+    height: 150px;
+    position: fixed;
+}
+
+.logo {
+    margin-left: 52px;
+}

@@ -1,3 +1,4 @@
+'use client';
 import "react";
 import "./Header.style.css"
 import logo from "../../assets/gigapizza_logo.svg"
