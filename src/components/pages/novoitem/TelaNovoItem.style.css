@@ -15,11 +15,35 @@ h1 {
     line-height: normal;
 }
 
-/* .botao_voltar {
-    margin-left: 27px;
-    display: flex;
-    padding-top: 200px;
-} */
+.nav_listagem_forms {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    height: 58px;
+}
+
+/* filtragem dos forms */
+.nav_listagem_forms > button {
+    background-color: transparent;
+    color: #EA1D2C;
+    border: none;
+    width: 243px;
+    border-radius: 10px;
+}
+
+.categoria.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
+
+.item.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
+
+.subcategoria.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
 
 .container_topo {
     padding-top: 200px;
@@ -39,16 +63,42 @@ h1 {
 }
 
 form {
-    margin-top: 49px;
-    display: flex;
+    padding-top: 59px;
+    /* display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
+    display: grid;
+    column-gap: 157px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    margin: auto;
+    width: 927px;
+    padding: 20px;
     height: 530px;
-    gap: 25px;
-    /* background-color: cadetblue; */
+    column-gap: 157px;
+    row-gap: 68px;
+    /* background-color: rgb(5, 72, 74); */
 }
 
+form > div {
+    /* grid-column: 1 / 2; */
+    /* background-color: #1E1E1E; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+form > div > span {
+    color: #1E1E1E;
+}
+
+/* form input {
+    grid-column: 2/3;
+    width: 100%;
+    margin-bottom: 5px;
+} */
 
 input {
     width: 385px;
@@ -60,11 +110,21 @@ input {
 }
 
 span {
-    margin-bottom: -25px;
+    /* margin-bottom: -25px; */
     color: #1E1E1E;
     font-size: 20px;
     font-style: normal;
     font-weight: 400;
     line-height: normal;
-    margin-left: -318px;
+    /* margin-left: -300px; */
+    /* background-color: #EA1D2C; */
+    width: 100%;
+}
+
+.caixa_botao {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 121px;
+    /* background-color: antiquewhite; */
 }

@@ -29,11 +29,9 @@ function Header() {
 
                 <nav className={`navegacao ${state ? 'on' : ''}`}>
 
-                    <a href="#" className="sabor">Sabor</a>
-                    <div className="barrinha_nav"/>
                     <a href="#" className="itens">Itens</a>
                     <div className="barrinha_nav"/>
-                    <a href="#" className="composicao">Composição</a>
+                    <a href="#" className="composicao">Insumo</a>
                 </nav>
             </div>
         </header>
