@@ -17,7 +17,8 @@ function TelaItensCadastrados() {
                     <h1>Itens Cadastrandos</h1>
 
                     <ul>
-                        <li><a href="#">Pizzas</a></li>
+                        <li><a href="#">Categoria</a></li>
+                        <li><a href="#">Subcategoria</a></li>
                         <li><a href="#">Itens</a></li>
                         <li><a href="#">Insumos</a></li>
                     </ul>

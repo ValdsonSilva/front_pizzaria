@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import './App.css'
 import TelaInicialCrud from './components/pages/TelaInicialCrud'
+import TelaItensCadastrados from './components/pages/itenscadastrados/TelaItensCadastrados'
 
 function App() {
 
@@ -9,8 +10,8 @@ function App() {
   return (
     <>
       {/*<TelaInicialCrud/>*/}
-      {/*<TelaItensCadastrados/>*/}
-      <TelaItensCadastradosItem/>
+      {/*<TelaItensCadastradosItem/>*/}
+      <TelaItensCadastrados/>
     </>
   )
 }
