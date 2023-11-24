@@ -109,6 +109,16 @@ input {
     font-size: 25px;
 }
 
+textarea {
+    width: 385px;
+    height: 148px;
+    border-radius: 10px;
+    border: 1px solid #EA1D2C;
+    background: #F6F5F5;
+    font-size: 25px;
+    resize: none;
+}
+
 span {
     /* margin-bottom: -25px; */
     color: #1E1E1E;

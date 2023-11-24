@@ -4,6 +4,7 @@ import '../novoitem/TelaNovoItem.style.css'
 import BotaoConfirmar from "../../button/BotaoConfirmar";
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import { useState } from "react";
+import ItemForm from "../../formulários_item/ItemForm";
 
 function TelaNovoItem() {
 
@@ -12,24 +13,39 @@ function TelaNovoItem() {
     const [subcategoria, setSubcategoria] = useState(false)
 
     function handleCategoria() {
-        // o botão não muda com state true
-        if (categoria === false){
-            setCategoria(!categoria)
-        }
+        setCategoria(true);
+        setItem(false);
+        setSubcategoria(false);
     }
 
     function handleItem() {
-        // o botão não muda com state true
-        if (item === false){
-            setItem(!item)
-        }
+        setCategoria(false);
+        setItem(true);
+        setSubcategoria(false);
     }
 
     function handleSubcategoria() {
-        // o botão não muda com state true
-        if (subcategoria === false) {
-            setSubcategoria(!subcategoria)
-        }
+        setCategoria(false);
+        setItem(false);
+        setSubcategoria(true);
+    }
+
+    const titulos = {
+        categoria_titulo : 'Cadastrando Categoria',
+        item_titulo : 'Cadastrando Novo Item',
+        subcategoria_titulo : 'Cadastrando Subcategoria'
+    }
+
+    var titulo
+
+    if (item) {
+        titulo = titulos.item_titulo
+    }
+    else if (categoria) {
+        titulo = titulos.categoria_titulo
+    }
+    else if (subcategoria){
+        titulo = titulos.subcategoria_titulo
     }
 
     return (
@@ -40,7 +56,10 @@ function TelaNovoItem() {
             <BotaoVoltar/>
             <div className="container_topo">
                 <div className="container_form">
-                    <h1>Cadastrando Novo Item</h1>
+
+                    <h1>
+                        {titulo}
+                    </h1>
 
                     <nav className="nav_listagem_forms">
                         <button className={`categoria ${categoria ? "on" : ""}`}
@@ -59,32 +78,8 @@ function TelaNovoItem() {
                         </button>
                     </nav>
 
-                    <form action="POST" >
-                        <div>
-                            <span>Nome:</span>
-                            <input type="text" required/>
-                        </div>
-                        <div>
-                            <span>Categoria:</span>
-                            <input type="text" required/>
-                        </div>
-                        <div>
-                            <span>Descrição</span>
-                            <input type="text" required/>
-                        </div>
-                        <div>
-                            <span>Igredientes:</span>
-                            <input type="text" required/>
-                        </div>
-                        <div>
-                            <span>Preço:</span>
-                            <input type="text" required/>
-                        </div>
-                        <div>
-                            <span>Porções:</span>
-                            <input type="text" required/>
-                        </div>
-                    </form>
+                    {item ?  <ItemForm/> : "Outro Form"}
+
                     <div className="caixa_botao" onClick={""}><BotaoConfirmar/></div>
                 </div>
            </div>
