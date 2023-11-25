@@ -78,7 +78,7 @@ function TelaNovoItem() {
                         </button>
                     </nav>
 
-                    {item ?  <ItemForm/> : "Outro Form"}
+                    {item ?  <ItemForm state={''}/> : "Outro Form"}
 
                     <div className="caixa_botao" onClick={""}><BotaoConfirmar/></div>
                 </div>
