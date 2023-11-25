@@ -21,6 +21,7 @@ button {
     grid-template-columns: repeat(2, 1fr);
     grid-gap: 11px;
     column-gap: 69px;
+    row-gap: 9px;
     position: static;
     /* padding-top: 190px; */
 }
@@ -47,8 +48,8 @@ button {
     background-color: #F3F0F0;
     opacity: 0;
     width: 167px;
-    height: 172px;
-    margin-top: 11px;
+    height: 132px;
+    margin-bottom: 55px;
     gap: 10px;
     border-radius: 5px;
 }

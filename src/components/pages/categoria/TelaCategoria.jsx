@@ -1,12 +1,12 @@
 import "react";
 import HeaderComum from '../../header/HeaderComum/HeaderComum'
-import '../novoitem/TelaNovoItem.style.css'
+import '../categoria/TelaCategoria.style.css'
 import BotaoConfirmar from "../../button/BotaoConfirmar";
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import { useState } from "react";
-import ItemForm from "../../formulários_item/ItemForm";
+import CategoriaForm from "../../formulário_categoria/CategoriaForm";
 
-function TelaNovoItem() {
+function TelaCategoria() {
 
     const [categoria, setCategoria] = useState(false)
     const [item, setItem] = useState(true)
@@ -87,5 +87,5 @@ function TelaNovoItem() {
     )
 }
 
-export default TelaNovoItem;
+export default TelaCategoria;
 

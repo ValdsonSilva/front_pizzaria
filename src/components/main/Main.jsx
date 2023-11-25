@@ -1,9 +1,10 @@
 import "react";
 import "./Main.style.css"
 
-function Main() {
+function Main({child}) {
     return (
         <main className="conteudo">
+            {child}
         </main>
     )
 }
