@@ -1,6 +1,7 @@
 import "react";
 import '../formulários_item/ItemForm.style.css'
 import { useState } from "react";
+import seta from "../../assets/seta.svg"
 
 function ItemForm({state}) {
     const options = ['Opção 1', 'Opção 2', 'Opção 3']
@@ -35,6 +36,7 @@ function ItemForm({state}) {
                         setShowOptions(!showOptions)
                     }}>
                         {selectedOption ? selectedOption : 'selecione uma opção'}
+                        <img src={seta} style={!showOptions ? {display : 'block'} : {display : 'none'}} className="seta" alt="seta na caixa de opções"/>
                     </div>
 
                     {/* listagem de opções */}
