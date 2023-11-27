@@ -62,6 +62,9 @@ h1 {
     flex-direction: column;
 }
 
+.botao_voltar {
+    margin-left: none;
+}
 
 .caixa_botao {
     width: 100%;

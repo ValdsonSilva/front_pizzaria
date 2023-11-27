@@ -2,7 +2,7 @@ import "react";
 import '../formulário_subcategoria/SubCategoriaForm.style.css'
 import { useState } from "react";
 
-function SubCategoriaForm(){
+function SubCategoriaForm({state}){
     const options = ['Categoria 1', 'Categoria 2', 'Categoria 3']
     const [selectedOption, setSelectedOption] = useState('')
     const [showOptions, setShowOptions] = useState(null)
@@ -14,7 +14,7 @@ function SubCategoriaForm(){
 
     return (
 
-        <form action="" >
+        <form action="" className="subcategoria_form">
             <div>
                 <span>Nome:</span>
                 <input type="text" required/>

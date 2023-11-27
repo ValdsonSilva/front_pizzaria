@@ -5,12 +5,24 @@ import BotaoConfirmar from "../../button/BotaoConfirmar";
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import { useState } from "react";
 import ItemForm from "../../formulários_item/ItemForm";
+import CategoriaForm from "../../formulário_categoria/CategoriaForm";
+import SubCategoriaForm from "../../formulário_subcategoria/SubCategoriaForm";
 
 function TelaNovoItem() {
 
     const [categoria, setCategoria] = useState(false)
     const [item, setItem] = useState(true)
     const [subcategoria, setSubcategoria] = useState(false)
+
+    var estilo
+    function distancia() {
+        if (item === false){
+            estilo = {
+                marginBottom : "42px",
+            };
+        }
+    }
+    distancia()
 
     function handleCategoria() {
         setCategoria(true);
@@ -78,9 +90,22 @@ function TelaNovoItem() {
                         </button>
                     </nav>
 
-                    {item ?  <ItemForm state={''}/> : "Outro Form"}
+                    {/* {item ?  <ItemForm state={''}/> : "Outro Form"} */}
+                    {item && (
+                        <ItemForm state={""}/>
+                    )}
+                    {categoria && (
+                        <CategoriaForm state={""}/>
+                    )}
+                    {subcategoria && (
+                        <SubCategoriaForm state={""}/>
+                    )}
 
-                    <div className="caixa_botao" onClick={""}><BotaoConfirmar/></div>
+
+                    <div className="caixa_botao" style={!item ? {marginBottom : '42px'} : {marginBottom : "121px"}} 
+                                    onClick={""}>
+                                    <BotaoConfirmar/>
+                                    </div>
                 </div>
            </div>
         </div>

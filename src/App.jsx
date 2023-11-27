@@ -10,8 +10,8 @@ function App() {
   return (
     <>
       {/* <TelaInicialCrud/> */}
-      {/* <TelaNovoItem/> */}
-      <TelaNovaComposicao/>
+      <TelaNovoItem/>
+      {/* <TelaNovaComposicao/> */}
     </>
   )
 }

@@ -21,9 +21,9 @@ function TelaNovaComposicao() {
             <HeaderComum />
             <BotaoVoltar />
             <div className="container-form">
-                <h1>Cadastrando Insumo</h1>
 
                 <form action="" className="form">
+                    <h1>Cadastrando Insumo</h1>
                     <div>
                         <span>Nome:</span>
                         <input type="text" />
@@ -36,8 +36,8 @@ function TelaNovaComposicao() {
                         <span>Quantidade:</span>
                         <input type="number" />
                     </div>
+                    <BotaoConfirmar/>
                 </form>
-                <BotaoConfirmar/>
             </div>
             
         </div>
