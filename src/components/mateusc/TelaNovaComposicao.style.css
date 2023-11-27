@@ -5,16 +5,15 @@
     display: flex;
     justify-content: center;
     width: 100%;
+    /* background-color: blueviolet; */
 }
 
 .container-form{
-    width: 80%;
+    width: 100%;
     margin-top: 160px;
     display: flex;
-    align-items: center;
     justify-content: center;
-    flex-direction: column;
-    /* background-color: black; */
+    /* background-color: blue; */
     margin-left: 100px;
     /* padding-bottom: 304px; */
 }
@@ -29,15 +28,8 @@ h1{
     align-items: center;
     margin-top: 20px;
     gap: 58px;
+    width: 100%;
     /* background-color: black; */
+    padding-right: 150px;
     padding-bottom: 304px;
-}
-
-.botao_voltar {
-    margin-left: -200px;
-}
-
-/* botão confirmar */
-.form > button {
-
 }

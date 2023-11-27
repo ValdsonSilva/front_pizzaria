@@ -3,35 +3,41 @@ import "react";
 import "./Header.style.css"
 import logo from "../../assets/gigapizza_logo.svg"
 import { useState } from "react";
+import {Link} from "react-router-dom";
 
 function Header() {
 
-    const [state, setState] = useState(false)
+    const [isNavegationVisible,  setNavegacaoVisible] = useState(false)
 
-    const handleState = (event) => {
-        event.preventDefault()
-        setState(!state)
+    const handleToggleNavegacao = (event) => {
+        event.preventDefault();
+        // setNavegacaoVisible((prevValue) => {
+        //     console.log(prevValue);
+        //     return !prevValue;
+        // });
+        setNavegacaoVisible(!isNavegationVisible)
     }
 
-    console.log(state)
+    console.log(isNavegationVisible);
 
     return (
         <header className="cabecalho">
             <img src={logo} alt="logo gigapizza" className="logo"/>
 
             <div className="botoes_container">
-                <button className="botao_cadastros"
-                        onClick={handleState}>
+
+                <button className="botao_cadastros" onClick={handleToggleNavegacao}>
                             Novos cadastros
                 </button>
 
-                <button className="botao_itens_cadastros">Itens cadastrados</button>
 
-                <nav className={`navegacao ${state ? 'on' : ''}`}>
+                <Link to="/cadastrados" className="botao_itens_cadastros" >Itens cadastrados</Link>
 
-                    <a href="#" className="itens">Itens</a>
+                <nav className={`navegacao ${isNavegationVisible ? 'on' : ''}`}>
+
+                    <Link to="/itens" className="itens" id="link">Itens</Link>
                     <div className="barrinha_nav"/>
-                    <a href="#" className="composicao">Insumo</a>
+                    <Link to="/insumo" className="composicao" id="link">Insumo</Link>
                 </nav>
             </div>
         </header>

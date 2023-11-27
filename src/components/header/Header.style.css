@@ -26,6 +26,13 @@ button {
     /* padding-top: 190px; */
 }
 
+.botao_itens_cadastros {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .botao_cadastros, .botao_itens_cadastros {
     border: none;
     background-color: transparent;
@@ -41,7 +48,6 @@ button {
 
 .navegacao {
     display: flex;
-    /* display: none; */
     justify-content: center;
     align-items: center;
     flex-direction: column;
@@ -58,7 +64,7 @@ button {
     opacity: 1;
 }
 
-.navegacao > a {
+.navegacao > #link {
     text-decoration: none;
     color: #000000;
     font-weight: 400;
@@ -68,7 +74,7 @@ button {
     touch-action: none;
 }
 
-.navegacao.on > a {
+.navegacao.on > #link {
     cursor: pointer;
     touch-action: auto;
 }

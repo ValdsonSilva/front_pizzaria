@@ -54,7 +54,7 @@ li:hover {
     background-color: #EA1D2C;
 }
 
-a {
+ul > li > a {
     font-size: 32px;
     width: 400;
     padding: 60px;
@@ -63,7 +63,7 @@ a {
     color: #EA1D2C;
 }
 
-a:hover {
+ul > li > a:hover {
     color: #F6F5F5;
 }
 

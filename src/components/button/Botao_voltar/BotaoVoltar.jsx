@@ -1,12 +1,13 @@
 import 'react'
 import seta from '../../../assets/seta-direita.svg'
 import "./BotaoVoltar.style.css"
+import { Link } from 'react-router-dom';
 
 function BotaoVoltar() {
     return (
-        <a href="#" className='botao_voltar'>
+        <Link to="/" className='voltar'>
             <img src={seta} alt="seta para o lado esquerdo" />
-        </a>
+        </Link>
     )
 }
 
