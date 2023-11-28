@@ -15,7 +15,7 @@ button {
 }
 
 .botoes_container {
-    margin-top: 200px;
+    /* margin-top: 200px; */
     /* background-color: #000000; */
     display: grid;
     grid-template-columns: repeat(2, 1fr);
@@ -24,6 +24,10 @@ button {
     row-gap: 9px;
     position: static;
     /* padding-top: 190px; */
+}
+
+.botao_cadastros {
+    text-decoration: none;
 }
 
 .botao_itens_cadastros {
@@ -46,7 +50,7 @@ button {
     color: rgba(252, 252, 252, 0.796);
 }
 
-.navegacao {
+/* .navegacao {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -62,9 +66,9 @@ button {
 
 .navegacao.on {
     opacity: 1;
-}
+} */
 
-.navegacao > #link {
+/* .navegacao > #link {
     text-decoration: none;
     color: #000000;
     font-weight: 400;
@@ -85,4 +89,4 @@ button {
     rotate: 0;
     top: 142px;
     text-align: center;
-}
+} */

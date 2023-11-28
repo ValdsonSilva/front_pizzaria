@@ -15,13 +15,13 @@ h1 {
     line-height: normal;
 }
 
-.nav_listagem_forms {
+.Nav_listagem_forms {
     background-color: #D9D9D9;
     border-radius: 10px;
     height: 58px;
 }
 
-.nav_listagem_forms > button {
+.Nav_listagem_forms > button {
     background-color: transparent;
     color: #EA1D2C;
     border: none;
@@ -29,17 +29,22 @@ h1 {
     border-radius: 10px;
 }
 
-.categoria.on {
+.Categoria.on {
     background-color: #EA1D2C;
     color:#fff;
 }
 
-.item.on {
+.Item.on {
     background-color: #EA1D2C;
     color:#fff;
 }
 
-.subcategoria.on {
+.Subcategoria.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
+
+.Insumo.on {
     background-color: #EA1D2C;
     color:#fff;
 }
@@ -54,7 +59,7 @@ h1 {
     padding-top: 200px;
     display: flex;
     justify-content: center;
-    /* background-color: black; */
+    /* background-color: rgb(188, 16, 188); */
     width: 100%;
 }
 
@@ -98,10 +103,10 @@ ul > li > a:hover {
 
 .pesquisar {
     display: flex;
-    margin-top: 30px;
-    position: absolute;
-    top: 48%;
-    left: 62%;
+    justify-content: end;
+    margin-top: 54px;
+    width: 1135px;
+    /* background-color: #1E1E1E; */
 }
 
 .pesquisar .input-pesquisar input {
@@ -133,7 +138,7 @@ ul > li > a:hover {
     width: 1135px;
     height: 60px;
     flex-shrink: 0;
-    margin-top: 100px;
+    margin-top: 19px;
 }
 
 .tabela th {

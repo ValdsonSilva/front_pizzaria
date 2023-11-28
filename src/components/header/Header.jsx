@@ -11,10 +11,6 @@ function Header() {
 
     const handleToggleNavegacao = (event) => {
         event.preventDefault();
-        // setNavegacaoVisible((prevValue) => {
-        //     console.log(prevValue);
-        //     return !prevValue;
-        // });
         setNavegacaoVisible(!isNavegationVisible)
     }
 
@@ -26,19 +22,19 @@ function Header() {
 
             <div className="botoes_container">
 
-                <button className="botao_cadastros" onClick={handleToggleNavegacao}>
+                <Link to="/itens" className="botao_cadastros">
                             Novos cadastros
-                </button>
+                </Link>
 
 
                 <Link to="/cadastrados" className="botao_itens_cadastros" >Itens cadastrados</Link>
 
-                <nav className={`navegacao ${isNavegationVisible ? 'on' : ''}`}>
+                {/* <nav className={`navegacao ${isNavegationVisible ? 'on' : ''}`}>
 
                     <Link to="/itens" className="itens" id="link">Itens</Link>
                     <div className="barrinha_nav"/>
                     <Link to="/insumo" className="composicao" id="link">Insumo</Link>
-                </nav>
+                </nav> */}
             </div>
         </header>
     )

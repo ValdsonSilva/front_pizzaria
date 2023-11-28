@@ -6,37 +6,44 @@ import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import { useState } from "react";
 import ItemForm from "../../formulários_item/ItemForm";
 import CategoriaForm from "../../formulário_categoria/CategoriaForm";
-import SubCategoriaForm from "../../formulário_subcategoria/SubCategoriaForm";
+import TelaNovoInsumo from "../../mateusc/TelaNovoInsumo";
 
 
 function TelaNovoItem() {
 
     const [categoria, setCategoria] = useState(false)
     const [item, setItem] = useState(true)
-    const [subcategoria, setSubcategoria] = useState(false)
+    const [insumo, setInsumo] = useState(false)
+    const [botaoState, setBotaoState] = useState(false)
 
     function handleCategoria() {
         setCategoria(true);
         setItem(false);
-        setSubcategoria(false);
+        setInsumo(false);
     }
 
     function handleItem() {
         setCategoria(false);
         setItem(true);
-        setSubcategoria(false);
+        setInsumo(false);
     }
 
-    function handleSubcategoria() {
+    function handleInsumo() {
         setCategoria(false);
         setItem(false);
-        setSubcategoria(true);
+        setInsumo(true);
     }
+
+    function handleBotaoState() {
+        // SetBotaoState(!botaoState)
+        setBotaoState(prevState => !prevState);
+    }
+    console.log(botaoState)
 
     const titulos = {
         categoria_titulo : 'Cadastrando Categoria',
         item_titulo : 'Cadastrando Novo Item',
-        subcategoria_titulo : 'Cadastrando Subcategoria'
+        insumo_titulo : 'Cadastrando Insumo'
     }
 
     var titulo
@@ -47,8 +54,8 @@ function TelaNovoItem() {
     else if (categoria) {
         titulo = titulos.categoria_titulo
     }
-    else if (subcategoria){
-        titulo = titulos.subcategoria_titulo
+    else if (insumo){
+        titulo = titulos.insumo_titulo
     }
 
     return (
@@ -65,37 +72,38 @@ function TelaNovoItem() {
                     </h1>
 
                     <nav className="nav_listagem_forms">
-                        <button className={`categoria ${categoria ? "on" : ""}`}
-                        onClick={handleCategoria}>
-                            Categoria
-                        </button>
 
                         <button className={`item ${item ? "on" : ""}`}
                         onClick={handleItem}>
                             Item
                         </button>
 
-                        <button className={`subcategoria ${subcategoria ? "on" : ""}`}
-                        onClick={handleSubcategoria}>
-                            Subcategoria
+                        <button className={`categoria ${categoria ? "on" : ""}`}
+                        onClick={handleCategoria}>
+                            Categoria
+                        </button>
+
+                        <button className={`subcategoria ${insumo ? "on" : ""}`}
+                        onClick={handleInsumo}>
+                            Insumo
                         </button>
                     </nav>
 
                     {/* {item ?  <ItemForm state={''}/> : "Outro Form"} */}
                     {item && (
-                        <ItemForm />
+                        <ItemForm state={botaoState}/>
                     )}
                     {categoria && (
                         <CategoriaForm/>
                     )}
-                    {subcategoria && (
-                        <SubCategoriaForm />
+                    {insumo && (
+                        <TelaNovoInsumo />
                     )}
 
 
-                    <div className="caixa_botao" style={!item ? {marginBottom : '42px'} : {marginBottom : "121px"}}>
-                                    <BotaoConfirmar/>
-                    </div>
+                    {/* <div className="caixa_botao" style={!item ? {marginBottom : '42px'} : {marginBottom : "121px"}}>
+                                    <BotaoConfirmar funcao={handleBotaoState}/>
+                    </div> */}
                 </div>
            </div>
         </div>

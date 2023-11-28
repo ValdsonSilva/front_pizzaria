@@ -16,6 +16,8 @@ form {
     height: 530px;
     column-gap: 157px;
     row-gap: 68px;
+    margin-bottom: 121px;
+    z-index: 1;
     /* background-color: rgb(5, 72, 74); */
 }
 
@@ -32,7 +34,7 @@ form > div > span {
     color: #1E1E1E;
 }
 
-input, .select-option {
+input {
     width: 385px;
     height: 56px;
     border-radius: 10px;
@@ -41,19 +43,27 @@ input, .select-option {
     font-size: 25px;
 }
 
-
-.select-option {
+#select-option {
+    /* width: 385px; */
+    height: 56px;
+    /* border-radius: 0px; */
+    /* border: 1px solid #EA1D2C; */
+    background: #F6F5F5;
+    font-size: 25px;
     display: flex;
     align-items: center;
-    justify-content: center;
+    /* justify-content: center; */
     color: #808080;
+    /* background-color: #EA1D2C; */
+    border: none;
 }
 
-.seta {
+
+/* .seta {
     margin-left: 100px;
     height: 20px;
     display: none;
-}
+} */
 
 .options {
     position: absolute;
@@ -97,5 +107,11 @@ span {
     line-height: normal;
     /* margin-left: -300px; */
     /* background-color: #EA1D2C; */
+    width: 100%;
+}
+
+.botao_enviar {
+    z-index: 2;
+    margin-bottom: 121px;
     width: 100%;
 }

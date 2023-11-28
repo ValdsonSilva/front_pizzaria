@@ -1,9 +1,9 @@
 import 'react';
 import '../button/BotaoConfirmar.style.css'
 
-function BotaoConfirmar() {
+function BotaoConfirmar({funcao}) {
     return (
-        <button>Confirmar</button>
+        <button onClick={funcao} type="submit">Confirmar</button>
     )
 }
 

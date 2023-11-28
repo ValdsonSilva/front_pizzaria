@@ -10,43 +10,42 @@ function TelaItensCadastrados() {
 
     const [categoria, setCategoria] = useState(false)
     const [subcategoria, setSubcategoria] = useState(false)
-    const [item, setItem] = useState(true)
+    const [item, setItem] = useState(false)
     const [insumo, setInsumo] = useState(true)
 
     function handleCategoria() {
         setCategoria(true);
         setSubcategoria(false);
         setItem(false);
-        setInsumo(false)
-        
+        setInsumo(false);  
     }
 
     function handleSubcategoria() {
-        setCategoria(true);
-        setSubcategoria(false);
+        setSubcategoria(true);
+        setCategoria(false);
         setItem(false);
-        setInsumo(false)
+        setInsumo(false);
     }
 
     function handleItem() {
-        setCategoria(true);
+        setItem(true);
+        setCategoria(false);
         setSubcategoria(false);
-        setItem(false);
-        setInsumo(false)
+        setInsumo(false);
     }
 
     function handleInsumo() {
-        setCategoria(true);
+        setInsumo(true)
+        setCategoria(false);
         setSubcategoria(false);
-        setItem(false);
-        setInsumo(false)
+        setItem(false);        
     }
 
     const titulos = {
-        categoria_titulo : 'Cadastrando Categoria',
-        subcategoria_titulo : 'Cadastrando Subcategoria',
-        item_titulo : 'Cadastrando Novo Item',
-        insumo_titulo : 'Cadastrando novo Insumo'
+        categoria_titulo : 'Categorias Cadastradas',
+        subcategoria_titulo : 'Subcategorias Cadastradas',
+        item_titulo : 'Itens Cadastrados',
+        insumo_titulo : 'Insumos Cadastrados'
         
     }
 
@@ -76,46 +75,39 @@ function TelaItensCadastrados() {
 
                 <div className="container_lista">
                     
-                    <h1>Itens Cadastrandos</h1>
+                    <h1>{titulo}</h1>
 
-                    {/* <ul>
-                        <li><a href="#">Categoria</a></li>
-                        <li><a href="#">Subcategoria</a></li>
-                        <li><a href="#">Itens</a></li>
-                        <li><a href="#">Insumos</a></li>
-                    </ul> */}
-                
-                    <nav className="nav_listagem_forms">
-                        <button className={`categoria ${categoria ? "on" : ""}`}
-                        onClick={handleCategoria}>
+                    <nav className="Nav_listagem_forms">
+                        <button className={`Categoria ${categoria ? "on" : ""}`}
+                            onClick={handleCategoria}>
                             Categoria
                         </button>
 
-                        <button className={`subcategoria ${subcategoria ? "on" : ""}`}
-                        onClick={handleSubcategoria}>
+                        <button className={`Subcategoria ${subcategoria ? "on" : ""}`}
+                            onClick={handleSubcategoria}>
                             Subcategoria
                         </button>
 
-                        <button className={`item ${item ? "on" : ""}`}
-                        onClick={handleItem}>
+                        <button className={`Item ${item ? "on" : ""}`}
+                            onClick={handleItem}>
                             Item
                         </button>
 
-                        <button className={`insumo ${insumo ? "on" : ""}`}
-                        onClick={handleInsumo}>
+                        <button className={`Insumo ${insumo ? "on" : ""}`}
+                            onClick={handleInsumo}>
                             Insumo
                         </button>
                         
                     </nav>
 
-                    <div class="pesquisar">
+                    <div className="pesquisar">
                         
-                        <div class="input-pesquisar">
+                        <div className="input-pesquisar">
                             <input type="text" placeholder="Pesquisar..."></input>
                         </div>
 
                         <div className="iconBox">
-                        <i class='icone_pesquisar'><BiSearchAlt /></i>
+                            <i className='icone_pesquisar'><BiSearchAlt/></i>
                         </div>
                         
                     </div>

@@ -10,11 +10,11 @@
 
 .container-form{
     width: 100%;
-    margin-top: 160px;
+    margin-top: 62px;
     display: flex;
     justify-content: center;
     /* background-color: blue; */
-    margin-left: 100px;
+    /* margin-left: 100px; */
     /* padding-bottom: 304px; */
 }
 
@@ -30,6 +30,6 @@ h1{
     gap: 58px;
     width: 100%;
     /* background-color: black; */
-    padding-right: 150px;
+    /* padding-right: 150px; */
     padding-bottom: 304px;
 }
