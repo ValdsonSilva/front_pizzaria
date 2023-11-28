@@ -15,6 +15,35 @@ h1 {
     line-height: normal;
 }
 
+.nav_listagem_forms {
+    background-color: #D9D9D9;
+    border-radius: 10px;
+    height: 58px;
+}
+
+.nav_listagem_forms > button {
+    background-color: transparent;
+    color: #EA1D2C;
+    border: none;
+    width: 243px;
+    border-radius: 10px;
+}
+
+.categoria.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
+
+.item.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
+
+.subcategoria.on {
+    background-color: #EA1D2C;
+    color:#fff;
+}
+
 /* .botao_voltar {
     margin-left: 27px;
     display: flex;
@@ -38,7 +67,7 @@ h1 {
     flex-direction: column;
 }
 
-li {
+/*li {
     width: 730px;
     height: 58px;
     margin-top: 260px;
@@ -65,13 +94,45 @@ ul > li > a {
 
 ul > li > a:hover {
     color: #F6F5F5;
+}*/
+
+.pesquisar {
+    display: flex;
+    margin-top: 30px;
+    position: absolute;
+    top: 48%;
+    left: 62%;
+}
+
+.pesquisar .input-pesquisar input {
+    width: 236px;
+    height: 44px;
+    border-radius: 8px;
+    outline: none;
+    padding: 0 15px;
+    font-size: 20px;
+    background-color: #D9D9D9;
+    color: #1E1E1E;
+    border-color: #EA1D2C;
+}
+
+.pesquisar .icone_pesquisar {
+    width: 50px;
+    height: 50px;
+    margin-left: 15px;
+    color: #F6F5F5;
+    background-color: #EA1D2C;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 30px;
+    padding: 0 15px;
+    align-items: center;
 }
 
 .tabela {
-    display: inline;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
+    width: 1135px;
+    height: 60px;
+    flex-shrink: 0;
     margin-top: 100px;
 }
 
