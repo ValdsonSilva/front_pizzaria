@@ -16,11 +16,15 @@ function TelaNovaComposicao() {
                         <input type="text" required />
                     </div>
                     <div>
-                        <span>Preço:</span>
-                        <input type="text" required />
+                        <span>Quantidade:</span>
+                        <input type="number" required />
                     </div>
                     <div>
-                        <span>Quantidade:</span>
+                        <span>Preço:</span>
+                        <input type="number" required />
+                    </div>
+                    <div>
+                        <span>Unidade:</span>
                         <input type="number" required />
                     </div>
                     <BotaoConfirmar/>
