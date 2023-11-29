@@ -2,13 +2,13 @@
 
 .form_categoria{
     width: 80%;
-    margin: auto;
     display: flex;
     justify-content: center;
-    align-items: flex-start;
-    /* background-color: #1E1E1E; */
+    align-items: center;
+    flex-direction: column;
     height: auto;
     margin-bottom: 42px;
+    margin-top: 61px;
 }
 
 input[type="text"] {
@@ -28,5 +28,18 @@ span {
     font-weight: bolder;
     line-height: normal;
     width: 100%;
+}
+
+.botao_enviar {
+    width: 155px;
+    height: 57px;
+    border-radius: 10px;
+    background: #EA1D2C;
+    color: #F6F5F5;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    z-index: 2;
 }
 

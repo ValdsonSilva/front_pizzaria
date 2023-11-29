@@ -4,7 +4,6 @@ import { useState } from "react";
 import seta from "../../assets/seta.svg"
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
-import OpcoesAutoComplete from "./Autocomplete/OpcoesAutocomplete";
 import Select from "react-select"
 
 function ItemForm() {
