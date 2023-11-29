@@ -15,10 +15,12 @@ function ItemForm() {
     ];
 
     const [selectedOption, setSelectedOption] = useState([])
-    const {register, handleSubmit, control} = useForm();
+    const {register, handleSubmit, control, reset} = useForm();
 
     const onSubmit = (e) => {
         console.log(e)
+        reset();
+        setSelectedOption([]);
     }
 
     const customStyles = {
@@ -47,7 +49,7 @@ function ItemForm() {
 
     return (
 
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} className="formiItem">
             <div>
                 <span>Nome:</span>
                 <input type="text" required {...register("nome")}/>
@@ -85,7 +87,7 @@ function ItemForm() {
                         />
                 </div>
             </div>
-            <button type="submit" className="botao_enviar">Enviar</button>
+            <button type="submit" className="botao_enviar">Confirmar</button>
         </form>
 
     )

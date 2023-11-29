@@ -1,0 +1,60 @@
+-----------diferença de POST e PUT no código e o reset dos campos do form------------
+
+function SeuComponente() {
+  const { handleSubmit, register, reset } = useForm();
+
+  const onSubmit = async (data) => {
+    try {
+      if (data.id) {
+        // Se houver um ID, é uma atualização (PUT ou PATCH)
+        const response = await axios.put(`sua-url-da-api/${data.id}`, data);
+        console.log('Requisição de atualização (PUT) enviada com sucesso:', response.data);
+
+      } else {
+        // Se não houver um ID, é uma criação (POST)
+        const response = await axios.post('sua-url-da-api', data);
+        console.log('Requisição de criação (POST) enviada com sucesso:', response.data);
+
+      }
+
+      // Limpe os campos do formulário
+      reset();
+    } catch (error) {
+      console.error('Erro ao enviar para a API:', error);
+    }
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="form">
+      {/* ... Campos do formulário ... */}
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}
+
+
+---------------------------------------------------------------------------------
+-Tratamento de erros com useForm
+
+function SeuComponente() {
+  const { handleSubmit, register, formState: { errors } } = useForm();
+
+  const onSubmit = (data) => {
+    // Se houver erros, eles estarão disponíveis no objeto errors
+    console.log(errors);
+
+    // Faça o que precisar com os dados
+  };
+
+  return (
+    <form onSubmit={handleSubmit(onSubmit)} className="form">
+      <div>
+        <label>Nome:</label>
+        <input type="text" {...register('nome', { required: 'Nome é obrigatório' })} />
+        <span>{errors.nome && errors.nome.message}</span>
+      </div>
+      {/* Adicione outros campos do seu formulário conforme necessário */}
+      <button type="submit">Enviar</button>
+    </form>
+  );
+}

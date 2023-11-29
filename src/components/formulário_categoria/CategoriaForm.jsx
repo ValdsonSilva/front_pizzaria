@@ -20,10 +20,13 @@ function CategoriaForm(){
 
     const [selectedOptionTipo, setSelectedOptionTipo] = useState([])
     const [selectedOptionCategoria, setSelectedOptionCategoria] = useState([])
-    const {register, handleSubmit, control} = useForm();
+    const {register, handleSubmit, control, reset} = useForm();
 
     const onSubmit = (e) => {
         console.log(e)
+        reset()
+        setSelectedOptionCategoria([])
+        setSelectedOptionTipo([])
     }
 
     const customStyles = {
@@ -47,6 +50,7 @@ function CategoriaForm(){
         input: (provided) => ({
           ...provided,
           color: '#000',
+          zIndex: '2',
         }),
       };
 
@@ -106,7 +110,7 @@ function CategoriaForm(){
                     />
                 </div>
             </div>
-            <button type="submit" className="botao_enviar">Enviar</button>
+            <button type="submit" className="botao_enviar">Confirmar</button>
         </form>
     )
 }
