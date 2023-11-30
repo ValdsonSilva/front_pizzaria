@@ -1,29 +1,76 @@
 import "react";
 import '../formulário_categoria/CategoriaForm.style.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
 import Select from "react-select"
+import axios from "axios"
+
 
 function CategoriaForm(){
+    const [selectedOptionTipo, setSelectedOptionTipo] = useState([])
+    const [selectedOptionCategoria, setSelectedOptionCategoria] = useState([])
+    const {register, handleSubmit, control, reset, watch} = useForm();
+    const [categorias, setCategorias] = useState([])
+
     const optionsTipo = [
-        { value: 'opcao1', label: 'Tipo 1' },
-        { value: 'opcao2', label: 'Tipo 2' },
-        { value: 'opcao3', label: 'Tipo 3' },
+        { value: 'categoria', label: 'Categoria' },
+        { value: 'subcategoria', label: 'Subcategoria' },
     ];
-    
+
+    // Acessando as categorias cadastradas no sistema
+    useEffect(() => {
+        // função responsável pelo get de categorias
+        const fectchCategoria = async () => {
+            try {
+                const response = await axios.get("http://localhost:3000/listar/categorias'")
+                setCategorias(response.data.msg)
+                console.log(response.data)
+                console.log('Foooii')
+                
+            } catch (error) {
+                console.error(error.response.data)
+            }
+        }
+        fectchCategoria();
+        console.log("Aqui rapaz: ", categorias)
+    },[]) // Executando apenas na montagem do componente
+
     const optionsCategoria = [
         { value: 'opcao1', label: 'Categoria 1' },
         { value: 'opcao2', label: 'Categoria 2' },
         { value: 'opcao3', label: 'Categoria 3' },
     ];
 
-    const [selectedOptionTipo, setSelectedOptionTipo] = useState([])
-    const [selectedOptionCategoria, setSelectedOptionCategoria] = useState([])
-    const {register, handleSubmit, control, reset} = useForm();
+    // Adicione os valores padrão para cada campo aqui, se necessário
+    const tipo = watch('selecaoTipo', null)
+    const categoriaSelecionada = watch("selecaoCategoria", null)
 
-    const onSubmit = (e) => {
-        console.log(e)
+    const onSubmit = async (data) => {
+
+        if (tipo.value === "categoria"){
+            try {
+                const response = await axios.post(`http://localhost:3000/cadastrar/categoria`, {
+                    nome_categoria : data.nome
+                });
+                console.log(response.data)
+        }
+            catch (error) {
+                console.error(error.response.data)
+            }
+        }
+
+        else if (tipo.value === "subcategoria"){
+            console.log("subcategoria endpoint!")
+            try {
+
+                
+            } catch (error) {
+                console.log(error.response.value)
+            }
+        }
+
+        // console.log(data)
         reset()
         setSelectedOptionCategoria([])
         setSelectedOptionTipo([])
@@ -105,7 +152,9 @@ function CategoriaForm(){
                             required
                             placeholder="Selecione uma opção"
                             styles={customStyles}
-                        />
+                        >
+                            {""}   
+                        </Select>
                     )}
                     />
                 </div>
