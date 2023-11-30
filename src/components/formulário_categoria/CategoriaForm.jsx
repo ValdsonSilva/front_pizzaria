@@ -28,7 +28,7 @@ function CategoriaForm(){
                 setCategorias(response.data.msg)
                 
             } catch (error) {
-                console.error(error.response.data)
+                console.error(error.response)
             }
         }
         fectchCategoria();
