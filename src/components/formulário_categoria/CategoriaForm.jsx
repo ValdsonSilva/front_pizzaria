@@ -13,6 +13,7 @@ function CategoriaForm(){
     const {register, handleSubmit, control, reset, watch} = useForm();
     const [categorias, setCategorias] = useState([])
 
+    // opções do campo "tipo" no formulário
     const optionsTipo = [
         { value: 'categoria', label: 'Categoria' },
         { value: 'subcategoria', label: 'Subcategoria' },
@@ -23,24 +24,27 @@ function CategoriaForm(){
         // função responsável pelo get de categorias
         const fectchCategoria = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/listar/categorias'")
+                const response = await axios.get("http://localhost:3000/listar/categorias")
                 setCategorias(response.data.msg)
-                console.log(response.data)
-                console.log('Foooii')
                 
             } catch (error) {
                 console.error(error.response.data)
             }
         }
         fectchCategoria();
-        console.log("Aqui rapaz: ", categorias)
+        console.log('Dentro do useEffect:')
+        categorias.forEach((categoria) => {
+            console.log(categoria.nome_categoria)
+        })
     },[]) // Executando apenas na montagem do componente
 
-    const optionsCategoria = [
-        { value: 'opcao1', label: 'Categoria 1' },
-        { value: 'opcao2', label: 'Categoria 2' },
-        { value: 'opcao3', label: 'Categoria 3' },
-    ];
+    // lista de categorias
+    const categorias_listadas = categorias.map((cat) => ({value : cat.nome_categoria, label : cat.nome_categoria}))
+    console.log('Categorias listadas: ', categorias_listadas)
+
+    const optionsCategoria = categorias_listadas
+
+    console.log("optionsCategoria: ", optionsCategoria)
 
     // Adicione os valores padrão para cada campo aqui, se necessário
     const tipo = watch('selecaoTipo', null)
@@ -62,12 +66,7 @@ function CategoriaForm(){
 
         else if (tipo.value === "subcategoria"){
             console.log("subcategoria endpoint!")
-            try {
-
-                
-            } catch (error) {
-                console.log(error.response.value)
-            }
+            console.log(data)
         }
 
         // console.log(data)
@@ -121,7 +120,7 @@ function CategoriaForm(){
                             }}
                             isSearchable
                             required
-                            placeholder="Selecione uma opção"
+                            placeholder="Selecione um tipo"
                             styles={customStyles}
                         />
                     )}
@@ -150,7 +149,7 @@ function CategoriaForm(){
                             }}
                             isSearchable
                             required
-                            placeholder="Selecione uma opção"
+                            placeholder="Selecione uma categoria"
                             styles={customStyles}
                         >
                             {""}   
