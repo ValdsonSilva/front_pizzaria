@@ -110,7 +110,7 @@ function CategoriaForm(){
                     />
                 </div>
             </div>
-            <button type="submit" className="botao_enviar">Confirmar</button>
+            <button type="submit" className="botao_enviar_categoria">Confirmar</button>
         </form>
     )
 }
