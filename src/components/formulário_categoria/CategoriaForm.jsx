@@ -115,8 +115,16 @@ function CategoriaForm(){
                             options={optionsTipo}
                             value={selectedOptionTipo}
                             onChange={(item) => {
-                            setSelectedOptionTipo(item);
-                            field.onChange(item);
+                                setSelectedOptionTipo(item);
+                                field.onChange(item);
+
+                                // Limpar a seleção de categoria ao mudar o tipo
+                                setSelectedOptionCategoria([]);
+
+                                // Se o tipo selecionado for 'Categoria', ativar a seleção de categoria
+                                if (item && item.value === 'subcategoria') {
+                                    field.onBlur(); // Marcar como tocado para forçar a validação
+                                }
                             }}
                             isSearchable
                             required
@@ -151,6 +159,7 @@ function CategoriaForm(){
                             required
                             placeholder="Selecione uma categoria"
                             styles={customStyles}
+                            isDisabled={!selectedOptionTipo.value || selectedOptionTipo.value !== 'subcategoria'}
                         >
                             {""}   
                         </Select>
