@@ -1,66 +1,20 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Categoria/Categoria.style.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import axios from "axios";
+import useFetchCategorias from "../../requisições/useFetchCategorias";
 
 function TelaICategoria() {
+    const categorias = useFetchCategorias();
+    console.log("Na tabela de categorias: ", categorias)
 
-    const [categoria, setCategoria] = useState(false)
-    const [subcategoria, setSubcategoria] = useState(false)
-    const [item, setItem] = useState(false)
-    const [insumo, setInsumo] = useState(true)
+    const nomes_categorias = categorias.filter((cat) => cat.is_active === true)
+                                    .map((cat) => cat.nome_categoria)
 
-    function handleCategoria() {
-        setCategoria(true);
-        setSubcategoria(false);
-        setItem(false);
-        setInsumo(false);  
-    }
+    console.log('nomes_categorias_tabela: ', nomes_categorias)
 
-    function handleSubcategoria() {
-        setSubcategoria(true);
-        setCategoria(false);
-        setItem(false);
-        setInsumo(false);
-    }
-
-    function handleItem() {
-        setItem(true);
-        setCategoria(false);
-        setSubcategoria(false);
-        setInsumo(false);
-    }
-
-    function handleInsumo() {
-        setInsumo(true)
-        setCategoria(false);
-        setSubcategoria(false);
-        setItem(false);        
-    }
-
-    const titulos = {
-        categoria_titulo : 'Categorias Cadastradas',
-        subcategoria_titulo : 'Subcategorias Cadastradas',
-        item_titulo : 'Itens Cadastrados',
-        insumo_titulo : 'Insumos Cadastrados'
-        
-    }
-
-    var titulo
-
-    if (categoria) {
-        titulo = titulos.categoria_titulo
-    }
-    else if (subcategoria){
-        titulo = titulos.subcategoria_titulo
-    }
-    else if (item) {
-        titulo = titulos.item_titulo
-    }
-    else if (insumo){
-        titulo = titulos.insumo_titulo
-    }
-
+    
     return (
         <div className="father">
             
@@ -89,13 +43,16 @@ function TelaICategoria() {
                         </thead>
 
                         <tbody >
-                            <tr>
-                                <td>Xxxxxxxxx</td>              
-                                <td >
-                                    <i className="icones_categoria"><BiEditAlt/></i>
-                                    <i className="icones_categoria"><BiTrash/></i>
-                                </td>
-                            </tr>
+                            {/* listagem dos nomes das categorias */}
+                            {nomes_categorias.map((nome_categoria) => (
+                                <tr key={nome_categoria}>
+                                    <td>{nome_categoria}</td>
+                                    <td >
+                                        <i className="icones_categoria"><BiEditAlt/></i>
+                                        <i className="icones_categoria"><BiTrash/></i>
+                                    </td>
+                                </tr>
+                            ))}
                         </tbody>
 
                     </table>
@@ -107,4 +64,10 @@ function TelaICategoria() {
 }  
 export default TelaICategoria;
 
-
+        {/* <tr>
+                                <td>Xxxxxxxxx</td>              
+                                <td >
+                                    <i className="icones_categoria"><BiEditAlt/></i>
+                                    <i className="icones_categoria"><BiTrash/></i>
+                                </td>
+                            </tr> */}

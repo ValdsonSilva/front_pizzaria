@@ -1,17 +1,20 @@
 import "react";
 import '../formulário_categoria/CategoriaForm.style.css'
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
 import Select from "react-select"
 import axios from "axios"
+import useFetchCategorias from "../requisições/useFetchCategorias";
 
 
 function CategoriaForm(){
     const [selectedOptionTipo, setSelectedOptionTipo] = useState([])
     const [selectedOptionCategoria, setSelectedOptionCategoria] = useState([])
     const {register, handleSubmit, control, reset, watch} = useForm();
-    const [categorias, setCategorias] = useState([])
+    // requisição de categorias listadas
+    const categorias = useFetchCategorias();
+    console.log("Importado: ", categorias)
 
     // opções do campo "tipo" no formulário
     const optionsTipo = [
@@ -19,27 +22,11 @@ function CategoriaForm(){
         { value: 'subcategoria', label: 'Subcategoria' },
     ];
 
-    // Acessando as categorias cadastradas no sistema
-    useEffect(() => {
-        // função responsável pelo get de categorias
-        const fectchCategoria = async () => {
-            try {
-                const response = await axios.get("http://localhost:3000/listar/categorias")
-                setCategorias(response.data.msg)
-                
-            } catch (error) {
-                console.error(error.response)
-            }
-        }
-        fectchCategoria();
-        console.log('Dentro do useEffect:')
-        categorias.forEach((categoria) => {
-            console.log(categoria.nome_categoria)
-        })
-    },[]) // Executando apenas na montagem do componente
 
     // lista de categorias
-    const categorias_listadas = categorias.map((cat) => ({value : cat.nome_categoria, label : cat.nome_categoria}))
+    const categorias_listadas = categorias.filter(cat => cat.is_active === true)
+            .map((cat) => ({value : cat.nome_categoria, label : cat.nome_categoria})
+    )
     console.log('Categorias listadas: ', categorias_listadas)
 
     const optionsCategoria = categorias_listadas
@@ -52,6 +39,7 @@ function CategoriaForm(){
 
     const onSubmit = async (data) => {
 
+        // cadastrando categoria
         if (tipo.value === "categoria"){
             try {
                 const response = await axios.post(`http://localhost:3000/cadastrar/categoria`, {
@@ -64,9 +52,27 @@ function CategoriaForm(){
             }
         }
 
+        // cadastrando subcategoria
         else if (tipo.value === "subcategoria"){
             console.log("subcategoria endpoint!")
             console.log(data)
+            console.log("Categoria escolhida pelo user: ", categoriaSelecionada.value)
+            categorias.map(async (cat) => {
+                // procurando na minha lista de categorias
+                if (cat.nome_categoria === categoriaSelecionada.value){
+                    try {
+                        const response = await axios.post(`http://localhost:3000/cadastrar/subcategoria`, {
+                            id_categoria : cat.id_categoria,
+                            nome_subcategoria : categoriaSelecionada.value
+                        })
+                        console.log(response.data)
+                    } catch (error) {
+                        console.error(error)
+                    }
+                }else {
+                    return "Esta categoria não está cadastrada"
+                }
+            })
         }
 
         // console.log(data)
