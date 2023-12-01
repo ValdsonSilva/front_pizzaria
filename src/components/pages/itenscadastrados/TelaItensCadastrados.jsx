@@ -4,6 +4,10 @@ import HeaderComum from '../../header/HeaderComum/HeaderComum'
 import '../itenscadastrados/TelaItensCadastrados.style.css'
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import BotaoAdicionar from "../../button/Botao_adicionar/BotaoAdicionar";
+import Insumo from "../../ItensCadastrados/Insumo/Insumo"
+import Itens from "../../ItensCadastrados/Itens/Itens"
+import SubCategoria from "../../ItensCadastrados/SubCategoria/SubCategoria"
+import Categoria from "../../ItensCadastrados/Categoria/Categoria"
 import { useState } from "react";
 
 function TelaItensCadastrados() {
@@ -100,41 +104,18 @@ function TelaItensCadastrados() {
                         
                     </nav>
 
-                    <div className="pesquisar">
-                        
-                        <div className="input-pesquisar">
-                            <input type="text" placeholder="Pesquisar..."></input>
-                        </div>
-
-                        <div className="iconBox">
-                            <i className='icone_pesquisar'><BiSearchAlt/></i>
-                        </div>
-                        
-                    </div>
-
-                    <table className="tabela">
-                        <thead >
-                            <tr>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Quantidade</th>  
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody >
-                            <tr>
-                                <td>Coca-Cola 2L</td>
-                                <td>7,50</td>
-                                <td>21</td>                
-                                <td >
-                                    <i className="icones"><BiEditAlt/></i>
-                                    <i className="icones"><BiTrash/></i>
-                                </td>
-                            </tr>
-                        </tbody>
-
-                    </table>
+                    {categoria && (
+                        <Categoria/>
+                    )}
+                    {subcategoria && (
+                        <SubCategoria/>
+                    )}
+                    {item && (
+                        <Itens />
+                    )}
+                    {insumo && (
+                        <Insumo />
+                    )}
 
                 </div>   
                 <BotaoAdicionar/>

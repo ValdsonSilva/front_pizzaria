@@ -5,6 +5,21 @@
     justify-content: center;
 }
 
+.container_topo {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.container_lista {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
 h1 {
     color: black;
     font-size: 64px;
@@ -49,124 +64,5 @@ h1 {
     color:#fff;
 }
 
-/* .botao_voltar {
-    margin-left: 27px;
-    display: flex;
-    padding-top: 200px;
-} */
-
-.container_topo {
-    padding-top: 200px;
-    display: flex;
-    justify-content: center;
-    /* background-color: rgb(188, 16, 188); */
-    width: 100%;
-}
-
-.container_lista {
-    /* background-color: blueviolet; */
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-}
-
-/*li {
-    width: 730px;
-    height: 58px;
-    margin-top: 260px;
-    border-radius: 7px;
-    padding: 20px;
-    background-color: #D9D9D9;
-    display: inline;
-    list-style: none;
-    
-}
-
-li:hover {
-    background-color: #EA1D2C;
-}
-
-ul > li > a {
-    font-size: 32px;
-    width: 400;
-    padding: 60px;
-    text-decoration: none;
-    line-height: 95.68px;
-    color: #EA1D2C;
-}
-
-ul > li > a:hover {
-    color: #F6F5F5;
-}*/
-
-.pesquisar {
-    display: flex;
-    justify-content: end;
-    margin-top: 54px;
-    width: 1135px;
-    /* background-color: #1E1E1E; */
-}
-
-.pesquisar .input-pesquisar input {
-    width: 236px;
-    height: 44px;
-    border-radius: 8px;
-    outline: none;
-    padding: 0 15px;
-    font-size: 20px;
-    background-color: #D9D9D9;
-    color: #1E1E1E;
-    border-color: #EA1D2C;
-}
-
-.pesquisar .icone_pesquisar {
-    width: 50px;
-    height: 50px;
-    margin-left: 15px;
-    color: #F6F5F5;
-    background-color: #EA1D2C;
-    border-radius: 8px;
-    cursor: pointer;
-    font-size: 30px;
-    padding: 0 15px;
-    align-items: center;
-}
-
-.tabela {
-    width: 1135px;
-    height: 60px;
-    flex-shrink: 0;
-    margin-top: 19px;
-}
-
-.tabela th {
-    font-size: 32px;
-    padding: 15px;
-    border: 2px solid;
-    color: #EA1D2C;
-    background-color: #F6F5F5;
-}
-
-.tabela td {
-    font-size: 32px;
-    padding: 15px;
-    border: 2px solid;
-    color: #1E1E1E;
-    background-color: #F6F5F5;
-    padding: 60px;
-    border-color: #EA1D2C;
-}
-
-.tabela .icones {
-    display: inline;
-    color: #F6F5F5;
-    background-color: #EA1D2C;
-    padding: 10px;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-left: .9rem;
-}
 
 
