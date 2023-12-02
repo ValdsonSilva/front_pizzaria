@@ -13,6 +13,7 @@ function TelaSubCategoria() {
 
     console.log("Categorias: ", categorias)
     console.log("Subcategorias listadas: ", subcategorias);
+      
 
     return (
         <div className="father">
@@ -43,24 +44,20 @@ function TelaSubCategoria() {
                         </thead>
 
                         <tbody >
-                            {/* {subcategorias.map((subcategoria) => (
-                                 <tr key={subcategoria}>
-                                    <td>{subcategoria.nome}</td>
-                                    <td>Xxxxxxxx</td>              
+                            {subcategorias.map((subcategoria) => (
+                                
+                                <tr key={subcategoria}>
+                                    <td>{subcategoria.nome_subcategoria}</td>
+                                    <td>{categorias.filter((categoria) => categoria.id_categoria === subcategoria.id_categoria)
+                                        .map((categoria) => categoria.nome_categoria)
+                                    }</td>              
                                     <td >
                                         <i className="icones_sub"><BiEditAlt/></i>
                                         <i className="icones_sub"><BiTrash/></i>
                                     </td>
-                             </tr>
-                            ))} */}
-                            <tr>
-                                <td>Xxxxxxxx</td>
-                                <td>Xxxxxxxx</td>              
-                                <td >
-                                    <i className="icones_sub"><BiEditAlt/></i>
-                                    <i className="icones_sub"><BiTrash/></i>
-                                </td>
-                            </tr>
+                                </tr>
+                            ))}
+                        
                         </tbody>
 
                     </table>
