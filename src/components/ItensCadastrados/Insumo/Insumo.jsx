@@ -2,64 +2,10 @@ import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Insumo/Insumo.style.css'
 import { useState } from "react";
+import useFetchCategorias from "../../requisições/useFetchCategorias";
 
 function TelaInsumo() {
 
-    const [categoria, setCategoria] = useState(false)
-    const [subcategoria, setSubcategoria] = useState(false)
-    const [item, setItem] = useState(false)
-    const [insumo, setInsumo] = useState(true)
-
-    function handleCategoria() {
-        setCategoria(true);
-        setSubcategoria(false);
-        setItem(false);
-        setInsumo(false);  
-    }
-
-    function handleSubcategoria() {
-        setSubcategoria(true);
-        setCategoria(false);
-        setItem(false);
-        setInsumo(false);
-    }
-
-    function handleItem() {
-        setItem(true);
-        setCategoria(false);
-        setSubcategoria(false);
-        setInsumo(false);
-    }
-
-    function handleInsumo() {
-        setInsumo(true)
-        setCategoria(false);
-        setSubcategoria(false);
-        setItem(false);        
-    }
-
-    const titulos = {
-        categoria_titulo : 'Categorias Cadastradas',
-        subcategoria_titulo : 'Subcategorias Cadastradas',
-        item_titulo : 'Itens Cadastrados',
-        insumo_titulo : 'Insumos Cadastrados'
-        
-    }
-
-    var titulo
-
-    if (categoria) {
-        titulo = titulos.categoria_titulo
-    }
-    else if (subcategoria){
-        titulo = titulos.subcategoria_titulo
-    }
-    else if (item) {
-        titulo = titulos.item_titulo
-    }
-    else if (insumo){
-        titulo = titulos.insumo_titulo
-    }
 
     return (
         <div className="father">
