@@ -5,14 +5,19 @@ import seta from "../../assets/seta.svg"
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
 import Select from "react-select"
+import useFetchCategorias from "../requisições/useFetchCategorias";
 
 function ItemForm() {
+    const categorias = useFetchCategorias();
 
     const options = [
-        { value: 'opcao1', label: 'Opção 1' },
-        { value: 'opcao2', label: 'Opção 2' },
-        { value: 'opcao3', label: 'Opção 3' },
+        { value: 'categoria', label: 'Categoria' },
+        { value: 'subcategoria', label: 'Subcategoria' },
     ];
+
+    const categorias_listadas = categorias.filter(cat => cat.is_active === true)
+            .map((cat) => ({value : cat.nome_categoria, label : cat.nome_categoria})
+    )
 
     const [selectedOption, setSelectedOption] = useState([])
     const {register, handleSubmit, control, reset} = useForm();
@@ -72,7 +77,7 @@ function ItemForm() {
                         render={({ field }) => (
                         <Select
                             {...field}
-                            options={options}
+                            options={categorias_listadas}
                             value={selectedOption}
                             onChange={(item) => {
                             setSelectedOption(item);

@@ -3,9 +3,12 @@ import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Insumo/Insumo.style.css'
 import { useState } from "react";
 import useFetchCategorias from "../../requisições/useFetchCategorias";
+import useFetchInsumos from "../../requisições/useFetchInsumos";
 
 function TelaInsumo() {
+    const insumos = useFetchInsumos();
 
+    console.log('Na tabela de insumos:',insumos)
 
     return (
         <div className="father">
@@ -37,7 +40,18 @@ function TelaInsumo() {
                         </thead>
 
                         <tbody >
-                            <tr>
+                            {insumos.map((insumo) => (
+                                <tr key={insumo}>
+                                    <td>{insumo.nome_item_comprado}</td>
+                                    <td>{insumo.preco_item_comprado}</td>
+                                    <td>{insumo.quantidade_item_comprado}</td>                
+                                    <td >
+                                        <i className="icones_insumo"><BiEditAlt/></i>
+                                        <i className="icones_insumo"><BiTrash/></i>
+                                    </td>
+                                </tr>
+                            ))}
+                            {/* <tr>
                                 <td>Xxxxxxx</td>
                                 <td>7,50</td>
                                 <td>21</td>                
@@ -45,7 +59,7 @@ function TelaInsumo() {
                                     <i className="icones_insumo"><BiEditAlt/></i>
                                     <i className="icones_insumo"><BiTrash/></i>
                                 </td>
-                            </tr>
+                            </tr> */}
                         </tbody>
 
                     </table>
