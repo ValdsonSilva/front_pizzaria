@@ -45,6 +45,7 @@
     border: 2px solid;
     color: #EA1D2C;
     background-color: #F6F5F5;
+    /* background-color: #F6F5F5; */
     align-items: center;
 }
 
@@ -54,11 +55,34 @@
     color: #1E1E1E;
     border: 2px solid;
     background-color: #F6F5F5;
+    /* background-color: rgb(0, 195, 195); */
     padding: 60px;
     align-items: center;    
 }
 
+.tabela_insumo .inativado {
+    background-color:rgba(131, 135, 135, 0.301);
+    color:#1e1e1e74;
+}
+
 .tabela_insumo .icones_insumo {
+    display: inline-flex;
+    margin-bottom: 5px;
+    color: #F6F5F5;
+    background-color: #EA1D2C;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icones_insumo:hover {
+    background-color: #ea1d2ba6;
+}
+
+.icones_insumo_acao {
     display: inline-flex;
     color: #F6F5F5;
     background-color: #EA1D2C;
@@ -68,6 +92,18 @@
     margin-left: 50px;
     align-items: center;
     justify-content: center;
+}
+
+.icones_insumo_acao:hover {
+    background-color: #ea1d2ba6;
+}
+
+.icones_insumo_acao.on {
+    background-color: #0ec63c;
+}
+
+.icones_insumo_acao.on:hover {
+    background-color: #1db944ba;
 }
 
 

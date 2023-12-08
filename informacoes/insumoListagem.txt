@@ -1,0 +1,92 @@
+// const {insumos, loading, setInsumos} = useFetchInsumos();
+
+// console.log('Na tabela de insumos:',insumos)
+
+// async function desativarInsumo(id_item) {
+//     console.log("Id's dos items comprados: ", id_item)
+//     try {
+//         Atualize o estado local para indicar que a requisição está em andamento
+
+//         const insumo_selecionado = insumos.find((insumo) => insumo.id_item_comprado === id_item)
+
+//         desativar insumo
+//         if (insumo_selecionado.is_active === true){
+
+//             console.log(`O insumo com ${id_item} foi encontrado na filtragem com id ${insumo_selecionado.id_item_comprado}`)
+//             console.log(`O insumo foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "desativo"}`)
+            
+//             const response = await axios.post("http://localhost:3000/inativar/compra",{
+//                 id_item_comprado : insumo_selecionado.id_item_comprado
+//             })
+
+//             console.log(response.data)
+
+//             setInsumos((prevInsumos) =>
+//                 prevInsumos.map((insumo) =>
+//                     insumo.id_item_comprado === id_item ? {...insumo, is_active: false} : insumo
+//                 )
+//             );
+            
+//         }
+//         ativar insumo
+//         else {
+//             console.log('Insumo não encontrado na listagem')
+//             requisção de ativação do insumo
+//         }
+//     }catch (error){
+//         console.error("Erro na requisição: ", error.response ? error.response.data : error.message)
+//     }
+// }
+
+// return (
+//     <div className="father">
+        
+//         <div className="container_topo">
+
+//             <div className="container_lista">
+
+//                 <div className="pesquisar_insumo">
+                    
+//                     <div className="input-pesquisar">
+//                         <input type="text" placeholder="Pesquisar..."></input>
+//                     </div>
+
+//                     <div className="iconBox">
+//                         <i className='icone_pesquisar'><BiSearchAlt/></i>
+//                     </div>
+                    
+//                 </div>
+
+//                 {loading ? (<p>Carregando...</p>) : (
+//                     <table className="tabela_insumo">
+//                     <thead >
+//                         <tr>
+//                             <th>Nome</th>
+//                             <th>Preço</th>
+//                             <th>Quantidade</th>  
+//                             <th>Ações</th>
+//                         </tr>
+//                     </thead>
+
+//                     <tbody >
+//                         {insumos.map((insumo) => (
+//                             className={!insumo.is_active ? "inativado" : ""}
+//                             <tr key={insumo.id_item_comprado}>
+//                                 <td className={insumo.is_inativo ? "inativado" : ""}>{insumo.nome_item_comprado}</td>
+//                                 <td className={insumo.is_inativo ? "inativado" : ""}>{insumo.preco_item_comprado}</td>
+//                                 <td className={insumo.is_inativo ? "inativado" : ""}>{insumo.quantidade_item_comprado}</td>                
+//                                 <td className={insumo.is_inativo ? "inativado" : ""}>
+//                                     <a className="icones_insumo" href="#"><BiEditAlt/></a>
+//                                     <a className="icones_insumo" onClick={() => desativarInsumo(insumo.id_item_comprado)}>{insumo.is_inativo ? "on" : "off"}</a>
+//                                     <a className="icones_insumo" onClick={handleSetState}><BiTrash/></a>
+//                                 </td>
+//                             </tr>
+//                         ))}
+//                     </tbody>
+
+//                 </table>
+//                 )}
+
+//             </div>   
+//        </div>
+//     </div>

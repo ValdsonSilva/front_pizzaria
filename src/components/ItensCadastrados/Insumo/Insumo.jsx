@@ -1,74 +1,116 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Insumo/Insumo.style.css'
-import { useState } from "react";
-import useFetchCategorias from "../../requisições/useFetchCategorias";
 import useFetchInsumos from "../../requisições/useFetchInsumos";
+import axios from "axios";
 
 function TelaInsumo() {
-    const insumos = useFetchInsumos();
+    const { insumos, loading, setInsumos } = useFetchInsumos();
 
-    console.log('Na tabela de insumos:',insumos)
+  async function desativarInsumo(id_item) {
+    try {
+      // Atualize o estado local para indicar que a requisição está em andamento
+      // (se você precisar de um indicador de carregamento)
 
-    return (
-        <div className="father">
-            
-            <div className="container_topo">
+      const insumo_selecionado = insumos.find((insumo) => insumo.id_item_comprado === id_item);
 
-                <div className="container_lista">
+      // desativar insumo
+      if (insumo_selecionado.is_active === true) {
+        console.log(`O insumo com ${id_item} foi encontrado na filtragem com id ${insumo_selecionado.id_item_comprado}`);
+        console.log(`O insumo de ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
 
-                    <div className="pesquisar_insumo">
-                        
-                        <div className="input-pesquisar">
-                            <input type="text" placeholder="Pesquisar..."></input>
-                        </div>
+        const response = await axios.post("http://localhost:3000/inativar/compra", {
+          id_item_comprado: insumo_selecionado.id_item_comprado,
+        });
 
-                        <div className="iconBox">
-                            <i className='icone_pesquisar'><BiSearchAlt/></i>
-                        </div>
-                        
-                    </div>
+        console.log(response.data);
 
-                    <table className="tabela_insumo">
-                        <thead >
-                            <tr>
-                                <th>Nome</th>
-                                <th>Preço</th>
-                                <th>Quantidade</th>  
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
+        setInsumos((prevInsumos) =>
+          prevInsumos.map((insumo) =>
+            insumo.id_item_comprado === id_item ? { ...insumo, is_active: false } : insumo
+          )
+        );
 
-                        <tbody >
-                            {insumos.map((insumo) => (
-                                <tr key={insumo}>
-                                    <td>{insumo.nome_item_comprado}</td>
-                                    <td>{insumo.preco_item_comprado}</td>
-                                    <td>{insumo.quantidade_item_comprado}</td>                
-                                    <td >
-                                        <i className="icones_insumo"><BiEditAlt/></i>
-                                        <i className="icones_insumo"><BiTrash/></i>
-                                    </td>
-                                </tr>
-                            ))}
-                            {/* <tr>
-                                <td>Xxxxxxx</td>
-                                <td>7,50</td>
-                                <td>21</td>                
-                                <td >
-                                    <i className="icones_insumo"><BiEditAlt/></i>
-                                    <i className="icones_insumo"><BiTrash/></i>
-                                </td>
-                            </tr> */}
-                        </tbody>
+        // para atualizar obrigatoriamente a tela
+        window.location.reload()
+      }
+      // ativar insumo
+      else {
+        console.log('Insumo ativado');
+        console.log(`O insumo de id ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
+        // lógica para ativar o insumo, se necessário
 
-                    </table>
+        const response = await axios.post("http://localhost:3000/ativar/compra", {
+            id_item_comprado: insumo_selecionado.id_item_comprado,
+        })
 
-                </div>   
-           </div>
+        console.log(response.data)
+
+        setInsumos((prevInsumos) =>
+            prevInsumos.map((insumo) => 
+                insumo.id_item_comprado === id_item ? {...insumo, is_active: true} : insumo
+            )
+        )
+
+        // para atualizar obrigatoriamente a tela
+        window.location.reload()
+      }
+    } catch (error) {
+      console.error("Erro na requisição: ", error.response ? error.response.data : error.message);
+    }
+  }
+
+  return (
+    <div className="father">
+      <div className="container_topo">
+        <div className="container_lista">
+          <div className="pesquisar_insumo">
+            <div className="input-pesquisar">
+              <input type="text" placeholder="Pesquisar..."></input>
+            </div>
+            <div className="iconBox">
+              <i className="icone_pesquisar">
+                <BiSearchAlt />
+              </i>
+            </div>
+          </div>
+
+          {loading ? (
+            <h1>Carregando...</h1>
+          ) : (
+            <table className="tabela_insumo">
+              <thead>
+                <tr>
+                  <th>Nome</th>
+                  <th>Preço</th>
+                  <th>Quantidade</th>
+                  <th>Ações</th>
+                </tr>
+              </thead>
+
+              <tbody>
+                {insumos.map((insumo) => (
+                  <tr key={insumo.id_item_comprado}>
+                    <td className={insumo.is_active ? "" : "inativado"}>{insumo.nome_item_comprado}</td>
+                    <td className={insumo.is_active ? "" : "inativado"}>{insumo.preco_item_comprado}</td>
+                    <td className={insumo.is_active ? "" : "inativado"}>{insumo.quantidade_item_comprado}</td>
+                    <td className={insumo.is_active ? "" : "inativado"}>
+                      <a className="icones_insumo" href="#">
+                        <BiEditAlt />
+                      </a>
+                      <a className={`icones_insumo_acao ${insumo.is_active ? "on" : ""}`} onClick={() => desativarInsumo(insumo.id_item_comprado)}>
+                        {insumo.is_active ? "on" : "off"}
+                      </a>
+                      {/* <a className="icones_insumo" onClick={handleSetState}><BiTrash/></a> */}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          )}
         </div>
-    )
-}  
+      </div>
+    </div>
+  );
+}
 export default TelaInsumo;
-
-

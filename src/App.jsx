@@ -7,6 +7,8 @@ function App() {
 
   document.title = "Pizzaria"
 
+  document.location = "pt-br"
+
   return (
     <>
       <TelaInicialCrud/>
