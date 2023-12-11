@@ -6,6 +6,7 @@ import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import TelaNovoItem from './components/pages/novoitem/TelaNovoItem.jsx'
 import TelaNovaComposicao from './components/mateusc/TelaNovoInsumo.jsx'
 import TelaItensCadastrados from './components/pages/itenscadastrados/TelaItensCadastrados.jsx'
+import InsumoEdit from './components/forms_edit/InsumoEdit.jsx'
 
 // Configuração de rotas da minha aplicação
 
@@ -26,6 +27,12 @@ const router = createBrowserRouter([
     {
       path : "cadastrados",
       element : <TelaItensCadastrados/>
+    },
+    {
+      // para editar um insumo específico
+      path : "editarinsumo/:insumoId",
+      // path : "editarinsumo",
+      element : <InsumoEdit/>
     }
 ])
 

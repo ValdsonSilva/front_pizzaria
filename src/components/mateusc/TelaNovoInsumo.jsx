@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from "react";
 import "./TelaNovoInsumo.style.css";
-import HeaderComum from "../header/HeaderComum/HeaderComum";
-import BotaoVoltar from "../button/Botao_voltar/BotaoVoltar";
 import BotaoConfirmar from "../button/BotaoConfirmar"
 import { useForm } from "react-hook-form";
 import axios from "axios";

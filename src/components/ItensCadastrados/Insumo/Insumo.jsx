@@ -3,6 +3,7 @@ import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Insumo/Insumo.style.css'
 import useFetchInsumos from "../../requisições/useFetchInsumos";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function TelaInsumo() {
     const { insumos, loading, setInsumos } = useFetchInsumos();
@@ -60,6 +61,11 @@ function TelaInsumo() {
     }
   }
 
+  const encryptFunction = (id) => {
+    // Lógica de criptografia aqui (exemplo simples: inversão)
+    return id.split('').reverse().join('');
+  };
+
   return (
     <div className="father">
       <div className="container_topo">
@@ -95,11 +101,13 @@ function TelaInsumo() {
                     <td className={insumo.is_active ? "" : "inativado"}>{insumo.preco_item_comprado}</td>
                     <td className={insumo.is_active ? "" : "inativado"}>{insumo.quantidade_item_comprado}</td>
                     <td className={insumo.is_active ? "" : "inativado"}>
-                      <a className="icones_insumo" href="#">
+                      <Link className="icones_insumo" to={`/editarinsumo/${insumo.id_item_comprado}`}>
+                      {/* <Link className="icones_insumo" to={`/editarinsumo/`}> */}
                         <BiEditAlt />
-                      </a>
+                      </Link>
+
                       <a className={`icones_insumo_acao ${insumo.is_active ? "on" : ""}`} onClick={() => desativarInsumo(insumo.id_item_comprado)}>
-                        {insumo.is_active ? "on" : "off"}
+                        {insumo.is_active ? "off" : "on"}
                       </a>
                       {/* <a className="icones_insumo" onClick={handleSetState}><BiTrash/></a> */}
                     </td>

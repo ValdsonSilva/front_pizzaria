@@ -85,7 +85,7 @@
 .icones_insumo_acao {
     display: inline-flex;
     color: #F6F5F5;
-    background-color: #EA1D2C;
+    background-color: #0ec63c;
     padding: 15px;
     border-radius: 8px;
     cursor: pointer;
@@ -95,15 +95,15 @@
 }
 
 .icones_insumo_acao:hover {
-    background-color: #ea1d2ba6;
+    background-color: #1db944ba;
 }
 
 .icones_insumo_acao.on {
-    background-color: #0ec63c;
+    background-color: #EA1D2C;
 }
 
 .icones_insumo_acao.on:hover {
-    background-color: #1db944ba;
+    background-color:#df434e;
 }
 
 
