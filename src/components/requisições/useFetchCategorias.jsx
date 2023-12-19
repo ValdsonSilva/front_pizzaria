@@ -4,6 +4,7 @@ import { useEffect } from "react";
 
 function useFetchCategorias() {
     const [categorias, setCategorias] = useState([])
+    const [loading, setLoading] = useState(true)
 
      // Acessando as categorias cadastradas no sistema
      useEffect(() => {
@@ -12,16 +13,18 @@ function useFetchCategorias() {
             try {
                 const response = await axios.get("http://localhost:3000/listar/categorias")
                 setCategorias(response.data.msg)
-                
             } catch (error) {
                 console.error(error.response)
+            } finally {
+                setLoading(false)
             }
         }
         fectchCategoria();
         console.log('Dentro do useEffect:')
         console.log(categorias)
     },[]) // Executando apenas na montagem do componente
-    return categorias
+    
+    return {categorias, loading}
 }
 
 export default useFetchCategorias;

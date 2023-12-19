@@ -3,67 +3,79 @@ import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Insumo/Insumo.style.css'
 import useFetchInsumos from "../../requisições/useFetchInsumos";
 import axios from "axios";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 function TelaInsumo() {
     const { insumos, loading, setInsumos } = useFetchInsumos();
+    const [shouldReload, setShouldReload] = useState(false)
+    let navigate = useNavigate()
 
-  async function desativarInsumo(id_item) {
-    try {
-      // Atualize o estado local para indicar que a requisição está em andamento
-      // (se você precisar de um indicador de carregamento)
+    // useEffect(() => {
+    //   if (shouldReload) {
+    //     navigate("/cadastrados")
+    //     setShouldReload(false)
+    //   }
+    // }, [shouldReload])
 
-      const insumo_selecionado = insumos.find((insumo) => insumo.id_item_comprado === id_item);
+    async function desativarInsumo(id_item) {
+      try {
+        // Atualize o estado local para indicar que a requisição está em andamento
+        // (se você precisar de um indicador de carregamento)
 
-      // desativar insumo
-      if (insumo_selecionado.is_active === true) {
-        console.log(`O insumo com ${id_item} foi encontrado na filtragem com id ${insumo_selecionado.id_item_comprado}`);
-        console.log(`O insumo de ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
+        const insumo_selecionado = insumos.find((insumo) => insumo.id_item_comprado === id_item);
 
-        const response = await axios.post("http://localhost:3000/inativar/compra", {
-          id_item_comprado: insumo_selecionado.id_item_comprado,
-        });
+        // desativar insumo
+        if (insumo_selecionado.is_active === true) {
+          console.log(`O insumo com ${id_item} foi encontrado na filtragem com id ${insumo_selecionado.id_item_comprado}`);
+          console.log(`O insumo de ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
 
-        console.log(response.data);
-
-        setInsumos((prevInsumos) =>
-          prevInsumos.map((insumo) =>
-            insumo.id_item_comprado === id_item ? { ...insumo, is_active: false } : insumo
-          )
-        );
-
-        // para atualizar obrigatoriamente a tela
-        window.location.reload()
-      }
-      // ativar insumo
-      else {
-        console.log('Insumo ativado');
-        console.log(`O insumo de id ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
-        // lógica para ativar o insumo, se necessário
-
-        const response = await axios.post("http://localhost:3000/ativar/compra", {
+          const response = await axios.post("http://localhost:3000/inativar/compra", {
             id_item_comprado: insumo_selecionado.id_item_comprado,
-        })
+          });
 
-        console.log(response.data)
+          console.log(response.data);
 
-        setInsumos((prevInsumos) =>
-            prevInsumos.map((insumo) => 
-                insumo.id_item_comprado === id_item ? {...insumo, is_active: true} : insumo
+          setInsumos((prevInsumos) =>
+            prevInsumos.map((insumo) =>
+              insumo.id_item_comprado === id_item ? { ...insumo, is_active: false } : insumo
             )
-        )
+          );
 
-        // para atualizar obrigatoriamente a tela
-        window.location.reload()
+          // para atualizar obrigatoriamente a tela
+          window.location.reload()
+          // setShouldReload(true)
+        }
+        // ativar insumo
+        else {
+          console.log('Insumo ativado');
+          console.log(`O insumo de id ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
+          // lógica para ativar o insumo, se necessário
+
+          const response = await axios.post("http://localhost:3000/ativar/compra", {
+              id_item_comprado: insumo_selecionado.id_item_comprado,
+          })
+
+          console.log(response.data)
+
+          setInsumos((prevInsumos) =>
+              prevInsumos.map((insumo) => 
+                  insumo.id_item_comprado === id_item ? {...insumo, is_active: true} : insumo
+              )
+          )
+
+          // para atualizar obrigatoriamente a tela
+          window.location.reload()
+          // setShouldReload(true)
+        }
+      } catch (error) {
+        console.error("Erro na requisição: ", error.response ? error.response.data : error.message);
       }
-    } catch (error) {
-      console.error("Erro na requisição: ", error.response ? error.response.data : error.message);
     }
-  }
 
-  const encryptFunction = (id) => {
-    // Lógica de criptografia aqui (exemplo simples: inversão)
-    return id.split('').reverse().join('');
+    const encryptFunction = (id) => {
+      // Lógica de criptografia aqui (exemplo simples: inversão)
+      return id.split('').reverse().join('');
   };
 
   return (

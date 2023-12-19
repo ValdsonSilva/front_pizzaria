@@ -6,7 +6,7 @@ import axios from "axios";
 import useFetchCategorias from "../../requisições/useFetchCategorias";
 
 function TelaICategoria() {
-    const categorias = useFetchCategorias();
+    const {categorias, loading} = useFetchCategorias();
     console.log("Na tabela de categorias: ", categorias)
 
     const nomes_categorias = categorias.filter((cat) => cat.is_active === true)
@@ -34,28 +34,29 @@ function TelaICategoria() {
                         
                     </div>
 
-                    <table className="tabela_categoria">
-                        <thead >
-                            <tr>
-                                <th>Nome</th>
-                                <th>Ações</th>
-                            </tr>
-                        </thead>
-
-                        <tbody >
-                            {/* listagem dos nomes das categorias */}
-                            {nomes_categorias.map((nome_categoria) => (
-                                <tr key={nome_categoria}>
-                                    <td>{nome_categoria}</td>
-                                    <td >
-                                        <i className="icones_categoria"><BiEditAlt/></i>
-                                        <i className="icones_categoria"><BiTrash/></i>
-                                    </td>
+                    {loading ? <h1>Carregando...</h1> 
+                    : <table className="tabela_categoria">
+                            <thead >
+                                <tr>
+                                    <th>Nome</th>
+                                    <th>Ações</th>
                                 </tr>
-                            ))}
-                        </tbody>
+                            </thead>
 
-                    </table>
+                            <tbody >
+                                {/* listagem dos nomes das categorias */}
+                                {nomes_categorias.map((nome_categoria) => (
+                                    <tr key={nome_categoria}>
+                                        <td>{nome_categoria}</td>
+                                        <td >
+                                            <i className="icones_categoria"><BiEditAlt/></i>
+                                            <i className="icones_categoria"><BiTrash/></i>
+                                        </td>
+                                    </tr>
+                                ))}
+                            </tbody>
+
+                        </table>}
 
                 </div>   
            </div>

@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 
 function useFecthSubcategorias() {
     const [subcategorias, setSubcategorias] = useState([])
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         const fetchSubCategoria = async () => {
@@ -12,11 +13,13 @@ function useFecthSubcategorias() {
 
             } catch (error) {
                 console.error(error.response)
+            } finally {
+                setLoading(false)
             }
         }
         fetchSubCategoria()
     }, [])
-    return subcategorias
+    return {subcategorias, loading}
 }
 
 export default useFecthSubcategorias;

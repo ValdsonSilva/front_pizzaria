@@ -3,6 +3,7 @@ import "./TelaNovoInsumo.style.css";
 import BotaoConfirmar from "../button/BotaoConfirmar"
 import { useForm } from "react-hook-form";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 
 function TelaNovaComposicao() {
@@ -47,7 +48,7 @@ function TelaNovaComposicao() {
             {carregando && <h2>Carregando...</h2>}
             {mensagem && <h2>{mensagem}</h2>}
             <div className="container-form">
-                <form action="" onSubmit={handleSubmit(onSubmit)} className="form">
+                <form onSubmit={handleSubmit(onSubmit)} className="form">
                     <div>
                         <span>Nome:</span>
                         <input type="text" required {...register("nome")} />
