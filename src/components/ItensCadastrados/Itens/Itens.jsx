@@ -2,68 +2,20 @@ import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Itens/Itens.style.css'
 import { useState } from "react";
+import useFetchItem from "../../requisições/useFetchItem";
+import useFecthSubcategorias from "../../requisições/useFetchSubCategorias";
 
 function TelaItens() {
+    const {itens, loading} = useFetchItem()
+    const {subcategorias} = useFecthSubcategorias()
 
-    const [categoria, setCategoria] = useState(false)
-    const [subcategoria, setSubcategoria] = useState(false)
-    const [item, setItem] = useState(false)
-    const [insumo, setInsumo] = useState(true)
+    console.log("subcategorias aqui: ", subcategorias)
 
-    function handleCategoria() {
-        setCategoria(true);
-        setSubcategoria(false);
-        setItem(false);
-        setInsumo(false);  
-    }
-
-    function handleSubcategoria() {
-        setSubcategoria(true);
-        setCategoria(false);
-        setItem(false);
-        setInsumo(false);
-    }
-
-    function handleItem() {
-        setItem(true);
-        setCategoria(false);
-        setSubcategoria(false);
-        setInsumo(false);
-    }
-
-    function handleInsumo() {
-        setInsumo(true)
-        setCategoria(false);
-        setSubcategoria(false);
-        setItem(false);        
-    }
-
-    const titulos = {
-        categoria_titulo : 'Categorias Cadastradas',
-        subcategoria_titulo : 'Subcategorias Cadastradas',
-        item_titulo : 'Itens Cadastrados',
-        insumo_titulo : 'Insumos Cadastrados'
-        
-    }
-
-    var titulo
-
-    if (categoria) {
-        titulo = titulos.categoria_titulo
-    }
-    else if (subcategoria){
-        titulo = titulos.subcategoria_titulo
-    }
-    else if (item) {
-        titulo = titulos.item_titulo
-    }
-    else if (insumo){
-        titulo = titulos.insumo_titulo
-    }
+    console.log("Itens listados: ",itens)
 
     return (
         <div className="father">
-            
+
             <div className="container_topo">
 
                 <div className="container_lista">
@@ -80,6 +32,7 @@ function TelaItens() {
                         
                     </div>
 
+                    {loading ? <h1>Carregando...</h1> : 
                     <table className="tabela_item">
                         <thead >
                             <tr>
@@ -91,7 +44,25 @@ function TelaItens() {
                             </tr>
                         </thead>
 
-                        <tbody >
+                        <tbody>
+                            {itens.map((item) => (
+                                <tr key={item.id_item_venda}>
+                                    <td>{item.nome_item_venda}</td>
+                                    <td>{item.descricao_item_venda}</td>
+                                    <td>{item.preco_item_venda}</td>
+                                    <td>{subcategorias.filter((sub) => sub.id_subcategoria === item.id_subcategoria_item_venda)
+                                                      .map((sub) => sub.nome_subcategoria)
+                                    }</td>              
+                                    <td >
+                                        <i className="icones_item"><BiEditAlt/></i>
+                                        <i className="icones_item"><BiTrash/></i>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
+                    </table>}
+
+                        {/* <tbody >
                             <tr>
                                 <td>xxxx</td>
                                 <td>xxxx</td>
@@ -102,9 +73,7 @@ function TelaItens() {
                                     <i className="icones_item"><BiTrash/></i>
                                 </td>
                             </tr>
-                        </tbody>
-
-                    </table>
+                        </tbody> */}
 
                 </div>   
            </div>
