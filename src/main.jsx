@@ -4,7 +4,7 @@ import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import TelaNovoItem from './components/pages/novoitem/TelaNovoItem.jsx'
-import TelaNovaComposicao from './components/mateusc/TelaNovoInsumo.jsx'
+import TelaNovaComposicao from './components/formulário_insumo/TelaNovoInsumo.jsx'
 import TelaItensCadastrados from './components/pages/itenscadastrados/TelaItensCadastrados.jsx'
 import InsumoEdit from './components/forms_edit/InsumoEdit.jsx'
 

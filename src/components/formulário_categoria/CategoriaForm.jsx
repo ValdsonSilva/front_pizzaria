@@ -13,7 +13,7 @@ function CategoriaForm(){
     const [selectedOptionCategoria, setSelectedOptionCategoria] = useState([])
     const {register, handleSubmit, control, reset, watch} = useForm();
     // requisição de categorias listadas
-    const categorias = useFetchCategorias();
+    const {categorias} = useFetchCategorias();
     console.log("Importado: ", categorias)
 
     // opções do campo "tipo" no formulário
