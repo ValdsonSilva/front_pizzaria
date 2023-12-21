@@ -7,11 +7,14 @@ button {
 .cabecalho {
     background: #EA1D2C;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     width: 100%;
     height: 150px;
-    /* position: fixed; */
+}
+
+.logo {
+    margin-left: 42px;
 }
 
 .botoes_container {
@@ -23,6 +26,7 @@ button {
     column-gap: 69px;
     row-gap: 9px;
     position: static;
+    margin-right: 42px;
     /* padding-top: 190px; */
 }
 

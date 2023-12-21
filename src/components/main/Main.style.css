@@ -2,4 +2,47 @@
 
 .conteudo {
     background-color: #ffffff;
+    display: flex;
+    justify-content: end;
+}
+
+.container-contagem-pedidos {
+    /* display: flex; */
+    /* background-color: black; */
+    margin-right: 35px;
+    position: relative;
+}
+
+.botao-pedidos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    border: none;
+    width: 140px;
+    height: 67px;
+    border-radius: 10px;
+    background-color: #EA1D2C;
+    text-decoration: none;
+    flex-shrink: 0;
+    margin-top: 25px;
+    /* position: absolute; */
+}
+
+.contador-pedidos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    height: 25px;
+    font-size: 20px;
+    background-color: #D9D9D9;
+    stroke-width: 1px;
+    color: #EA1D2C;
+    border: 1px solid #840303;
+    border-radius: 50%;
+    z-index: 1;
+    position: absolute;
+    margin-left: 125px;
+    margin-top: -57%;
 }
