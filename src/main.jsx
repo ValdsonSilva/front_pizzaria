@@ -9,6 +9,7 @@ import TelaItensCadastrados from './components/pages/itenscadastrados/TelaItensC
 import InsumoEdit from './components/forms_edit/InsumoEdit.jsx'
 import Pedidos from './components/pages/pedidos/Pedidos.jsx'
 import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
+import SubcategoriaEdit from './components/forms_edit/SubcategoriaEdit.jsx'
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([
@@ -44,6 +45,10 @@ const router = createBrowserRouter([
       // tela detalhes de pedidos
       path : "detalhes",
       element : <DetalhePedido/>
+    },
+    {
+      path : "editarsubcategoria/:SubcategoriaId",
+      element : <SubcategoriaEdit/>
     }
 ])
 

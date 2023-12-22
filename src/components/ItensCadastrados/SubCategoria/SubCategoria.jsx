@@ -4,6 +4,7 @@ import '../../ItensCadastrados/SubCategoria/SubCategoria.style.css'
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";
+import { Link } from "react-router-dom";
 import useFetchCategorias from "../../requisições/useFetchCategorias";
 import  useFecthSubcategorias  from "../../requisições/useFetchSubCategorias";
 
@@ -47,13 +48,15 @@ function TelaSubCategoria() {
                                 <tbody >
                                     {subcategorias.map((subcategoria) => (
                                         
-                                        <tr key={subcategoria}>
+                                        <tr key={subcategoria.id_subcategoria}>
                                             <td>{subcategoria.nome_subcategoria}</td>
                                             <td>{categorias.filter((categoria) => categoria.id_categoria === subcategoria.id_categoria)
                                                 .map((categoria) => categoria.nome_categoria)
                                             }</td>              
                                             <td >
-                                                <i className="icones_sub"><BiEditAlt/></i>
+                                                <Link to={`/editarsubcategoria/${subcategoria.id_subcategoria}`}>
+                                                    <i className="icones_sub"><BiEditAlt/></i>
+                                                </Link>
                                                 <i className="icones_sub"><BiTrash/></i>
                                             </td>
                                         </tr>
