@@ -8,16 +8,9 @@ import { useEffect, useState } from "react";
 
 function TelaInsumo() {
     const { insumos, loading, setInsumos } = useFetchInsumos();
-    const [shouldReload, setShouldReload] = useState(false)
     let navigate = useNavigate()
 
-    // useEffect(() => {
-    //   if (shouldReload) {
-    //     navigate("/cadastrados")
-    //     setShouldReload(false)
-    //   }
-    // }, [shouldReload])
-
+    // função de ativar ou desativar insumo
     async function desativarInsumo(id_item) {
       try {
         // Atualize o estado local para indicar que a requisição está em andamento
@@ -34,7 +27,7 @@ function TelaInsumo() {
             id_item_comprado: insumo_selecionado.id_item_comprado,
           });
 
-          console.log(response.data);
+          console.log(response.data.msg);
 
           setInsumos((prevInsumos) =>
             prevInsumos.map((insumo) =>

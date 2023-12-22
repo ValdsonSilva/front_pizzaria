@@ -57,6 +57,11 @@
     
 }
 
+.tabela_item .inativado {
+    background-color:rgba(131, 135, 135, 0.301);
+    color:#1e1e1e74;
+}
+
 .tabela_item .icones_item {
     display: inline-flex;
     color: #F6F5F5;
@@ -67,6 +72,42 @@
     margin-left: 20px;
     align-items: center;
     justify-content: center;
+}
+
+/* estilo inicial/padrão quando o item está ativo */
+.icones_item_ativar.on {
+    display: inline-flex;
+    color: #F6F5F5;
+    background-color: #EA1D2C;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icones_item_ativar.on:hover {
+    background-color: #df434e;
+}
+
+/* Novo estilo quando o item está inativo */
+.icones_item_ativar {
+    background-color: #0ec63c;
+    display: inline-flex;
+    color: #F6F5F5;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 20px;
+    margin-top: 10px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icones_item_ativar:hover {
+    background-color: #1db944ba;
 }
 
 

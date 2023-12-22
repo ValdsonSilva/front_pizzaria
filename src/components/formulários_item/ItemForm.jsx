@@ -14,16 +14,11 @@ function ItemForm() {
     const [mensagem, setMensagem] = useState("")
     const [carregando, setCarregando] = useState("")
 
-    // const categorias_listadas = categorias.filter(cat => cat.is_active === true)
-    //         .map((cat) => ({value : cat.nome_categoria, label : cat.nome_categoria})
-    // )
-
+    // SUb categorias listadas
     const sub_categorias_listadas = subcategorias.filter(sub => sub.is_active === true)
                                     .map((sub) => ({value : sub.nome_subcategoria, label : sub.nome_subcategoria}))
 
     console.log("Subcategorias: ",subcategorias)
-
-    //console.log("Categorias listadas: ", categorias_listadas)
 
     const [selectedOption, setSelectedOption] = useState([])
     const {register, handleSubmit, control, reset, watch, formState : {errors}} = useForm();
@@ -45,9 +40,9 @@ function ItemForm() {
 
     // Envio/post dos dados do formulário
     const onSubmit = async (data) => {
-        // const id = await useFetchId()
-        // console.log("dados do formulário: ", data)
-        // console.log("SubCategoria selecionada: ", id[0])
+        const id = await useFetchId()
+        console.log("dados do formulário: ", data)
+        console.log("SubCategoria selecionada: ", id[0])
         try{
             setCarregando("Carregando...")
 
@@ -126,7 +121,7 @@ function ItemForm() {
                     <textarea rows={4} cols={50} required {...register("decricao")}/>
                 </div>
                 <div className="select_conteiner">   
-                    <span>Subcategoria:</span>
+                    <span>Categoria:</span>
                     <div className="selecao">
                         {/* input simulado */}
                         <Controller

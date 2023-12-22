@@ -1,13 +1,70 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
 import '../../ItensCadastrados/Itens/Itens.style.css'
-import { useState } from "react";
 import useFetchItem from "../../requisições/useFetchItem";
 import useFecthSubcategorias from "../../requisições/useFetchSubCategorias";
+import { useState } from "react";
+import axios from "axios";
 
 function TelaItens() {
-    const {itens, loading} = useFetchItem()
+    // lista de itens cadastrados no sistema
+    const {itens, loading, setItens} = useFetchItem()
     const {subcategorias} = useFecthSubcategorias()
+    // const [item.is_active, setEstado] = useState(true)
+
+    // função de ativar e desativar item no sistema
+    async function handleItemComprado(id_item_venda) {
+
+        try {      
+            // busca pelo item_comprado específico
+            const item_selecionado = itens.find((item) => item.id_item_venda === id_item_venda)
+
+            // desativar o item_venda
+            if (item_selecionado.is_active === true){
+                console.log(`O insumo de id ${id_item_venda} foi encontrado e está ${item_selecionado.is_active === true ? "ativo" : "inativo"}`);
+                // id do item venda
+                const id = id_item_venda
+                const response = await axios.post(`http://localhost:3000/inativar/venda`, {
+                    id_item_venda : id
+                })
+
+                console.log(response.data.msg);
+
+                setItens((prevItens) => 
+                    prevItens.map((item) => 
+                        item.id_item_venda === id_item_venda ? {...item, is_active: false} : item
+                ))
+
+                // forçando atualização da tela
+                window.location.reload()
+            }
+            // ativar o item_venda
+            else {
+                console.log(`O insumo de id ${id_item_venda} foi encontrado e está ${item_selecionado.is_active === true ? "ativo" : "inativo"}`);
+                // id do item venda
+                const id = id_item_venda
+                const response = await axios.post(`http://localhost:3000/ativar/venda`, {
+                    id_item_venda : id
+                })
+
+                console.log(response.data.msg)
+
+                setItens((prevItens) => 
+                prevItens.map((item) => 
+                    item.id_item_venda === id_item_venda ? {...item, is_active: true} : item
+                ))
+
+                // forçando atualização
+                window.location.reload()
+            }
+        }
+        catch (error){
+            console.error(error)
+        }
+
+        // setEstado(!estado)
+        // console.log("O estado é: ", estado)
+    }
 
     console.log("subcategorias aqui: ", subcategorias)
 
@@ -47,34 +104,22 @@ function TelaItens() {
                         <tbody>
                             {itens.map((item) => (
                                 <tr key={item.id_item_venda}>
-                                    <td>{item.nome_item_venda}</td>
-                                    <td>{item.descricao_item_venda}</td>
-                                    <td>{item.preco_item_venda}</td>
-                                    <td>{subcategorias.filter((sub) => sub.id_subcategoria === item.id_subcategoria_item_venda)
+                                    <td className={item.is_active ? '' : 'inativado'}>{item.nome_item_venda}</td>
+                                    <td className={item.is_active ? '' : 'inativado'}>{item.descricao_item_venda}</td>
+                                    <td className={item.is_active ? '' : 'inativado'}>{item.preco_item_venda}</td>
+                                    <td className={item.is_active ? '' : 'inativado'}>{subcategorias.filter((sub) => sub.id_subcategoria === item.id_subcategoria_item_venda)
                                                       .map((sub) => sub.nome_subcategoria)
                                     }</td>              
-                                    <td >
+                                    <td className={item.is_active ? '' : 'inativado'}>
                                         <i className="icones_item"><BiEditAlt/></i>
-                                        <i className="icones_item"><BiTrash/></i>
+                                        <i className={`icones_item_ativar ${item.is_active ? "on" : ""}`} onClick={() => handleItemComprado(item.id_item_venda)}>{item.is_active ? "off" : "on"}</i>
+                                        {/* <i className={`icones_item_ativar ${item.is_active ? "on" : ""}`} onClick={""}>{item.is_active ? "off" : "on"}</i> */}
+                                        {/* <i className="icones_item"><BiTrash/></i> */}
                                     </td>
                                 </tr>
                             ))}
                         </tbody>
                     </table>}
-
-                        {/* <tbody >
-                            <tr>
-                                <td>xxxx</td>
-                                <td>xxxx</td>
-                                <td>7,50</td>
-                                <td>xxxxxx</td>              
-                                <td >
-                                    <i className="icones_item"><BiEditAlt/></i>
-                                    <i className="icones_item"><BiTrash/></i>
-                                </td>
-                            </tr>
-                        </tbody> */}
-
                 </div>   
            </div>
         </div>

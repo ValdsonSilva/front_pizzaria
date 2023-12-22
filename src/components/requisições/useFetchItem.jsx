@@ -22,7 +22,7 @@ function useFetchItem() {
         console.log("Itens no useEffect: ", itens)
     }, []) // sempre passar o array de dependências
 
-    return {itens, loading}
+    return {itens, loading, setItens}
 }
 
 export default useFetchItem;

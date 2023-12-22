@@ -10,7 +10,6 @@ import InsumoEdit from './components/forms_edit/InsumoEdit.jsx'
 import Pedidos from './components/pages/pedidos/Pedidos.jsx'
 
 // Configuração de rotas da minha aplicação
-
 const router = createBrowserRouter([
     {
       // rota raiz/tela inicial
