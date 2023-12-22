@@ -1,0 +1,36 @@
+@charset "utf-8";
+
+.father {
+    display: flex;
+    justify-content: center;
+}
+
+.container_conteudo {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+.conteudo_pedido {
+    width: 674px;
+    height: 680px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    background: #EA1D2C;
+}
+
+.texto {
+    color: #F7F7F7;
+    font-family: Kanit;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    justify-content: center;
+    align-items: center;
+    padding: 25px;
+}
+
+
+

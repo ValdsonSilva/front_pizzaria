@@ -8,6 +8,7 @@ import TelaNovaComposicao from './components/formulário_insumo/TelaNovoInsumo.j
 import TelaItensCadastrados from './components/pages/itenscadastrados/TelaItensCadastrados.jsx'
 import InsumoEdit from './components/forms_edit/InsumoEdit.jsx'
 import Pedidos from './components/pages/pedidos/Pedidos.jsx'
+import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([
@@ -38,6 +39,11 @@ const router = createBrowserRouter([
       // tela de pedidos
       path : "pedidos",
       element : <Pedidos/>
+    },
+    {
+      // tela detalhes de pedidos
+      path : "detalhes",
+      element : <DetalhePedido/>
     }
 ])
 

@@ -4,7 +4,7 @@
     display: flex;
     justify-content: end;
     margin-top: -140px;
-    width: 1135px;
+    width: 1535px;
 }
 
 .pesquisar_item .input-pesquisar input {
@@ -33,16 +33,20 @@
 }
 
 .tabela_item {
-    width: 1135px;
+    width: 1535px;
     height: 60px;
     margin-top: 30px;
     flex-shrink: 0;
 }
 
+.tabela_item tr {
+    color: #EA1D2C;
+}
+
 .tabela_item tr th {
     font-size: 32px;
     padding: 15px;
-    border: 2px solid;
+    border: 3px solid #EA1D2C;
     color: #EA1D2C;
     background-color: #F6F5F5;
 }
@@ -50,7 +54,7 @@
 .tabela_item tr td {
     font-size: 32px;
     padding: 15px;
-    border: 2px solid;
+    border: 3px solid #EA1D2C;
     color: #1E1E1E;
     background-color: #F6F5F5;
     padding: 60px;

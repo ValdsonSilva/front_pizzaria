@@ -4,7 +4,7 @@
     display: flex;
     justify-content: end;
     margin-top: -140px;
-    width: 1135px;
+    width: 1535px;
 }
 
 .pesquisar_sub .input-pesquisar input {
@@ -33,24 +33,28 @@
 }
 
 .tabela_sub {
-    width: 1135px;
+    width: 1535px;
     height: 60px;
     margin-top: 30px;
     flex-shrink: 0;
 }
 
-.tabela_sub tr th {
+.tabela_sub tr {
+    color: #EA1D2C;
+}
+
+.tabela_sub th {
     font-size: 32px;
     padding: 15px;
-    border: 2px solid;
+    border: 3px solid #EA1D2C;
     color: #EA1D2C;
     background-color: #F6F5F5;
 }
 
-.tabela_sub tr td {
+.tabela_sub td {
     font-size: 32px;
     padding: 15px;
-    border: 2px solid;
+    border: 3px solid #EA1D2C;
     color: #1E1E1E;
     background-color: #F6F5F5;
     padding: 60px;

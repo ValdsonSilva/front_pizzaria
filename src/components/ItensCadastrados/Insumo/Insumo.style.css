@@ -4,7 +4,7 @@
     display: flex;
     justify-content: end;
     margin-top: -140px;
-    width: 1135px;
+    width: 1535px;
 }
 
 .pesquisar_insumo .input-pesquisar input {
@@ -33,19 +33,22 @@
 }
 
 .tabela_insumo {
-    width: 1135px;
+    width: 1535px;
     height: 60px;
     flex-shrink: 0;
     margin-top: 30px;
 }
 
-.tabela_insumo tr th {
+.tabela_insumo tr {
+    color: #EA1D2C;
+}
+
+.tabela_insumo th {
     font-size: 32px;
     padding: 15px;
-    border: 2px solid;
+    border: 3px solid #EA1D2C;
     color: #EA1D2C;
     background-color: #F6F5F5;
-    /* background-color: #F6F5F5; */
     align-items: center;
 }
 
@@ -53,9 +56,8 @@
     font-size: 32px;
     padding: 15px;
     color: #1E1E1E;
-    border: 2px solid;
+    border: 3px solid #EA1D2C;
     background-color: #F6F5F5;
-    /* background-color: rgb(0, 195, 195); */
     padding: 60px;
     align-items: center;    
 }
