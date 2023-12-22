@@ -113,8 +113,6 @@ function TelaItens() {
                                     <td className={item.is_active ? '' : 'inativado'}>
                                         <i className="icones_item"><BiEditAlt/></i>
                                         <i className={`icones_item_ativar ${item.is_active ? "on" : ""}`} onClick={() => handleItemComprado(item.id_item_venda)}>{item.is_active ? "off" : "on"}</i>
-                                        {/* <i className={`icones_item_ativar ${item.is_active ? "on" : ""}`} onClick={""}>{item.is_active ? "off" : "on"}</i> */}
-                                        {/* <i className="icones_item"><BiTrash/></i> */}
                                     </td>
                                 </tr>
                             ))}

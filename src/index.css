@@ -25,3 +25,8 @@ body {
   min-width: 320px;
   min-height: 100vh; */
 }
+
+table {
+  border-spacing: 0;
+  margin-bottom: 20px;
+}
