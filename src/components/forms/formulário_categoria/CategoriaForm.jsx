@@ -158,8 +158,8 @@ function CategoriaForm(){
                             options={optionsCategoria}
                             value={selectedOptionCategoria}
                             onChange={(item) => {
-                            setSelectedOptionCategoria(item);
-                            field.onChange(item);
+                                setSelectedOptionCategoria(item);
+                                field.onChange(item);
                             }}
                             isSearchable
                             required
