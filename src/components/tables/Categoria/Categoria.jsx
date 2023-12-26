@@ -1,6 +1,6 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
-import '../../ItensCadastrados/Categoria/Categoria.style.css'
+import '../../tables/Categoria/Categoria.style.css'
 import { useEffect, useState } from "react";
 import axios from "axios";
 import useFetchCategorias from "../../requisições/useFetchCategorias";

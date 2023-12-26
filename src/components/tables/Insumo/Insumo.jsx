@@ -1,6 +1,6 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
-import '../../ItensCadastrados/Insumo/Insumo.style.css'
+import '../../tables/Insumo/Insumo.style.css'
 import useFetchInsumos from "../../requisições/useFetchInsumos";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
@@ -9,6 +9,8 @@ import { useEffect, useState } from "react";
 function TelaInsumo() {
     const { insumos, loading, setInsumos } = useFetchInsumos();
     let navigate = useNavigate()
+
+    console.log("Insumos cadastrados: ", insumos)
 
     // função de ativar ou desativar insumo
     async function desativarInsumo(id_item) {

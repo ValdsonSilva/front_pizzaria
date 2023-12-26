@@ -1,11 +1,11 @@
 import "react";
-import '../formulário_categoria/CategoriaForm.style.css'
+import './CategoriaForm.style.css'
 import { useState } from "react";
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
 import Select from "react-select"
 import axios from "axios"
-import useFetchCategorias from "../requisições/useFetchCategorias";
+import useFetchCategorias from "../../requisições/useFetchCategorias";
 
 
 function CategoriaForm(){

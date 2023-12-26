@@ -1,6 +1,6 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
-import '../../ItensCadastrados/Itens/Itens.style.css'
+import '../../tables/Itens/Itens.style.css'
 import useFetchItem from "../../requisições/useFetchItem";
 import useFecthSubcategorias from "../../requisições/useFetchSubCategorias";
 import { useState } from "react";

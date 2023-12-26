@@ -1,6 +1,6 @@
 import "react";
 import { BiEditAlt, BiTrash, BiSearchAlt } from 'react-icons/bi'
-import '../../ItensCadastrados/SubCategoria/SubCategoria.style.css'
+import '../../tables/SubCategoria/SubCategoria.style.css'
 import { useState } from "react";
 import axios from "axios";
 import { useEffect } from "react";

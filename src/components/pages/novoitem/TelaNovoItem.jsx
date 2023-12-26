@@ -4,9 +4,9 @@ import '../novoitem/TelaNovoItem.style.css'
 import BotaoConfirmar from "../../button/BotaoConfirmar";
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import { useState } from "react";
-import ItemForm from "../../formulários_item/ItemForm";
-import CategoriaForm from "../../formulário_categoria/CategoriaForm";
-import TelaNovoInsumo from "../../formulário_insumo/TelaNovoInsumo";
+import ItemForm from "../../forms/formulários_item/ItemForm"
+import CategoriaForm from "../../forms/formulário_categoria/CategoriaForm";
+import TelaNovoInsumo from "../../forms/formulário_insumo/TelaNovoInsumo";
 
 
 function TelaNovoItem() {

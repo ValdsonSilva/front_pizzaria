@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./TelaNovoInsumo.style.css";
-import BotaoConfirmar from "../button/BotaoConfirmar"
+import BotaoConfirmar from "../../button/BotaoConfirmar"
 import { useForm } from "react-hook-form";
 import axios from "axios";
 import { Link } from "react-router-dom";
@@ -10,17 +10,19 @@ function TelaNovaComposicao() {
     const [mensagem, setMensagem] = useState(null)
     const [carregando, setCarregando] = useState(false)
     const {register, handleSubmit, reset} = useForm()
+    // id do super usuário Admin padrão
+    const id_usuario_requisitante = 2
 
     const onSubmit = async (data) => {
-        // console.log(data)
-
+        // criação/cadastro do insumo/item comprado
         try {
             setCarregando(true)
             const response = await axios.post(`http://localhost:3000/cadastrar/itemcomprado`, {
                 nome_item_comprado: data.nome,
                 preco_item_comprado: data.preco,
                 quantidade_item_comprado: data.quantidade,
-                unidade_item_comprado: data.unidade
+                unidade_item_comprado: data.unidade,
+                id_usuario_requisitante : id_usuario_requisitante
             })
             console.log(response.data)
             setMensagem("Formulário enviado com sucesso!")

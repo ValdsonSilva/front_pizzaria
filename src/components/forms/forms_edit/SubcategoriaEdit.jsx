@@ -3,9 +3,9 @@ import { Link, useParams, useNavigate } from "react-router-dom";
 import { useForm, Controller } from "react-hook-form";
 import Select from "react-select"
 import axios from "axios";
-import logo from "../../assets/gigapizza_logo.svg"
+import logo from "../../../assets/gigapizza_logo.svg"
 import "../forms_edit/SubcategoriaEdit.style.css"
-import useFetchCategorias from "../requisições/useFetchCategorias";
+import useFetchCategorias from "../../requisições/useFetchCategorias";
 
 
 function SubcategoriaEdit(){

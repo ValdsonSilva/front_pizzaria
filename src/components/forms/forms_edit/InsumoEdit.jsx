@@ -1,14 +1,14 @@
 import React, { useEffect, useState } from "react";
-import HeaderComum from "../header/HeaderComum/HeaderComum"
+import HeaderComum from "../../header/HeaderComum/HeaderComum"
 // import Insumo from "../ItensCadastrados/Insumo/Insumo"
-import "../forms_edit/InsumoEdit.style.css"
+import "./InsumoEdit.style.css"
 // import {BotaoVoltar} from "../button/Botao_voltar"
 import { Link, useParams, useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import BotaoConfirmar from "../button/BotaoConfirmar";
-import logo from "../../assets/gigapizza_logo.svg"
+import BotaoConfirmar from "../../button/BotaoConfirmar";
+import logo from "../../../assets/gigapizza_logo.svg"
 import axios from "axios";
-import BotaoVoltar from "../button/Botao_voltar/BotaoVoltar";
+import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar";
 
 
 function InsumoEdit() {
@@ -19,6 +19,8 @@ function InsumoEdit() {
     const [mensagem, setMensagem] = useState(null)
     const [carregando, setCarregando] = useState(false)
     const {register, handleSubmit, reset, setValue} = useForm()
+    // id do usuário admin padrão
+    const id_usuario_requisitante = 2
 
     // Fazer requisição do insumo específico usando a rota obterItemComprado(id:id) - Ok
     useEffect(() => {
@@ -45,6 +47,8 @@ function InsumoEdit() {
     // Enviar novamente o insumo editado usando a rota editarItemComprado
     const onSubmit = async (data) => {
         // console.log(data)
+
+        // edição do insumo específico
         try {
             setCarregando(true)
             console.log(`Insumo de id ${insumoId} editado com sucesso!`)
@@ -53,7 +57,8 @@ function InsumoEdit() {
                 nome_item_comprado : data.nome_item_comprado,
                 preco_item_comprado : data.preco_item_comprado,
                 quantidade_item_comprado : data.quantidade_item_comprado,
-                unidade_item_comprado : data.unidade_item_comprado
+                unidade_item_comprado : data.unidade_item_comprado,
+                id_usuario_requisitante : id_usuario_requisitante
             })
             console.log(response.data)
             setMensagem("Insumo editado com sucesso!")

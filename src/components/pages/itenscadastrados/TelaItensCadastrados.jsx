@@ -4,10 +4,10 @@ import HeaderComum from '../../header/HeaderComum/HeaderComum'
 import '../itenscadastrados/TelaItensCadastrados.style.css'
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
 import BotaoAdicionar from "../../button/Botao_adicionar/BotaoAdicionar";
-import Insumo from "../../ItensCadastrados/Insumo/Insumo"
-import Itens from "../../ItensCadastrados/Itens/Itens"
-import SubCategoria from "../../ItensCadastrados/SubCategoria/SubCategoria"
-import Categoria from "../../ItensCadastrados/Categoria/Categoria"
+import Insumo from "../../tables/Insumo/Insumo.jsx"
+import Itens from "../../tables/Itens/Itens.jsx"
+import SubCategoria from "../../tables/SubCategoria/SubCategoria"
+import Categoria from "../../tables/Categoria/Categoria"
 import { useState } from "react";
 
 function TelaItensCadastrados() {

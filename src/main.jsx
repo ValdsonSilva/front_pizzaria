@@ -3,13 +3,15 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
+
 import TelaNovoItem from './components/pages/novoitem/TelaNovoItem.jsx'
-import TelaNovaComposicao from './components/formulário_insumo/TelaNovoInsumo.jsx'
-import TelaItensCadastrados from './components/pages/itenscadastrados/TelaItensCadastrados.jsx'
-import InsumoEdit from './components/forms_edit/InsumoEdit.jsx'
+import TelaNovaComposicao from './components/forms/formulário_insumo/TelaNovoInsumo.jsx'
+import TelaItensCadastrados from "./components/pages/itenscadastrados/TelaItensCadastrados.jsx"
+import InsumoEdit from './components/forms/forms_edit/InsumoEdit.jsx'
+
 import Pedidos from './components/pages/pedidos/Pedidos.jsx'
 import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
-import SubcategoriaEdit from './components/forms_edit/SubcategoriaEdit.jsx'
+import SubcategoriaEdit from "./components/forms/forms_edit/SubcategoriaEdit.jsx"
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([

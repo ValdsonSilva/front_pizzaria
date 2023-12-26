@@ -1,12 +1,12 @@
 import "react";
-import '../formulários_item/ItemForm.style.css'
+import './ItemForm.style.css'
 import { useEffect, useState } from "react";
-import seta from "../../assets/seta.svg"
+// import seta from "../../../assets/seta.svg"
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
 import Select from "react-select"
 import axios from "axios";
-import useFetchSubCategorias from "../requisições/useFetchSubCategorias"
+import useFetchSubCategorias from "../../requisições/useFetchSubCategorias"
 
 function ItemForm() {
     const {subcategorias} = useFetchSubCategorias()
