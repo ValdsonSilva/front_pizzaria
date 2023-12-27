@@ -123,6 +123,7 @@ function TelaNovaComposicao() {
                                         field.onChange(item);
                                     }}
                                     isSearchable
+                                    isCreatable
                                     required
                                     placeholder="Selecione uma unidade"
                                     styles={customStyles}

@@ -5,6 +5,7 @@ import useFetchItem from "../../requisições/useFetchItem";
 import useFecthSubcategorias from "../../requisições/useFetchSubCategorias";
 import { useState } from "react";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function TelaItens() {
     // lista de itens cadastrados no sistema
@@ -111,7 +112,11 @@ function TelaItens() {
                                                       .map((sub) => sub.nome_subcategoria)
                                     }</td>              
                                     <td className={item.is_active ? '' : 'inativado'}>
-                                        <i className="icones_item"><BiEditAlt/></i>
+                                        
+                                        <Link to={`/editaritem/${item.id_item_venda}`} className="icones_item">
+                                            <BiEditAlt/>
+                                        </Link>
+
                                         <i className={`icones_item_ativar ${item.is_active ? "on" : ""}`} onClick={() => handleItemComprado(item.id_item_venda)}>{item.is_active ? "off" : "on"}</i>
                                     </td>
                                 </tr>

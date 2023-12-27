@@ -12,6 +12,7 @@ import InsumoEdit from './components/forms/forms_edit/InsumoEdit.jsx'
 import Pedidos from './components/pages/pedidos/Pedidos.jsx'
 import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
 import SubcategoriaEdit from "./components/forms/forms_edit/SubcategoriaEdit.jsx"
+import ItemEdit from './components/forms/forms_edit/item_edit/ItemEdit.jsx'
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([
@@ -37,6 +38,11 @@ const router = createBrowserRouter([
       path : "editarinsumo/:insumoId",
       // path : "editarinsumo",
       element : <InsumoEdit/>
+    },
+    {
+      // para editar um item específico
+      path : "editaritem/:itemId",
+      element : <ItemEdit/>
     },
     { 
       // tela de pedidos
