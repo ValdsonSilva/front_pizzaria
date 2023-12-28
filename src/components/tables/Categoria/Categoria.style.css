@@ -63,6 +63,11 @@
     
 }
 
+.tabela_categoria .inativado {
+    background-color:rgba(131, 135, 135, 0.301);
+    color:#1e1e1e74;
+}
+
 .tabela_categoria .icones_categoria {
     display: inline-flex;
     color: #F6F5F5;
@@ -74,4 +79,31 @@
     align-items: center;
 }
 
+.icones_categoria:hover {
+    background-color: #ea1d2ba6;
+}
+
+.icones_categoria_acao {
+    display: inline-flex;
+    color: #F6F5F5;
+    background-color: #0ec63c;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icones_categoria_acao:hover {
+    background-color: #1db944ba;
+}
+
+.icones_categoria_acao.on {
+    background-color: #EA1D2C;
+}
+
+.icones_categoria_acao.on:hover {
+    background-color:#df434e;
+}
 
