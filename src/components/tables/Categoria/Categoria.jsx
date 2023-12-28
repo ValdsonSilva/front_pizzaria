@@ -14,6 +14,49 @@ function TelaICategoria() {
 
     console.log('nomes_categorias_tabela: ', nomes_categorias)
 
+    async function desativarCategoria(id_categoria) {
+        try {
+
+            const categoriaSelecionada = categorias.find((categoria) => categoria.id_categoria === id_categoria);
+
+            if (categoriaSelecionada.is_active === true) {
+                console.log(`A categoria com ${id_categoria} foi encontrada na filtragem com id ${categoriaSelecionada.id_categoria}`);
+                console.log(`A categoria de ${id_categoria} foi encontrada e está ${categoriaSelecionada.is_active === true ? "ativa" : "inativa"}`);
+
+                const response = await axios.post("http://localhost:3000/inativar/categoria", {
+                    id_categoria: categoriaSelecionada.id_categoria,
+                });
+
+                console.log(response.data.msg);
+
+                setCategorias((prevCategorias) =>
+                    prevCategorias.map((categoria) =>
+                        categoria.id_categoria === id_categoria ? { ...categoria, is_active: false } : categoria
+                    )
+                );
+            } 
+            else {
+                console.log(`A categoria com ${id_categoria} não está ativa.`);
+
+                const response = await axios.post("http://localhost:3000/ativar/categoria", {
+                    id_categoria: categoriaSelecionada.id_categoria,
+                });
+
+                console.log(response.data);
+
+                setCategorias((prevCategorias) =>
+                    prevCategorias.map((categoria) =>
+                        categoria.id_categoria === id_categoria ? { ...categoria, is_active: true } : categoria
+                    )
+                );
+ 
+                window.location.reload();
+            }
+        } catch (error) {
+            console.error("Erro ao desativar/ativar categoria:", error);
+        }
+    }
+
     
     return (
         <div className="father">
