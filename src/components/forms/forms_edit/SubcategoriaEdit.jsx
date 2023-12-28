@@ -74,6 +74,7 @@ function SubcategoriaEdit(){
                 id_subcategoria : SubcategoriaId,
                 id_categoria : categoria_edicao[0].value,
                 nome_subcategoria : data.nome_subcategoria,
+                id_usuario_requisitante : 2,
             })
             console.log(response.data.msg)
             setMensagem("Subcategoria editado com sucesso!")

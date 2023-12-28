@@ -43,7 +43,8 @@ function CategoriaForm(){
         if (tipo.value === "categoria"){
             try {
                 const response = await axios.post(`http://localhost:3000/cadastrar/categoria`, {
-                    nome_categoria : data.nome
+                    nome_categoria : data.nome,
+                    id_usuario_requisitante : 2,
                 });
                 console.log(response.data)
         }
@@ -63,7 +64,8 @@ function CategoriaForm(){
                     try {
                         const response = await axios.post(`http://localhost:3000/cadastrar/subcategoria`, {
                             id_categoria : cat.id_categoria,
-                            nome_subcategoria : categoriaSelecionada.value
+                            nome_subcategoria : categoriaSelecionada.value,
+                            id_usuario_requisitante : 2,
                         })
                         console.log(response.data)
                     } catch (error) {

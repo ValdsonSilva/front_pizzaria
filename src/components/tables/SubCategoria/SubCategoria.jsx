@@ -10,10 +10,69 @@ import  useFecthSubcategorias  from "../../requisições/useFetchSubCategorias";
 
 function TelaSubCategoria() {
     const {categorias} = useFetchCategorias()
-    const {subcategorias, loading} = useFecthSubcategorias()
+    const {subcategorias, loading, setSubcategorias} = useFecthSubcategorias()
 
     console.log("Categorias: ", categorias)
     console.log("Subcategorias listadas: ", subcategorias);
+
+
+    async function desativarSubcategoria(id_subcategoria) {
+        try {
+  
+          const subcategoria_selecionada = subcategorias.find((subcategoria) => subcategoria.id_subcategoria === id_subcategoria);
+  
+          // desativar subcategoria
+          if (subcategoria_selecionada.is_active === true) {
+            console.log(`A subcategoria com ${id_subcategoria} foi encontrada na filtragem com id ${subcategoria_selecionada.id_subcategoria}`);
+            console.log(`A subctaegoria de ${id_subcategoria} foi encontrada e está ${subcategoria_selecionada.is_active === true ? "ativo" : "inativo"}`);
+  
+            const response = await axios.post("http://localhost:3000/inativar/subcategoria", {
+              id_subcategoria: subcategoria_selecionada.id_subcategoria,
+            });
+  
+            console.log(response.data.msg);
+  
+            setSubcategorias((prevSubcategorias) =>
+              prevSubcategorias.map((subcategoria) =>
+                subcategoria.id_categoria === id_subcategoria ? { ...subcategoria, is_active: false } : subcategoria
+              )
+            );
+  
+            // para atualizar obrigatoriamente a tela
+            window.location.reload()
+            // setShouldReload(true)
+          }
+          // ativar subcategoria
+          else {
+            console.log('Subcategoria ativada');
+            console.log(`A subcategoria de id ${id_subcategoria} foi encontrado e está ${subcategoria_selecionada.is_active === true ? "ativo" : "inativo"}`);
+            
+  
+            const response = await axios.post("http://localhost:3000/ativar/subcategoria", {
+                id_subcategoria: subcategoria_selecionada.id_subcategoria,
+            })
+  
+            console.log(response.data)
+  
+            setSubcategorias((prevSubcategorias) =>
+              prevSubcategorias.map((subcategoria) =>
+                subcategoria.id_categoria === id_subcategoria ? { ...subcategoria, is_active: false } : subcategoria
+              )
+            );
+  
+            // para atualizar obrigatoriamente a tela
+            window.location.reload()
+            // setShouldReload(true)
+          }
+        } catch (error) {
+          console.error("Erro na requisição: ", error.response ? error.response.data : error.message);
+        }
+      }
+  
+      const encryptFunction = (id) => {
+        // Lógica de criptografia aqui (exemplo simples: inversão)
+        return id.split('').reverse().join('');
+    };
       
 
     return (
@@ -49,15 +108,18 @@ function TelaSubCategoria() {
                                     {subcategorias.map((subcategoria) => (
                                         
                                         <tr key={subcategoria.id_subcategoria}>
-                                            <td>{subcategoria.nome_subcategoria}</td>
-                                            <td>{categorias.filter((categoria) => categoria.id_categoria === subcategoria.id_categoria)
+                                            <td className={subcategoria.is_active ? "" : "inativado"}>{subcategoria.nome_subcategoria}</td>
+                                            <td className={subcategoria.is_active ? "" : "inativado"}>{categorias.filter((categoria) => categoria.id_categoria === subcategoria.id_categoria)
                                                 .map((categoria) => categoria.nome_categoria)
                                             }</td>              
-                                            <td >
+                                            <td className={subcategoria.is_active ? "" : "inativado"}>
                                                 <Link to={`/editarsubcategoria/${subcategoria.id_subcategoria}`}>
                                                     <i className="icones_sub"><BiEditAlt/></i>
                                                 </Link>
-                                                <i className="icones_sub"><BiTrash/></i>
+                                        
+                                                <a className={`icones_insumo_acao ${subcategoria.is_active ? "on" : ""}`} onClick={() => desativarSubcategoria(subcategoria.id_subcategoria)}>
+                                                    {subcategoria.is_active ? "off" : "on"}
+                                                </a>
                                             </td>
                                         </tr>
                                     ))}

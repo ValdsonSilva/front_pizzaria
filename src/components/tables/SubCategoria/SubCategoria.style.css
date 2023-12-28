@@ -73,4 +73,32 @@
     justify-content: center;
 }
 
+.icones_insumo_acao {
+    display: inline-flex;
+    color: #F6F5F5;
+    background-color: #0ec63c;
+    padding: 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-left: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.icones_insumo_acao:hover {
+    background-color: #1db944ba;
+}
+
+.icones_insumo_acao.on {
+    background-color: #EA1D2C;
+}
+    
+.icones_insumo_acao.on:hover {
+    background-color:#df434e;
+}
+
+.tabela_sub .inativado {
+    background-color:rgba(131, 135, 135, 0.301);
+    color:#1e1e1e74;
+}
 

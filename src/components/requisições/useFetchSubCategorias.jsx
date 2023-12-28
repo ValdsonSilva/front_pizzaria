@@ -19,7 +19,7 @@ function useFecthSubcategorias() {
         }
         fetchSubCategoria()
     }, [])
-    return {subcategorias, loading}
+    return {subcategorias, loading, setSubcategorias}
 }
 
 export default useFecthSubcategorias;
