@@ -13,6 +13,7 @@ import Pedidos from './components/pages/pedidos/Pedidos.jsx'
 import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
 import SubcategoriaEdit from "./components/forms/forms_edit/SubcategoriaEdit.jsx"
 import ItemEdit from './components/forms/forms_edit/item_edit/ItemEdit.jsx'
+import CategoriaEdit from './components/forms/forms_edit/categoria_edit/CategoriaEdit.jsx'
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([
@@ -57,6 +58,11 @@ const router = createBrowserRouter([
     {
       path : "editarsubcategoria/:SubcategoriaId",
       element : <SubcategoriaEdit/>
+    },
+    {
+      // para editar uma categoria específica
+      path : "editarcategoria/:categoriaId",
+      element : <CategoriaEdit/>
     }
 ])
 
