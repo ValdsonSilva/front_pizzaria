@@ -1,13 +1,14 @@
 import React, { useEffect, useState } from "react";
-import HeaderComum from "../../header/HeaderComum/HeaderComum"
 // import Insumo from "../ItensCadastrados/Insumo/Insumo"
 import "./InsumoEdit.style.css"
 // import {BotaoVoltar} from "../button/Botao_voltar"
 import { Link, useParams, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import BotaoConfirmar from "../../button/BotaoConfirmar";
 import logo from "../../../assets/gigapizza_logo.svg"
 import axios from "axios";
+import Select from "react-select"
+
 
 
 function InsumoEdit() {
@@ -17,9 +18,17 @@ function InsumoEdit() {
     const navigate = useNavigate()
     const [mensagem, setMensagem] = useState(null)
     const [carregando, setCarregando] = useState(false)
-    const {register, handleSubmit, reset, setValue} = useForm()
+    const {register, handleSubmit, reset, setValue, control, watch} = useForm()
     // id do usuário admin padrão
     const id_usuario_requisitante = 2
+    // opções do campo de unidade
+    const optionsTipo = [
+        { value: 'ml', label: 'ml' },
+        { value: 'l', label: 'l' },
+        { value : "mg", label : "mg"},
+        { value : "Kg", label : "Kg"},
+        { value : "und", label : "und"}
+    ];
 
     // Fazer requisição do insumo específico usando a rota obterItemComprado(id:id) - Ok
     useEffect(() => {
@@ -41,11 +50,21 @@ function InsumoEdit() {
         useFetchInsumoEdit()
     }, [])
 
+    // unidade selecionada no formulário
+    const unidade_selecionada = watch("unidade_item_comprado", null)
+    // para podermos exibir a unidade pré-selecionada
+    const unidade_selecionada_object = {
+        value : unidade_selecionada, label : unidade_selecionada
+    }
+    console.log("Unidade pré-selecionada: ", unidade_selecionada_object)
+
+    // estado da caixa de selção
+    const [selectedOptionTipo, setSelectedOptionTipo] = useState([unidade_selecionada_object])
+
     // Distribuir o retorno do Jsom em cada input específico - Ok
 
     // Enviar novamente o insumo editado usando a rota editarItemComprado
     const onSubmit = async (data) => {
-        // console.log(data)
 
         // edição do insumo específico
         try {
@@ -56,7 +75,7 @@ function InsumoEdit() {
                 nome_item_comprado : data.nome_item_comprado,
                 preco_item_comprado : data.preco_item_comprado,
                 quantidade_item_comprado : data.quantidade_item_comprado,
-                unidade_item_comprado : data.unidade_item_comprado,
+                unidade_item_comprado : unidade_selecionada.value,
                 id_usuario_requisitante : id_usuario_requisitante
             })
             console.log(response.data)
@@ -71,6 +90,7 @@ function InsumoEdit() {
         finally {
             setCarregando(false)
             reset()
+            selectedOptionTipo([])
         }
     }
 
@@ -83,6 +103,32 @@ function InsumoEdit() {
         return () => clearTimeout(timer);
     }, [mensagem])
 
+    // estilo do input de seleção
+    const customStyles = {
+        control: (provided, state) => ({
+        ...provided,
+        width: '385px',
+        height: '70px',
+        borderRadius: '10px',
+        border: state.isFocused ? '1px solid #EA1D2C' : '1px solid #EA1D2C',
+        backgroundColor: '#F6F5F5',
+        fontSize: '25px',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        color: '#808080',
+        }),
+        singleValue: (provided) => ({
+        ...provided,
+        color: '#808080',
+        }),
+        input: (provided) => ({
+        ...provided,
+        color: '#000',
+        zIndex: '2',
+        }),
+    };
+
     return (
         <>  
             <header className="cabecalho_comum_edit">
@@ -94,7 +140,7 @@ function InsumoEdit() {
                 {carregando && <h2 className="mensagens-edit">Enviando...</h2>}
                 {mensagem && <h2 className="mensagens-edit">{mensagem}</h2>}
                 <div className="container-form-edit">
-                    <form action="" onSubmit={handleSubmit(onSubmit)} className="form-edit">
+                    <form onSubmit={handleSubmit(onSubmit)} className="form-edit">
                         <div>
                             <span>Nome:</span>
                             <input type="text" required {...register("nome_item_comprado")}/>
@@ -109,7 +155,30 @@ function InsumoEdit() {
                         </div>
                         <div>
                             <span>Unidade:</span>
-                            <input type="text" required  {...register("unidade_item_comprado")}/>
+                            {/* <input type="text" required  {...register("unidade_item_comprado")}/> */}
+                            <Controller
+                                name="unidade_item_comprado" // Nome do campo no formulário
+                                control={control}
+                                // defaultValue={unidade_selecionada_object}
+                                render={({ field }) => (
+                                    <Select
+                                        {...field}
+                                        options={optionsTipo}
+                                        value={selectedOptionTipo}
+                                        // value={unidade_selecionada}
+                                        onChange={(item) => {
+                                            // atualiza o estado durante a seleção
+                                            setSelectedOptionTipo(item);
+                                            field.onChange(item);
+                                        }}
+                                        isSearchable
+                                        isCreatable
+                                        // required
+                                        placeholder="Selecione uma unidade"
+                                        styles={customStyles}
+                                    />
+                                )}
+                            />
                         </div>
                         <BotaoConfirmar/>
                         <Link to="/cadastrados" className="voltar_edit">Cancelar</Link>

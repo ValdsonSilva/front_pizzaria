@@ -13,6 +13,8 @@ function ItemForm() {
     // const {categorias} = useFetchCategorias();
     const [mensagem, setMensagem] = useState("")
     const [carregando, setCarregando] = useState("")
+    // id usuário requisitante padrão
+    const id_usuario_requisitante = 2
 
     // SUb categorias listadas
     const sub_categorias_listadas = subcategorias.filter(sub => sub.is_active === true)
@@ -51,7 +53,8 @@ function ItemForm() {
                 nome_item_venda  : data.nome,
                 descricao_item_venda  : data.decricao,
                 preco_item_venda  : data.preco,
-                id_subcategoria : idSubCategoriaSelecionada[0]
+                id_subcategoria : idSubCategoriaSelecionada[0],
+                id_usuario_requisitante : 2
             })
             console.log(response.data.msg)
 
@@ -114,7 +117,7 @@ function ItemForm() {
                 </div>
                 <div>
                     <span>Preço:</span>
-                    <input type="text" required {...register("preco")}/>
+                    <input type="text" required pattern="^[0-9]+([,.][0-9]{1,2})?$" {...register("preco")}/>
                 </div>
                 <div>
                     <span>Descrição:</span>
