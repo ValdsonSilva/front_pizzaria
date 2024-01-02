@@ -117,7 +117,7 @@ function ItemForm() {
                 </div>
                 <div>
                     <span>Preço:</span>
-                    <input type="text" required pattern="^[0-9]+([,.][0-9]{1,2})?$" {...register("preco")}/>
+                    <input type="text" required pattern="^[0-9]+([.][0-9]{1,2})?$" {...register("preco")}/>
                 </div>
                 <div>
                     <span>Descrição:</span>

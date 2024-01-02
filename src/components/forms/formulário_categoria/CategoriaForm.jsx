@@ -1,17 +1,20 @@
 import "react";
 import './CategoriaForm.style.css'
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import "react-hook-form"
 import { useForm, Controller} from "react-hook-form";
 import Select from "react-select"
 import axios from "axios"
 import useFetchCategorias from "../../requisições/useFetchCategorias";
+import { useAsyncError } from "react-router-dom";
 
 
 function CategoriaForm(){
     const [selectedOptionTipo, setSelectedOptionTipo] = useState([])
     const [selectedOptionCategoria, setSelectedOptionCategoria] = useState([])
     const {register, handleSubmit, control, reset, watch} = useForm();
+    const [mensagem, setMensagem] = useState(null)
+    const [carregando, setCarregando] = useState(false)
     // requisição de categorias listadas
     const {categorias} = useFetchCategorias();
     console.log("Importado: ", categorias)
@@ -42,14 +45,17 @@ function CategoriaForm(){
         // cadastrando categoria
         if (tipo.value === "categoria"){
             try {
+                setCarregando(true)
                 const response = await axios.post(`http://localhost:3000/cadastrar/categoria`, {
                     nome_categoria : data.nome,
                     id_usuario_requisitante : 2,
                 });
                 console.log(response.data)
-        }
+                setMensagem("Formulário enviado com sucesso!")
+            }
             catch (error) {
                 console.error(error.response.data)
+                setMensagem("Erro no envio do formulário!")
             }
         }
 
@@ -62,14 +68,17 @@ function CategoriaForm(){
                 // procurando na minha lista de categorias
                 if (cat.nome_categoria === categoriaSelecionada.value){
                     try {
+                        setCarregando(true)
                         const response = await axios.post(`http://localhost:3000/cadastrar/subcategoria`, {
                             id_categoria : cat.id_categoria,
                             nome_subcategoria : categoriaSelecionada.value,
                             id_usuario_requisitante : 2,
                         })
                         console.log(response.data)
+                        setMensagem("Formulário enviado com sucesso!")
                     } catch (error) {
                         console.error(error)
+                        setMensagem("Erro no envio do formulário!")
                     }
                 }else {
                     return "Esta categoria não está cadastrada"
@@ -78,10 +87,20 @@ function CategoriaForm(){
         }
 
         // console.log(data)
+        setCarregando(false)
         reset()
         setSelectedOptionCategoria([])
         setSelectedOptionTipo([])
     }
+
+    // controle de exibição da mensagem de retorno do formulário
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            setMensagem(null);
+        }, [5000]) // Mensagem desaparece após 5 segundos
+
+        return () => clearTimeout(timer)
+    }, [mensagem])
 
     const customStyles = {
         control: (provided, state) => ({
@@ -110,6 +129,8 @@ function CategoriaForm(){
 
     return (
         <form onSubmit={handleSubmit(onSubmit)} className="form_categoria" >
+            {carregando && <h2>Carregando...</h2>}
+            {mensagem && <h2>{mensagem}</h2>}
             <div className="select_conteiner">   
                 <span>Tipo:</span>
                 <div className="selecao">
