@@ -90,7 +90,7 @@ function ItemEdit() {
                 </div>
                 <div>
                     <span>Preço:</span>
-                    <input type="text" required {...register("preco_item_venda")}/>
+                    <input type="text" required pattern="^[0-9]+([.][0-9]{1,2})?$" {...register("preco_item_venda")}/>
                 </div>
                 <div>
                     <span>Descrição:</span>
