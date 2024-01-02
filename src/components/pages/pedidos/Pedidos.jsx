@@ -35,7 +35,7 @@ function Pedidos() {
                             <tr>
                                 <td>123456</td>
                                 <td>Pizza frango com catupiry G, Coca Cola 2L</td>
-                                <td>20/12/2023 18:45</td>            
+                                <td>09/09/2023 18:45</td>            
                                 <td >
                                     <Link className="icones_pedido" to="/detalhes"><BiSolidShow/></Link>
                                 </td>
