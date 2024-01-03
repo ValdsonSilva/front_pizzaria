@@ -30,6 +30,12 @@
     font-size: 30px;
     padding: 0 15px;
     align-items: center;
+    flex-shrink: 0;
+}
+
+.pesquisar_categoria .icone_pesquisar:hover {
+    color: #FFFFFF;
+    background-color: #840303;
 }
 
 .tabela_categoria {

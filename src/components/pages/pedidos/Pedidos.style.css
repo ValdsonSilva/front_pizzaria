@@ -54,18 +54,26 @@ h1 {
     background: #F6F5F5;
     color: #1E1E1E;
     padding: 60px;
+    text-align: center;
 }
 
 .tabela_pedido .icones_pedido {
-    display: inline-flex;
+    width: 57px;
+    height: 56px;
+    display: flex;
     color: #F6F5F5;
     background-color: #EA1D2C;
-    padding: 15px;
+    padding: 5px;
     border-radius: 8px;
     cursor: pointer;
-    margin-left: 20px;
+    margin-left: 60px;
     align-items: center;
     justify-content: center;
+}
+
+.tabela_pedido .icones_pedido:hover {
+    color: #FFFFFF;
+    background-color: #840303;
 }
 
 

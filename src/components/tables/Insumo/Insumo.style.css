@@ -32,6 +32,11 @@
     align-items: center;
 }
 
+.pesquisar_insumo .icone_pesquisar:hover {
+    color: #FFFFFF;
+    background-color: #840303;
+}
+
 .tabela_insumo {
     width: 1535px;
     height: 60px;

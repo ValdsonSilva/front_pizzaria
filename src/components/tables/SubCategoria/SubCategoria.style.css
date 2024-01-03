@@ -32,6 +32,11 @@
     align-items: center;
 }
 
+.pesquisar_sub .icone_pesquisar:hover {
+    color: #FFFFFF;
+    background-color: #840303;
+}
+
 .tabela_sub {
     width: 1535px;
     height: 60px;

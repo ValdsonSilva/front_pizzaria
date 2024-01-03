@@ -31,7 +31,7 @@ function TelaPedidos() {
                             <thead >
                                 <tr>
                                     <th className="itens">Itens</th>
-                                    <th className="valor_u">Valor Unitário</th>
+                                    <th>Valor Unitário</th>
                                 </tr>
                             </thead>
 
@@ -61,22 +61,22 @@ function TelaPedidos() {
                             <tbody>
 
                                 <tr>
-                                    <td className="cliente">Cliente</td>
+                                    <td>Cliente</td>
                                     <td>Lucas Aires</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="forma_pagamento">Forma de Pagamento</td>
+                                    <td>Forma de Pagamento</td>
                                     <td>Pix</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="horario_pedido">Horário do pedido</td>
+                                    <td>Horário do pedido</td>
                                     <td>18:45</td>
                                 </tr>
 
                                 <tr>
-                                    <td className="data">Data</td>
+                                    <td>Data</td>
                                     <td>09/09/2023</td>
                                 </tr>
 

@@ -3,7 +3,7 @@ import '../button/BotaoConfirmar.style.css'
 
 function BotaoConfirmar({funcao}) {
     return (
-        <button onClick={funcao} type="submit">Confirmar</button>
+        <button className='botaoCon' onClick={funcao} type="submit">Confirmar</button>
     )
 }
 

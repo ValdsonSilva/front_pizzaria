@@ -13,6 +13,10 @@
     margin-top: -5px;
 }
 
+.botao_adicionar:hover {
+    background-color: #840303;
+}
+
 .adicionar {
     width: 32px;
     height: 32px;

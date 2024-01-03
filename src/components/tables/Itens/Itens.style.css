@@ -32,6 +32,11 @@
     align-items: center;
 }
 
+.pesquisar_item .icone_pesquisar:hover {
+    color: #FFFFFF;
+    background-color: #840303;
+}
+
 .tabela_item {
     width: 1535px;
     height: 60px;

@@ -30,6 +30,11 @@
     /* position: absolute; */
 }
 
+.botao-pedidos:hover {
+    color: #ffffff;
+    background-color: #840303;
+}
+
 .contador-pedidos {
     display: flex;
     justify-content: center;

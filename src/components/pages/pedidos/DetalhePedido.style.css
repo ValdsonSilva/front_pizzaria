@@ -29,7 +29,7 @@
     justify-content: center;
     display: flex;
     word-wrap: break-word;
-    margin-top: -50px;
+    margin-top: -60px;
 }
 
 .tabelas {
@@ -43,45 +43,18 @@
 /* Estilo da primeira tabela */
 
 .tabela_p01 {
-    margin-bottom: 10px;
-    margin-top: 10px;
+    margin-bottom: 5px;
     margin: 30px;
-    margin-left: 105px;
+    margin-left: 58px;
 }
   
 .tabela_p01 th, .tabela_p01 td {
-    width: 75%;
+    width: 70%;
     font-size: 24px;
     border: 2px solid #ddd;
     color: #FFFFFF;
     padding: 8px;
     text-align: left;
-}
-
-/* Estilo da segunda tabela */
-
-.tabela_p02 {
-    width: 69%;
-    font-size: 24px;
-    margin-bottom: 10px;
-    margin-top: 30px;
-    margin: 30px;
-    margin-left: 105px;
-}
-  
-.tabela_p02 th, .tabela_p02 td {
-    color: #FFFFFF;
-    border: 2px solid #ddd;
-    padding: 8px;
-    text-align: left;
-}
-
-.tabela_p01 .valor_u {
-    text-align: center; 
-    color: white; 
-    font-size: 16px; 
-    font-weight: 400; 
-    word-wrap: break-word;
 }
 
 .tabela_p01 .itens {
@@ -99,30 +72,22 @@
     word-wrap: break-word
 }
 
-.tabela_p02 .forma_pagamento {
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    font-family: Kanit;
-    font-weight: 400;
-    word-wrap: break-word
+/* Estilo da segunda tabela */
+
+.tabela_p02 {
+    width: 82%;
+    font-size: 24px;
+    margin-bottom: 10px;
+    margin: 20px;
+    margin-left: 58px;
+}
+  
+.tabela_p02 th, .tabela_p02 td {
+    color: #FFFFFF;
+    border: 2px solid #ddd;
+    padding: 8px;
+    text-align: left;
 }
 
-.tabela_p02 .horario_pedido {
-    color: white;
-    text-align: center;
-    font-size: 16px;
-    font-family: Kanit;
-    font-weight: 400;
-    word-wrap: break-word
-}
-
-.tabela_p02 .cliente {
-    text-align: center;
-}
-
-.tabela_p02 .data {
-    text-align: center;
-}
 
 
