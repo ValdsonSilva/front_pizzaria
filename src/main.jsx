@@ -23,45 +23,45 @@ const router = createBrowserRouter([
       element : <App/>,
     },
     {
-      path : "itens",
+      path : "/itens",
       element : <TelaNovoItem/>
     },
     {
-      path : "insumo",
+      path : "/insumo",
       element : <TelaNovaComposicao/>
     },
     {
-      path : "cadastrados",
+      path : "/cadastrados",
       element : <TelaItensCadastrados/>
     },
     {
       // para editar um insumo específico
-      path : "editarinsumo/:insumoId",
+      path : "/editarinsumo/:insumoId",
       // path : "editarinsumo",
       element : <InsumoEdit/>
     },
     {
       // para editar um item específico
-      path : "editaritem/:itemId",
+      path : "/editaritem/:itemId",
       element : <ItemEdit/>
     },
     { 
       // tela de pedidos
-      path : "pedidos",
+      path : "/pedidos",
       element : <Pedidos/>
     },
     {
       // tela detalhes de pedidos
-      path : "detalhes",
+      path : "/detalhes",
       element : <DetalhePedido/>
     },
     {
-      path : "editarsubcategoria/:SubcategoriaId",
+      path : "/editarsubcategoria/:SubcategoriaId",
       element : <SubcategoriaEdit/>
     },
     {
       // para editar uma categoria específica
-      path : "editarcategoria/:categoriaId",
+      path : "/editarcategoria/:categoriaId",
       element : <CategoriaEdit/>
     }
 ])
