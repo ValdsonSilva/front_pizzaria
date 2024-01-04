@@ -53,140 +53,144 @@ function TelaPedidoCliente() {
 
     return(
         <>
-            <header className="cabecalho_comum_edit">
+            {/* <header className="cabecalho_comum_edit">
                 <div className="logo"><Gigaphoto/></div>
-            </header>
-            <h1>Meu Pedido</h1>
+            </header> */}
+            <HeaderComum/>
 
-            <div className="container_itens">
-                <h2 className="subtitle">Pizzas</h2>
+            <div className="container-pedidos">
+                <h1>Meu Pedido</h1>
 
-                <div className="item">
-                    <div>
-                        <img className="imgpizza" src={pizzaFrango} alt="logo gigapizza" />
-                    </div>
-                    <div>
-                        <h3 className="titulo">Frango com Catupiry</h3>
-                        <p className="descricao">Pizza com queijo mussarela, frango, catupiry e azeitona</p>
-                        <h3>À partir de R$ 25,00</h3>
-                    </div>
-                    <div className="divd">
+                    <div className="container_itens">
+                        <h2 className="subtitle">Pizzas</h2>
 
-                        <select name="" className="slc">
-                            <option className="opt" value="" disabled selected>Tamanho</option>
-                            <option value="">Família</option>
-                            <option value="">Grande</option>
-                            <option value="">Média</option>
-                            <option value="">Pequena</option>
-                        </select>
-                        <div>
-                            <input type="number" className="inputnmb" placeholder="Quant."/>
+                        <div className="item-pedidos">
+                            <div>
+                                <img className="imgpizza" src={pizzaFrango} alt="logo gigapizza" />
+                            </div>
+                            <div>
+                                <h3 className="titulo">Frango com Catupiry</h3>
+                                <p className="descricao">Pizza com queijo mussarela, frango, catupiry e azeitona</p>
+                                <h3>À partir de R$ 25,00</h3>
+                            </div>
+                            <div className="divd">
+
+                                <select name="" className="slc">
+                                    <option className="opt" value="" disabled selected>Tamanho</option>
+                                    <option value="">Família</option>
+                                    <option value="">Grande</option>
+                                    <option value="">Média</option>
+                                    <option value="">Pequena</option>
+                                </select>
+                                <div>
+                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                </div>
+                                <div className='botao_adicionar'>
+                                    <img src={mais} alt="" />
+                                </div>
+                            </div>
                         </div>
-                        <div className='botao_adicionar'>
-                            <img src={mais} alt="" />
+
+                        <div className="item-pedidos">
+                            <div>
+                                <img className="imgpizza" src={pizza} alt="logo gigapizza" />
+                            </div>
+                            <div>
+                                <h3 className="titulo">Calabresa</h3>
+                                <p className="descricao">Pizza com queijo mussarela e linguíça calabresa</p>
+                                <h3>À partir de R$ 25,00</h3>
+                            </div>
+                            <div className="divd">
+
+                                <select name="" className="slc">
+                                    <option className="opt" value="" disabled selected>Tamanho</option>
+                                    <option value="">Família</option>
+                                    <option value="">Grande</option>
+                                    <option value="">Média</option>
+                                    <option value="">Pequena</option>
+                                </select>
+                                <div>
+                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                </div>
+                                <div className='botao_adicionar'>
+                                    <img src={mais} alt="" />
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                </div>
 
-                <div className="item">
-                    <div>
-                        <img className="imgpizza" src={pizza} alt="logo gigapizza" />
-                    </div>
-                    <div>
-                        <h3 className="titulo">Calabresa</h3>
-                        <p className="descricao">Pizza com queijo mussarela e linguíça calabresa</p>
-                        <h3>À partir de R$ 25,00</h3>
-                    </div>
-                    <div className="divd">
+                        <div className="item-pedidos">
+                            <div>
+                                <img className="imgpizza" src={pizzaPortuguesa} alt="logo gigapizza" />
+                            </div>
+                            <div>
+                                <h3 className="titulo">Portuguesa</h3>
+                                <p className="descricao">Pizza com queijo mussarela, azeitona, cebola, presunto e tomate</p>
+                                <h3>À partir de R$ 25,00</h3>
+                            </div>
+                            <div className="divd">
 
-                        <select name="" className="slc">
-                            <option className="opt" value="" disabled selected>Tamanho</option>
-                            <option value="">Família</option>
-                            <option value="">Grande</option>
-                            <option value="">Média</option>
-                            <option value="">Pequena</option>
-                        </select>
-                        <div>
-                            <input type="number" className="inputnmb" placeholder="Quant."/>
+                                <select name="" className="slc">
+                                    <option className="opt" value="" disabled selected>Tamanho</option>
+                                    <option value="">Família</option>
+                                    <option value="">Grande</option>
+                                    <option value="">Média</option>
+                                    <option value="">Pequena</option>
+                                </select>
+                                <div>
+                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                </div>
+                                <div className='botao_adicionar'>
+                                    <img src={mais} alt="" />
+                                </div>
+                            </div>
+
                         </div>
-                        <div className='botao_adicionar'>
-                            <img src={mais} alt="" />
+
+                        <h2 className="subtitle">Bebidas</h2>
+
+                        <div className="item-pedidos">
+                            <div>
+                                <img className="imgpizza" src={coca} alt="logo gigapizza" />
+                            </div>
+                            <div>
+                                <h3 className="titulo">Coca cola 2L</h3>
+                                
+                                <h3>R$ 10,00</h3>
+                            </div>
+                            <div className="divd">
+
+                                <div>
+                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                </div>
+                                <div className='botao_adicionar'>
+                                    <img src={mais} alt="" />
+                                </div>
+                            </div>
+
                         </div>
-                    </div>
-                </div>
 
-                <div className="item-pedidos">
-                    <div>
-                        <img className="imgpizza" src={pizzaPortuguesa} alt="logo gigapizza" />
-                    </div>
-                    <div>
-                        <h3 className="titulo">Portuguesa</h3>
-                        <p className="descricao">Pizza com queijo mussarela, azeitona, cebola, presunto e tomate</p>
-                        <h3>À partir de R$ 25,00</h3>
-                    </div>
-                    <div className="divd">
+                        <div className="item-pedidos">
+                            <div>
+                                <img className="imgpizza" src={guarana} alt="logo gigapizza" />
+                            </div>
+                            <div>
+                                <h3 className="titulo">Guaraná Antarctica 2L</h3>
+                                
+                                <h3>R$ 10,00</h3>
+                            </div>
+                            <div className="divd">
 
-                        <select name="" className="slc">
-                            <option className="opt" value="" disabled selected>Tamanho</option>
-                            <option value="">Família</option>
-                            <option value="">Grande</option>
-                            <option value="">Média</option>
-                            <option value="">Pequena</option>
-                        </select>
-                        <div>
-                            <input type="number" className="inputnmb" placeholder="Quant."/>
+                                <div>
+                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                </div>
+                                <div className='botao_adicionar'>
+                                    <img src={mais} alt="" />
+                                </div>
+                            </div>
+
                         </div>
-                        <div className='botao_adicionar'>
-                            <img src={mais} alt="" />
-                        </div>
+
                     </div>
-
-                </div>
-
-                <h2 className="subtitle">Bebidas</h2>
-
-                <div className="item">
-                    <div>
-                        <img className="imgpizza" src={coca} alt="logo gigapizza" />
-                    </div>
-                    <div>
-                        <h3 className="titulo">Coca cola 2L</h3>
-                        
-                        <h3>R$ 10,00</h3>
-                    </div>
-                    <div className="divd">
-
-                        <div>
-                            <input type="number" className="inputnmb" placeholder="Quant."/>
-                        </div>
-                        <div className='botao_adicionar'>
-                            <img src={mais} alt="" />
-                        </div>
-                    </div>
-
-                </div>
-
-                <div className="item">
-                    <div>
-                        <img className="imgpizza" src={guarana} alt="logo gigapizza" />
-                    </div>
-                    <div>
-                        <h3 className="titulo">Guaraná Antarctica 2L</h3>
-                        
-                        <h3>R$ 10,00</h3>
-                    </div>
-                    <div className="divd">
-
-                        <div>
-                            <input type="number" className="inputnmb" placeholder="Quant."/>
-                        </div>
-                        <div className='botao_adicionar'>
-                            <img src={mais} alt="" />
-                        </div>
-                    </div>
-
-                </div>
-
             </div>
            
         </>

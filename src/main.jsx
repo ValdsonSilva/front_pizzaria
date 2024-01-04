@@ -14,13 +14,25 @@ import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
 import SubcategoriaEdit from "./components/forms/forms_edit/SubcategoriaEdit.jsx"
 import ItemEdit from './components/forms/forms_edit/item_edit/ItemEdit.jsx'
 import CategoriaEdit from './components/forms/forms_edit/categoria_edit/CategoriaEdit.jsx'
+import TelaInicialCrud from './components/pages/TelaInicialCrud.jsx'
+import TelaPedidoCliente from './components/pages/pedidos/TelaPedidoCliente.jsx'
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([
     {
-      // rota raiz/tela inicial
+      // rota raiz/tela de login
       path : "/",
       element : <App/>,
+    },
+    {
+      // tela da visão do user adm
+      path : "/telainicial",
+      element : <TelaInicialCrud/>
+    },
+    {
+      // tela da visão do user cliente
+      path : "/meuspedidos",
+      element : <TelaPedidoCliente/>
     },
     {
       path : "/itens",

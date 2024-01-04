@@ -4,6 +4,10 @@
     justify-content: center;
 }
 
+.container-pedidos {
+    padding-top: 200px;
+}
+
 .cabecalho_comum_edit {
     background: #EA1D2C;
     display: flex;

@@ -1,0 +1,137 @@
+@charset "utf-8";
+
+.containerLogin {
+    padding-top: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.caixaLogin {
+    display: flex;
+    margin-top: 129px;
+    width: 1051px;
+    height: 527px;
+    border: none;
+    border-radius: 40px;
+    box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+}
+
+.imagemHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #EAEAEA;
+    width: 551px;
+    height: 527px;
+    border-radius: 40px 0 0 40px;
+}
+
+.formLogin {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #EA1D2C;
+    width: 551px;
+    height: 527px;
+    border-radius: 0 40px 40px 0; 
+}
+
+.LoginFormTitle {
+    /* background-color: blueviolet; */
+    margin-top: 83px;
+    width: 551px;
+    display: flex;
+    justify-content: start;
+    flex-direction: column;
+}
+
+.LoginH2, .LoginH3 {
+    color: #fff;
+    padding-left: 80px;
+}
+
+.LoginH2 {
+    color: #FFF;
+    font-size: 48px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    margin-bottom: -20px;
+}
+
+.LoginH3 {
+    color: #FFF;
+    font-size: 20px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+}
+
+.LoginForm {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    /* background-color: black; */
+    width: 403px;
+    height: auto;
+    gap: 21px;
+}
+
+.Login, .Senha {        
+    width: 403px;
+    height: 56px;
+    text-indent: 20px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #EA1D2C;
+    background: #F6F5F5;
+    outline: none;
+}
+
+.Login::placeholder, .Senha::placeholder {
+    color: #D9D9D9;
+    padding-left: 30px;
+}
+
+
+/* botão do login */
+.ButtonLogin {
+    width: 155px;
+    height: 57px;
+    flex-shrink: 0;
+    border-radius: 10px;
+    border: 1px solid #D9D9D9;
+    background: #EA1D2C;
+}
+
+.ButtonLogin:hover {
+    background-color: #D9D9D9;
+    color: #EA1D2C;
+}
+
+.containerSenha {
+    display: flex;
+    /* background-color: green; */
+}
+
+.icon-cadeado {
+    position: absolute;
+    margin-top: 18px;
+    margin-right: -350px;
+    /* top: 50%; */
+    transform: translateY(-50%);
+    /* height: auto; */
+}
+
+.icon-utilizador {
+    position: absolute;
+    margin-top: 18px;
+    margin-right: -350px;
+    /* top: 50%; */
+    transform: translateY(-50%);
+    /* height: auto; */
+}
+
