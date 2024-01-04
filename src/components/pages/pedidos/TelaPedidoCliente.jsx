@@ -1,7 +1,7 @@
 import React from "react";
 import HeaderComum from '../../header/HeaderComum/HeaderComum'
 import BotaoVoltar from "../../button/Botao_voltar/BotaoVoltar"
-import '../pedidos/PedidoCliente.style.css'
+import '../pedidos/TelaPedidoCliente.style.css'
 import { useEffect, useState } from "react";
 import Gigaphoto from "../../imgs/logop";
 import pizza from "../../imgs/pizza.jpg"
@@ -115,7 +115,7 @@ function TelaPedidoCliente() {
                     </div>
                 </div>
 
-                <div className="item">
+                <div className="item-pedidos">
                     <div>
                         <img className="imgpizza" src={pizzaPortuguesa} alt="logo gigapizza" />
                     </div>
