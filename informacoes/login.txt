@@ -1,0 +1,7 @@
+------user ADM ---------
+login : adm 
+senha : 1
+
+-------user cliente----------
+login : cliente
+senha : 2
