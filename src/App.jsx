@@ -12,9 +12,7 @@ function App() {
 
   return (
     <>
-      {/* <TelaInicialCrud/> */}
       <Login/>
-      {/* <TelaPedidoCliente/> */}
     </>
   )
 }

@@ -16,6 +16,7 @@ button {
 .logo {
     margin-top: 85px;
     margin-left: 42px;
+    cursor: pointer;
 }
 
 .botoes_container {

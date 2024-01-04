@@ -3,11 +3,14 @@ import "react";
 import "./Header.style.css"
 import logo from "../../assets/gigapizza_logo.svg"
 import { useState } from "react";
-import {Link} from "react-router-dom";
+import {Link, useNavigate} from "react-router-dom";
 
 function Header() {
 
     const [isNavegationVisible,  setNavegacaoVisible] = useState(false)
+
+    // hook useNavigate para voltar para tela de login
+    const navigate = useNavigate()
 
     const handleToggleNavegacao = (event) => {
         event.preventDefault();
@@ -18,7 +21,7 @@ function Header() {
 
     return (
         <header className="cabecalho">
-            <img src={logo} alt="logo gigapizza" className="logo"/>
+            <img src={logo} alt="logo gigapizza" className="logo" onClick={() => navigate("/")}/>
 
             <div className="botoes_container">
 
