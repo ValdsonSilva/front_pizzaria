@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function BotaoVoltar() {
     return (
-        <Link to="/" className='voltar'>
+        <Link to="/telainicial/" className='voltar'>
             <img src={seta} alt="seta para o lado esquerdo" />
         </Link>
     )
