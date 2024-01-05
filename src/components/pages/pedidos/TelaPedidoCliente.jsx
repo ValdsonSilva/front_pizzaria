@@ -27,30 +27,6 @@ function TelaPedidoCliente() {
         { value: 'pequena', label: 'Pequena' },
     ];
 
-    const customStyles = {
-        control: (provided, state) => ({
-          ...provided,
-          width: '136x',
-          height: '46px',
-          borderRadius: '10px',
-          border: state.isFocused ? '1px solid #EA1D2C' : '1px solid #EA1D2C',
-          backgroundColor: '#F6F5F5',
-          fontSize: '25px',
-          display: 'flex',
-          alignItems: 'center',
-          color: '#808080',
-        }),
-        singleValue: (provided) => ({
-          ...provided,
-          color: '#808080',
-        }),
-        input: (provided) => ({
-          ...provided,
-          color: '#000',
-          zIndex: '2',
-        }),
-      };
-
     return(
         <>
             {/* <header className="cabecalho_comum_edit">
@@ -62,16 +38,21 @@ function TelaPedidoCliente() {
                 <h1>Meu Pedido</h1>
 
                     <div className="container_itens">
-                        <h2 className="subtitle">Pizzas</h2>
+                        <div>
+                            <h2 className="subtitle">Pizzas</h2>
+                            <div className="sub"></div>
+                        </div>
 
                         <div className="item-pedidos">
                             <div>
                                 <img className="imgpizza" src={pizzaFrango} alt="logo gigapizza" />
                             </div>
-                            <div>
-                                <h3 className="titulo">Frango com Catupiry</h3>
-                                <p className="descricao">Pizza com queijo mussarela, frango, catupiry e azeitona</p>
-                                <h3>À partir de R$ 25,00</h3>
+                            <div className="textd">
+                                <div>
+                                    <h3 className="titulo">Frango com Catupiry</h3>
+                                    <p className="descricao">Pizza com queijo mussarela, frango, catupiry e azeitona</p>
+                                    <h3>À partir de R$ 25,00</h3>
+                                </div>
                             </div>
                             <div className="divd">
 
@@ -85,7 +66,7 @@ function TelaPedidoCliente() {
                                 <div>
                                     <input type="number" className="inputnmb" placeholder="Quant."/>
                                 </div>
-                                <div className='botao_adicionar'>
+                                <div className='botao_adicionarI'>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -112,7 +93,7 @@ function TelaPedidoCliente() {
                                 <div>
                                     <input type="number" className="inputnmb" placeholder="Quant."/>
                                 </div>
-                                <div className='botao_adicionar'>
+                                <div className='botao_adicionarI'>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -139,14 +120,17 @@ function TelaPedidoCliente() {
                                 <div>
                                     <input type="number" className="inputnmb" placeholder="Quant."/>
                                 </div>
-                                <div className='botao_adicionar'>
+                                <div className='botao_adicionarI'>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
 
                         </div>
 
-                        <h2 className="subtitle">Bebidas</h2>
+                        <div>
+                            <h2 className="subtitle">Bebidas</h2>
+                            <div className="sub2"></div>
+                        </div>
 
                         <div className="item-pedidos">
                             <div>
@@ -162,7 +146,7 @@ function TelaPedidoCliente() {
                                 <div>
                                     <input type="number" className="inputnmb" placeholder="Quant."/>
                                 </div>
-                                <div className='botao_adicionar'>
+                                <div className='botao_adicionarI'>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -183,7 +167,7 @@ function TelaPedidoCliente() {
                                 <div>
                                     <input type="number" className="inputnmb" placeholder="Quant."/>
                                 </div>
-                                <div className='botao_adicionar'>
+                                <div className='botao_adicionarI'>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -191,6 +175,12 @@ function TelaPedidoCliente() {
                         </div>
 
                     </div>
+            </div>
+            <div className="navvalor">
+                <div>
+                    <p className="valord">Preço total: <br /> R$0,00</p>
+                </div>
+                <div><button className="btnvalor">Finalizar compra</button></div>
             </div>
            
         </>

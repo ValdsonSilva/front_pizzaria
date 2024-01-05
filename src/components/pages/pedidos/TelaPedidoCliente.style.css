@@ -28,16 +28,21 @@ img{
 
 .container_itens{
     margin-left: 4rem;
+    margin-bottom: 15rem;
 }
 
 .item-pedidos{
     display: flex;
+    flex-basis: auto;
     align-items: center;
+    justify-content: space-between;
     width: 870px;
     height: 200px;
     border-radius: 5px;
     border: 2px solid #EA1D2C;
     margin-bottom: 23px;
+    margin-top: 2rem;
+    margin-left: 0;
 }
 
 .imgpizza{
@@ -60,9 +65,9 @@ img{
     height: 200px;
     align-items: end;
     justify-content: flex-start;
-    margin-left: 4rem;
     margin-right: 1rem;
     margin-top: 3rem;
+    float: right;
 }
 
 .slc{
@@ -76,7 +81,7 @@ img{
     margin-bottom: 13px;
 }
 
-.botao_adicionar {
+.botao_adicionarI {
     width: 40px;
     height: 40px;
     padding: 9px;
@@ -88,7 +93,7 @@ img{
     align-items: center;
     justify-content: center;
     margin-top: 10px;
-    margin-right: 0;
+    
 }
 
 .botao_adicionar:hover {
@@ -103,4 +108,52 @@ img{
 
 .titulo{
     margin: 0;
+}
+
+.sub{
+    background-color: #EA1D2C;
+    width: 140px;
+    border-radius: 1px;
+    height: 5px;
+}
+
+.sub2{
+    background-color: #EA1D2C;
+    width: 150px;
+    border-radius: 1px;
+    height: 5px;
+}
+
+.subtitle{
+    margin: 69px 0 0 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.textd{
+    display: flex;
+    justify-content: left;
+}
+
+.navvalor{
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    width: 100%;
+    height: 150px;
+    background-color: #EA1D2C;
+    position: fixed;
+    bottom: 0;
+}
+
+.valord{
+    color: #fff;
+    font-size: 25px;    
+}
+
+.btnvalor{
+    margin-left: 2rem;
+    margin-right: 3rem;
+    width: 250px;
+    border: 1px solid #fff;
 }
