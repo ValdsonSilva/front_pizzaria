@@ -57,7 +57,6 @@ function Login() {
                         <form onSubmit={handleSubmit(onSubmi)} className="LoginForm">
                             <div className="containerSenha">
                                 <input type="text" placeholder="Login" required className="Login" {...register("login")}/>
-                                <img src={cadeado} alt=""  className="icon-cadeado"/>
                                 <img src={utilizador} alt="" className="icon-utilizador"/>
                             </div>
 
