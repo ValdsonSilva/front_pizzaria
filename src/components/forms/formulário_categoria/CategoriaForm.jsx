@@ -71,7 +71,7 @@ function CategoriaForm(){
                         setCarregando(true)
                         const response = await axios.post(`http://localhost:3000/cadastrar/subcategoria`, {
                             id_categoria : cat.id_categoria,
-                            nome_subcategoria : categoriaSelecionada.value,
+                            nome_subcategoria : data.nome,
                             id_usuario_requisitante : 2,
                         })
                         console.log(response.data)
