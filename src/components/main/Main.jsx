@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 import { useContext } from "react";
 import { pedidosContext } from "../../context/pedidoscontext";
-import Logo from "../../assets/Giga-photoroom 3.svg"
+import Logo from "../../assets/GigaGrande.svg"
 import Footer from "../footer/Footer";
 
 function Main({child}) {
