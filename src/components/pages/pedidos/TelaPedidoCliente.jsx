@@ -61,7 +61,7 @@ function TelaPedidoCliente() {
       title: 'Compra Finalizada',
       text: 'Recebemos seu pedido pfv aguarde a entrega :)',
       confirmButtonColor: '#EA1D2C',
-      icon: 'success'
+      
     });
   };
     return(
