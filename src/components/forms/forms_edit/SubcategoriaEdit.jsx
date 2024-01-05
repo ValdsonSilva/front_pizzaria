@@ -47,7 +47,7 @@ function SubcategoriaEdit(){
     useEffect(() => {
         const useFetchSubcategoriaEdit = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/listar/subcategoria/${SubcategoriaId}`)
+                const response = await axios.get(`https://integracao-giga-pizza.vercel.app/listar/subcategoria/${SubcategoriaId}`)
                 const fetchSubcategoriaData = response.data.msg
         
                 // Acessa todos os campos do meu Json
@@ -70,7 +70,7 @@ function SubcategoriaEdit(){
             setCarregando(true)
             console.log(`Subcategoria de id ${SubcategoriaId} editada com sucesso!`)
             console.log('categoria id da edição: ', categoria_edicao[0].value)
-            const response = await axios.post("http://localhost:3000/editar/subcategoria", {
+            const response = await axios.post("https://integracao-giga-pizza.vercel.app/editar/subcategoria", {
                 id_subcategoria : SubcategoriaId,
                 id_categoria : categoria_edicao[0].value,
                 nome_subcategoria : data.nome_subcategoria,

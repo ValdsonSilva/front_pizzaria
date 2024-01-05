@@ -22,7 +22,7 @@ function ItemEdit() {
         // função de CallBack para chamada à API
         const useFetchItemEdit = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/listar/itemvendido/${itemId}`)
+                const response = await axios.get(`https://integracao-giga-pizza.vercel.app/listar/itemvendido/${itemId}`)
                 const fetchItemData = response.data.msg
                 setObjeto(response)
                 // acessando os campos do json que será retornado
@@ -44,7 +44,7 @@ function ItemEdit() {
     const onSubmit = async (data) => {
         try {
             setCarregando(true)
-            const response = await axios.post('http://localhost:3000/editar/itemvenda', {
+            const response = await axios.post('https://integracao-giga-pizza.vercel.app/editar/itemvenda', {
                 id_item_venda: itemId,
                 nome_item_venda: data.nome_item_venda,
                 descricao_item_venda: data.descricao_item_venda,

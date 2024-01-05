@@ -8,7 +8,7 @@ function useFecthSubcategorias() {
     useEffect(() => {
         const fetchSubCategoria = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/listar/subcategorias")
+                const response = await axios.get("https://integracao-giga-pizza.vercel.app/listar/subcategorias")
                 setSubcategorias(response.data.msg)
 
             } catch (error) {

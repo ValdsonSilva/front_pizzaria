@@ -31,7 +31,7 @@ function TelaNovaComposicao() {
         // criação/cadastro do insumo/item comprado
         try {
             setCarregando(true)
-            const response = await axios.post(`http://localhost:3000/cadastrar/itemcomprado`, {
+            const response = await axios.post(`https://integracao-giga-pizza.vercel.app/cadastrar/itemcomprado`, {
                 nome_item_comprado: data.nome,
                 preco_item_comprado: data.preco,
                 quantidade_item_comprado: data.quantidade,

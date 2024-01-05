@@ -26,7 +26,7 @@ function TelaSubCategoria() {
             console.log(`A subcategoria com ${id_subcategoria} foi encontrada na filtragem com id ${subcategoria_selecionada.id_subcategoria}`);
             console.log(`A subctaegoria de ${id_subcategoria} foi encontrada e está ${subcategoria_selecionada.is_active === true ? "ativo" : "inativo"}`);
   
-            const response = await axios.post("http://localhost:3000/inativar/subcategoria", {
+            const response = await axios.post("https://integracao-giga-pizza.vercel.app/inativar/subcategoria", {
               id_subcategoria: subcategoria_selecionada.id_subcategoria,
             });
   
@@ -48,7 +48,7 @@ function TelaSubCategoria() {
             console.log(`A subcategoria de id ${id_subcategoria} foi encontrado e está ${subcategoria_selecionada.is_active === true ? "ativo" : "inativo"}`);
             
   
-            const response = await axios.post("http://localhost:3000/ativar/subcategoria", {
+            const response = await axios.post("https://integracao-giga-pizza.vercel.app/ativar/subcategoria", {
                 id_subcategoria: subcategoria_selecionada.id_subcategoria,
             })
   

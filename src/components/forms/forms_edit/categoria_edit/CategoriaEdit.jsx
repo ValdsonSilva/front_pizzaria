@@ -31,7 +31,7 @@ function CategoriaEdit() {
     useEffect(() => {
         const useFetchCategoriaEdit = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/listar/categoria/${categoriaId}`);
+                const response = await axios.get(`https://integracao-giga-pizza.vercel.app/listar/categoria/${categoriaId}`);
                 const fetchCategoriaData = response.data.msg;
 
                 Object.keys(fetchCategoriaData).forEach((key) => {
@@ -49,7 +49,7 @@ function CategoriaEdit() {
     const onSubmit = async (data) => {
         try {
             setCarregando(true);
-            const response = await axios.post("http://localhost:3000/editar/categoria", {
+            const response = await axios.post("https://integracao-giga-pizza.vercel.app/editar/categoria", {
                 id_categoria: categoriaId,
                 nome_categoria: data.nome_categoria,
                 id_usuario_requisitante: 2,

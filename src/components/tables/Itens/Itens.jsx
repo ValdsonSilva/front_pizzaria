@@ -25,7 +25,7 @@ function TelaItens() {
                 console.log(`O insumo de id ${id_item_venda} foi encontrado e está ${item_selecionado.is_active === true ? "ativo" : "inativo"}`);
                 // id do item venda
                 const id = id_item_venda
-                const response = await axios.post(`http://localhost:3000/inativar/venda`, {
+                const response = await axios.post(`https://integracao-giga-pizza.vercel.app/inativar/venda`, {
                     id_item_venda : id
                 })
 
@@ -44,7 +44,7 @@ function TelaItens() {
                 console.log(`O insumo de id ${id_item_venda} foi encontrado e está ${item_selecionado.is_active === true ? "ativo" : "inativo"}`);
                 // id do item venda
                 const id = id_item_venda
-                const response = await axios.post(`http://localhost:3000/ativar/venda`, {
+                const response = await axios.post(`https://integracao-giga-pizza.vercel.app/ativar/venda`, {
                     id_item_venda : id
                 })
 

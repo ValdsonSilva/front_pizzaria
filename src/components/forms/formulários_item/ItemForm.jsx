@@ -49,7 +49,7 @@ function ItemForm() {
             setCarregando("Carregando...")
 
             const idSubCategoriaSelecionada = await useFetchId();
-            const response = await axios.post("http://localhost:3000/cadastrar/itemvenda", {
+            const response = await axios.post("https://integracao-giga-pizza.vercel.app/cadastrar/itemvenda", {
                 nome_item_venda  : data.nome,
                 descricao_item_venda  : data.decricao,
                 preco_item_venda  : data.preco,

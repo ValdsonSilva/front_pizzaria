@@ -25,7 +25,7 @@ function TelaInsumo() {
           console.log(`O insumo com ${id_item} foi encontrado na filtragem com id ${insumo_selecionado.id_item_comprado}`);
           console.log(`O insumo de ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
 
-          const response = await axios.post("http://localhost:3000/inativar/compra", {
+          const response = await axios.post("https://integracao-giga-pizza.vercel.app/inativar/compra", {
             id_item_comprado: insumo_selecionado.id_item_comprado,
           });
 
@@ -47,7 +47,7 @@ function TelaInsumo() {
           console.log(`O insumo de id ${id_item} foi encontrado e está ${insumo_selecionado.is_active === true ? "ativo" : "inativo"}`);
           // lógica para ativar o insumo, se necessário
 
-          const response = await axios.post("http://localhost:3000/ativar/compra", {
+          const response = await axios.post("https://integracao-giga-pizza.vercel.app/ativar/compra", {
               id_item_comprado: insumo_selecionado.id_item_comprado,
           })
 

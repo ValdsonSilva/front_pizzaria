@@ -11,7 +11,7 @@ function useFetchCategorias() {
         // função responsável pelo get de categorias
         const fectchCategoria = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/listar/categorias")
+                const response = await axios.get("https://integracao-giga-pizza.vercel.app/listar/categorias")
                 setCategorias(response.data.msg)
             } catch (error) {
                 console.error(error.response)

@@ -8,7 +8,7 @@ function useFetchItem() {
     useEffect(() => {
         const fetchItem = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/listar/itensvendidos")
+                const response = await axios.get("https://integracao-giga-pizza.vercel.app/listar/itensvendidos")
                 setItens(response.data.msg)
             }
             catch (error) {

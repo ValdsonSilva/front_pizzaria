@@ -9,7 +9,7 @@ function useFetchInsumos() {
     useEffect(() => {
         const fetchInsumos = async () => {
             try {
-                const response = await axios.get("http://localhost:3000/listar/itenscomprados")
+                const response = await axios.get("https://integracao-giga-pizza.vercel.app/listar/itenscomprados")
                 setInsumos(response.data.msg)
             } catch (error) {
                 console.error("Erro ao carregar insumos:", error)

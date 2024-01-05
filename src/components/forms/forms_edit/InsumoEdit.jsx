@@ -34,7 +34,7 @@ function InsumoEdit() {
     useEffect(() => {
         const useFetchInsumoEdit = async () => {
             try {
-                const response = await axios.get(`http://localhost:3000/listar/itemcomprado/${insumoId}`)
+                const response = await axios.get(`https://integracao-giga-pizza.vercel.app/listar/itemcomprado/${insumoId}`)
                 const fetchInsumoData = response.data.msg
 
                 // Acessa todos os campos do meu Json
@@ -70,7 +70,7 @@ function InsumoEdit() {
         try {
             setCarregando(true)
             console.log(`Insumo de id ${insumoId} editado com sucesso!`)
-            const response = await axios.post("http://localhost:3000/editar/itemcomprado", {
+            const response = await axios.post("https://integracao-giga-pizza.vercel.app/editar/itemcomprado", {
                 id_item_comprado : insumoId,
                 nome_item_comprado : data.nome_item_comprado,
                 preco_item_comprado : data.preco_item_comprado,

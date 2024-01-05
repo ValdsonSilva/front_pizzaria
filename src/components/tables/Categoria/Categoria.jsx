@@ -24,7 +24,7 @@ function TelaICategoria() {
             if (categoriaSelecionada.is_active === true) {
                 console.log(`A categoria de ${id_categoria} foi encontrada e está ${categoriaSelecionada.is_active === true ? "ativa" : "inativa"}`);
 
-                const response = await axios.post(`http://localhost:3000/inativar/categoria`, {
+                const response = await axios.post(`https://integracao-giga-pizza.vercel.app/inativar/categoria`, {
                     id_categoria: categoriaSelecionada.id_categoria,
                 })
 
@@ -41,7 +41,7 @@ function TelaICategoria() {
                 console.log(`A categoria com ${id_categoria} não está ativa.`);
 
                 // Lógica para ativar a categoria, se necessário
-                const response = await axios.post(`http://localhost:3000/ativar/categoria`, {
+                const response = await axios.post(`https://integracao-giga-pizza.vercel.app/ativar/categoria`, {
                     id_categoria: categoriaSelecionada.id_categoria,
                 });
 

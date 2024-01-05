@@ -46,7 +46,7 @@ function CategoriaForm(){
         if (tipo.value === "categoria"){
             try {
                 setCarregando(true)
-                const response = await axios.post(`http://localhost:3000/cadastrar/categoria`, {
+                const response = await axios.post(`https://integracao-giga-pizza.vercel.app/cadastrar/categoria`, {
                     nome_categoria : data.nome,
                     id_usuario_requisitante : 2,
                 });
@@ -69,7 +69,7 @@ function CategoriaForm(){
                 if (cat.nome_categoria === categoriaSelecionada.value){
                     try {
                         setCarregando(true)
-                        const response = await axios.post(`http://localhost:3000/cadastrar/subcategoria`, {
+                        const response = await axios.post(`https://integracao-giga-pizza.vercel.app/cadastrar/subcategoria`, {
                             id_categoria : cat.id_categoria,
                             nome_subcategoria : data.nome,
                             id_usuario_requisitante : 2,
