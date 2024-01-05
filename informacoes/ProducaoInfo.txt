@@ -1,0 +1,16 @@
+--------- PRODUÇÃO -------------
+
+1-PROBLEMA: O deploy na plataforma Vercel não estava funcionando pois estava ocorrendo
+um erro relacionado as dependências/instalação de arquivo do projeto em React
+
+1-SOLUÇÃO: Para solucionar esse problema, optamos por instalar o Yarn no projeto e 
+a partir disso o deploy na Vercel foi feito automaticamente.
+-----------------------------------------------------------------------------------------------
+
+2-PROBLEMA: A aplicação em produção estava dando algum problema específico
+quando ocorria algum recarregamento manual ou automático da página. A plataforma Vercel
+retornava o código 404 e page not found. 
+
+2-SOLUÇÃO: Para solucionar o problema, um dos nossos membros do front encontrou uma possível solução 
+no Github e decidimos que poderiamos testá-la. A solução consiste na criação de um arquivo vercel.json
+e que teria que conter o seguinte argumento dentro dele: { "routes": [{ "src": "/[^.]+", "dest": "/", "status": 200 }] }.
