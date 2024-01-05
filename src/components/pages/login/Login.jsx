@@ -58,11 +58,12 @@ function Login() {
                             <div className="containerSenha">
                                 <input type="text" placeholder="Login" required className="Login" {...register("login")}/>
                                 <img src={cadeado} alt=""  className="icon-cadeado"/>
+                                <img src={utilizador} alt="" className="icon-utilizador"/>
                             </div>
 
                             <div className="containerSenha"> 
                                 <input type="text" placeholder="Senha" required className="Senha" {...register("senha")}/>
-                                <img src={utilizador} alt="" className="icon-utilizador"/>
+                                <img src={cadeado} alt=""  className="icon-cadeado"/>
                             </div>
 
                             <button type="submit" className="ButtonLogin" >Entrar</button>
