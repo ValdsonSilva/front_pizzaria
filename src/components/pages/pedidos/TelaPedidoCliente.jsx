@@ -11,6 +11,7 @@ import coca from "../../imgs/coca.jpg"
 import guarana from "../../imgs/guarana.jpg"
 import mais from "../../../assets/sinal-de-adicao.svg"
 import "react-hook-form"
+import Swal from 'sweetalert2';
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { pedidosContext } from "../../../context/pedidoscontext";
@@ -19,7 +20,7 @@ import { pedidosContext } from "../../../context/pedidoscontext";
 
 
 function TelaPedidoCliente() {
-    const navigation = useNavigate();
+    
     const [pedido, setPedido] = useState([]);
     const [tamanhoPizza, setTamanhoPizza] = useState();
     const [quantidadePizza , setquantidadePizza] = useState();
@@ -50,15 +51,26 @@ function TelaPedidoCliente() {
     console.log(pedido)
     console.log(carrinhopedidos.allpedidos)
     console.log(mypizzas)
-    navigation('/telainicial')
+    showSuccessPopup()
+    
   }
 
+  const showSuccessPopup = () => {
+    Swal.fire({
+      
+      title: 'Compra Finalizada',
+      text: 'Recebemos seu pedido pfv aguarde a entrega :)',
+      confirmButtonColor: '#EA1D2C',
+      icon: 'success'
+    });
+  };
     return(
         <>
             {/* <header className="cabecalho_comum_edit">
                 <div className="logo"><Gigaphoto/></div>
             </header> */}
             <HeaderComum/>
+                        
 
             <div className="container-pedidos">
                 <h1>Meu Pedido</h1>
