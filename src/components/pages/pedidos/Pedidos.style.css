@@ -3,6 +3,7 @@
 .father {
     display: flex;
     justify-content: center;
+    background-image: url("../../../assets/fundoPizza.svg");
 }
 
 h1 {
@@ -18,6 +19,7 @@ h1 {
     display: flex;
     justify-content: center;
     width: 100%;
+    /* background-image: url("../../../assets/fundoPizza.svg"); */
 }
 
 .container_pedido {
@@ -26,6 +28,7 @@ h1 {
     justify-content: center;
     align-items: center;
     flex-direction: column;
+    /* background-color: blueviolet; */
 }
 
 .tabela_pedido {
@@ -33,6 +36,8 @@ h1 {
     height: 60px;
     margin-top: 30px;
     flex-shrink: 0;
+    /* background-color: blue; */
+    margin-bottom: 276px;
 }
 
 .tabela_pedido tr {

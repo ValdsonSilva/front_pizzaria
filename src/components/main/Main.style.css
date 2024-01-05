@@ -1,9 +1,21 @@
 @charset "utf-8";
 
+.conteudoContainer {
+    /* background-color: rgb(255, 255, 255); */
+    background-image: url("../../assets/fundoPizza.svg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+}
+
 .conteudo {
-    background-color: #ffffff;
+    /* background-color: #ffffff; */
+    background-color: transparent;
     display: flex;
     justify-content: end;
+    width: 100%;
 }
 
 .container-contagem-pedidos {
@@ -11,6 +23,7 @@
     /* background-color: black; */
     margin-right: 35px;
     position: relative;
+    margin-bottom: 75px;
 }
 
 .botao-pedidos {
@@ -51,4 +64,8 @@
     position: absolute;
     margin-left: 125px;
     margin-top: -57%;
+}
+
+.GigaLogoGrande {
+    margin-bottom: 133px;
 }
