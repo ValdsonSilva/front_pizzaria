@@ -11,21 +11,47 @@ import coca from "../../imgs/coca.jpg"
 import guarana from "../../imgs/guarana.jpg"
 import mais from "../../../assets/sinal-de-adicao.svg"
 import "react-hook-form"
-import { useForm, Controller} from "react-hook-form";
-import Select from "react-select"
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
+import { pedidosContext } from "../../../context/pedidoscontext";
+
+
+
 
 function TelaPedidoCliente() {
+    const navigation = useNavigate();
+    const [pedido, setPedido] = useState([]);
+    const [tamanhoPizza, setTamanhoPizza] = useState();
+    const [quantidadePizza , setquantidadePizza] = useState();
+    const [totalPrice, setTotalPrice] = useState(0);
+    const {carrinhopedidos, mypizzas} = useContext(pedidosContext)
 
-    const [selectedOptionTamanho, setSelectedOptionTamanho] = useState([])
+  const handleAdicionar = (item) => {
+    const currentDate = new Date();
 
-    const {register, handleSubmit, control, reset, watch} = useForm();
+    const day = currentDate.getDate();
+    const month = currentDate.getMonth() + 1; 
+    const year = currentDate.getFullYear();
+    const formattedDate = `${day}/${month}/${year}`;
+    const randomNumber = Math.floor(10000 + Math.random() * 90000);
+    item.data = formattedDate
+    item.numero = randomNumber
+    setPedido((listaitens) => listaitens.concat(item))
+    setTotalPrice((precoanterior)=> precoanterior + item.price *item.quantity)
+    console.log(pedido)
+    console.log(carrinhopedidos.tamanhopedidos)
+  };
 
-    const optionsTamanho = [
-        { value: 'familia', label: 'Família' },
-        { value: 'grande', label: 'Grande' },
-        { value: 'media', label: 'Média' },
-        { value: 'pequena', label: 'Pequena' },
-    ];
+  const finalpedidos =()=>{
+
+   
+    carrinhopedidos.adicionar_pedidos(pedido)
+    carrinhopedidos.BuscarPedidos()
+    console.log(pedido)
+    console.log(carrinhopedidos.allpedidos)
+    console.log(mypizzas)
+    navigation('/telainicial')
+  }
 
     return(
         <>
@@ -47,7 +73,7 @@ function TelaPedidoCliente() {
                             <div>
                                 <img className="imgpizza" src={pizzaFrango} alt="logo gigapizza" />
                             </div>
-                            <div className="textd">
+                            <div id="idfrangopizza" className="textd">
                                 <div>
                                     <h3 className="titulo">Frango com Catupiry</h3>
                                     <p className="descricao">Pizza com queijo mussarela, frango, catupiry e azeitona</p>
@@ -56,21 +82,39 @@ function TelaPedidoCliente() {
                             </div>
                             <div className="divd">
 
-                                <select name="" className="slc">
+                                <select id="optionsfrangopizza" name="" className="slc" onChange={(e) => setTamanhoPizza(e.target.value)}>
                                     <option className="opt" value="" disabled selected>Tamanho</option>
-                                    <option value="">Família</option>
-                                    <option value="">Grande</option>
-                                    <option value="">Média</option>
-                                    <option value="">Pequena</option>
+                                    <option value="familia">Família</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="media">Média</option>
+                                    <option value="pequena">Pequena</option>
                                 </select>
                                 <div>
-                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                    <input type="number" onChange={(e) => setquantidadePizza(e.target.value)} className="inputnmb" placeholder="Quant."/>
                                 </div>
-                                <div className='botao_adicionarI'>
+                                <div className='botao_adicionarI' onClick={() =>
+                                            handleAdicionar({
+                                            item: "Frango com Catupiry",
+                                            price: 25.00,
+                                            tamanho: tamanhoPizza,
+                                            quantity: quantidadePizza,
+                                            })
+                                        }>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
                         </div>
+
+
+
+
+
+
+
+
+
+
+
 
                         <div className="item-pedidos">
                             <div>
@@ -83,21 +127,30 @@ function TelaPedidoCliente() {
                             </div>
                             <div className="divd">
 
-                                <select name="" className="slc">
+                                <select name="" className="slc" onChange={(e) => setTamanhoPizza(e.target.value)}>
                                     <option className="opt" value="" disabled selected>Tamanho</option>
-                                    <option value="">Família</option>
-                                    <option value="">Grande</option>
-                                    <option value="">Média</option>
-                                    <option value="">Pequena</option>
+                                    <option value="familia">Família</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="media">Média</option>
+                                    <option value="pequena">Pequena</option>
                                 </select>
                                 <div>
-                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                    <input type="number" className="inputnmb" placeholder="Quant." onChange={(e) => setquantidadePizza(e.target.value)}  />
                                 </div>
-                                <div className='botao_adicionarI'>
+                                <div className='botao_adicionarI' onClick={() =>
+                                            handleAdicionar({
+                                            item: "Frango com Calabresa",
+                                            price: 25.00,
+                                            tamanho: tamanhoPizza,
+                                            quantity: quantidadePizza,
+                                            })
+                                        }>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
                         </div>
+
+
 
                         <div className="item-pedidos">
                             <div>
@@ -110,17 +163,24 @@ function TelaPedidoCliente() {
                             </div>
                             <div className="divd">
 
-                                <select name="" className="slc">
+                                <select name="" className="slc" onChange={(e) => setTamanhoPizza(e.target.value)}>
                                     <option className="opt" value="" disabled selected>Tamanho</option>
-                                    <option value="">Família</option>
-                                    <option value="">Grande</option>
-                                    <option value="">Média</option>
-                                    <option value="">Pequena</option>
+                                    <option value="familia">Família</option>
+                                    <option value="grande">Grande</option>
+                                    <option value="media">Média</option>
+                                    <option value="pequena">Pequena</option>
                                 </select>
                                 <div>
-                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                    <input type="number" className="inputnmb" placeholder="Quant." onChange={(e) => setquantidadePizza(e.target.value)}  />
                                 </div>
-                                <div className='botao_adicionarI'>
+                                <div className='botao_adicionarI' onClick={() =>
+                                            handleAdicionar({
+                                            item: "Frango portuguesa",
+                                            price: 25.00,
+                                            tamanho: tamanhoPizza,
+                                            quantity: quantidadePizza,
+                                            })
+                                        }>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -144,9 +204,15 @@ function TelaPedidoCliente() {
                             <div className="divd">
 
                                 <div>
-                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                    <input type="number" className="inputnmb" placeholder="Quant." onChange={(e) => setquantidadePizza(e.target.value)}/>
                                 </div>
-                                <div className='botao_adicionarI'>
+                                <div className='botao_adicionarI' onClick={() =>
+                                            handleAdicionar({
+                                            item: "cocacola",
+                                            price: 10.00,
+                                            quantity: quantidadePizza,
+                                            })
+                                        }>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -165,9 +231,15 @@ function TelaPedidoCliente() {
                             <div className="divd">
 
                                 <div>
-                                    <input type="number" className="inputnmb" placeholder="Quant."/>
+                                    <input type="number" className="inputnmb" placeholder="Quant." onChange={(e) => setquantidadePizza(e.target.value)}/>
                                 </div>
-                                <div className='botao_adicionarI'>
+                                <div className='botao_adicionarI'onClick={() =>
+                                            handleAdicionar({
+                                            item: "guarana",
+                                            price: 10.00,
+                                            quantity: quantidadePizza,
+                                            })
+                                        }>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
@@ -176,11 +248,14 @@ function TelaPedidoCliente() {
 
                     </div>
             </div>
-            <div className="navvalor">
+
+
+            
+            <div className="navvalor" >
                 <div>
-                    <p className="valord">Preço total: <br /> R$0,00</p>
+                    <p className="valord">Preço total: <br /> ${totalPrice}</p>
                 </div>
-                <div><button className="btnvalor">Finalizar compra</button></div>
+                <div><button className="btnvalor" onClick={finalpedidos} >Finalizar compra</button></div>
             </div>
            
         </>

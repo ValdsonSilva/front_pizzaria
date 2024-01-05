@@ -16,6 +16,7 @@ import ItemEdit from './components/forms/forms_edit/item_edit/ItemEdit.jsx'
 import CategoriaEdit from './components/forms/forms_edit/categoria_edit/CategoriaEdit.jsx'
 import TelaInicialCrud from './components/pages/TelaInicialCrud.jsx'
 import TelaPedidoCliente from './components/pages/pedidos/TelaPedidoCliente.jsx'
+import { PedidoProvider } from './context/pedidoscontext.jsx'
 
 // Configuração de rotas da minha aplicação
 const router = createBrowserRouter([
@@ -27,12 +28,12 @@ const router = createBrowserRouter([
     {
       // tela da visão do user adm
       path : "/telainicial",
-      element : <TelaInicialCrud/>
+      element : <PedidoProvider><TelaInicialCrud/></PedidoProvider>
     },
     {
       // tela da visão do user cliente
       path : "/meuspedidos",
-      element : <TelaPedidoCliente/>
+      element : <PedidoProvider><TelaPedidoCliente/></PedidoProvider>
     },
     {
       path : "/itens",
@@ -60,11 +61,11 @@ const router = createBrowserRouter([
     { 
       // tela de pedidos
       path : "/pedidos",
-      element : <Pedidos/>
+      element : <PedidoProvider><Pedidos/></PedidoProvider>
     },
     {
       // tela detalhes de pedidos
-      path : "/detalhes",
+      path : "/detalhes/:id",
       element : <DetalhePedido/>
     },
     {
