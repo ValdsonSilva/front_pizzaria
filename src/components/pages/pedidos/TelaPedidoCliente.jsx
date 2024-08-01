@@ -11,7 +11,7 @@ import coca from "../../imgs/coca.jpg"
 import guarana from "../../imgs/guarana.jpg"
 import mais from "../../../assets/sinal-de-adicao.svg"
 import "react-hook-form"
-import Swal from 'sweetalert2';
+// import Swal from 'sweetalert2';
 import { useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import { pedidosContext } from "../../../context/pedidoscontext";
@@ -25,6 +25,7 @@ function TelaPedidoCliente() {
     const [tamanhoPizza, setTamanhoPizza] = useState();
     const [quantidadePizza , setquantidadePizza] = useState();
     const [totalPrice, setTotalPrice] = useState(0);
+    // classe de Carrinho(adicionar_pedido e buscar_pedido) & array de pedidos
     const {carrinhopedidos, mypizzas} = useContext(pedidosContext)
 
   const handleAdicionar = (item) => {
@@ -38,30 +39,27 @@ function TelaPedidoCliente() {
     item.data = formattedDate
     item.numero = randomNumber
     setPedido((listaitens) => listaitens.concat(item))
-    setTotalPrice((precoanterior)=> precoanterior + item.price *item.quantity)
+    setTotalPrice((precoanterior)=> precoanterior + item.price * item.quantity)
     console.log(pedido)
     console.log(carrinhopedidos.tamanhopedidos)
   };
 
-  const finalpedidos =()=>{
+  const finalpedidos = () => {
 
-   
     carrinhopedidos.adicionar_pedidos(pedido)
     carrinhopedidos.BuscarPedidos()
     console.log(pedido)
     console.log(carrinhopedidos.allpedidos)
     console.log(mypizzas)
     showSuccessPopup()
-    
+
   }
 
   const showSuccessPopup = () => {
     Swal.fire({
-      
       title: 'Compra Finalizada',
       text: 'Recebemos seu pedido pfv aguarde a entrega :)',
       confirmButtonColor: '#EA1D2C',
-      
     });
   };
     return(
@@ -106,27 +104,16 @@ function TelaPedidoCliente() {
                                 </div>
                                 <div className='botao_adicionarI' onClick={() =>
                                             handleAdicionar({
-                                            item: "Frango com Catupiry",
-                                            price: 25.00,
-                                            tamanho: tamanhoPizza,
-                                            quantity: quantidadePizza,
+                                                item: "Frango com Catupiry",
+                                                price: 25.00,
+                                                tamanho: tamanhoPizza,
+                                                quantity: quantidadePizza,
                                             })
                                         }>
                                     <img src={mais} alt="" />
                                 </div>
                             </div>
                         </div>
-
-
-
-
-
-
-
-
-
-
-
 
                         <div className="item-pedidos">
                             <div>

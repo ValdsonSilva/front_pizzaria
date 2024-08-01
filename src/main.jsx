@@ -8,7 +8,6 @@ import TelaNovoItem from './components/pages/novoitem/TelaNovoItem.jsx'
 import TelaNovaComposicao from './components/forms/formulário_insumo/TelaNovoInsumo.jsx'
 import TelaItensCadastrados from "./components/pages/itenscadastrados/TelaItensCadastrados.jsx"
 import InsumoEdit from './components/forms/forms_edit/InsumoEdit.jsx'
-
 import Pedidos from './components/pages/pedidos/Pedidos.jsx'
 import DetalhePedido from './components/pages/pedidos/DetalhePedido.jsx'
 import SubcategoriaEdit from "./components/forms/forms_edit/SubcategoriaEdit.jsx"
@@ -23,17 +22,22 @@ const router = createBrowserRouter([
     {
       // rota raiz/tela de login
       path : "/",
-      element : <App/>,
+      // element : <App/>,
+      element : <PedidoProvider><TelaPedidoCliente/></PedidoProvider>
     },
     {
-      // tela da visão do user adm
+      // tela da visão do user
       path : "/telainicial",
       element : <PedidoProvider><TelaInicialCrud/></PedidoProvider>
+    }, 
+    {
+      path : "login/",
+      element : <App/>
     },
     {
       // tela da visão do user cliente
-      path : "/meuspedidos",
-      element : <PedidoProvider><TelaPedidoCliente/></PedidoProvider>
+      // path : "/meuspedidos",
+      // element : <PedidoProvider><TelaPedidoCliente/></PedidoProvider>
     },
     {
       path : "/itens",

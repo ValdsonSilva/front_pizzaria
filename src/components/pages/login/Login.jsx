@@ -24,11 +24,11 @@ function Login() {
             console.log("Redirecionando para tela de ADM!")
             navigate("/telainicial")
         }
-        else if (login === "cliente" && senha === "2"){
-            // cliente sendo logado
-            console.log('Redirecionando para tela do cliente!')
-            navigate("/meuspedidos")
-        }
+        // else if (login === "cliente" && senha === "2"){
+        //     // cliente sendo logado
+        //     console.log('Redirecionando para tela do cliente!')
+        //     navigate("/meuspedidos")
+        // }
         else {
             window.alert('Credenciais inválidas ou inexistentes!')
         }
@@ -65,7 +65,7 @@ function Login() {
                                 <img src={cadeado} alt=""  className="icon-cadeado"/>
                             </div>
 
-                            <button type="submit" className="ButtonLogin" >Entrar</button>
+                            <button type="submit" className="ButtonLogin">Entrar</button>
                         </form>
                     </div>
                 </div>

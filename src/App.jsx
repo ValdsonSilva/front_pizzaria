@@ -7,12 +7,11 @@ import Login from './components/pages/login/Login'
 function App() {
   const [texto, setTexto] = useState('')
 
-  document.title = "Pizzaria"
-
 
   return (
     <>
       <Login/>
+      {/* <TelaPedidoCliente/> */}
     </>
   )
 }

@@ -1,27 +1,17 @@
 
 //obejot maginario pois nao sei onde estão todos os dados para montar o peido
 
-
-
     //esse contexto funciona apenas para mostrar o pedido caso seja necessario a criaçao de um contexto
     //para a formulçao de um pedido adicionar funçao diretamente aqui
     import { createContext, useRef } from "react";
     //criaçao do contexto de pedido
     export const pedidosContext = createContext();
     
-    export const PedidoProvider = ({ children }) => {
+export const PedidoProvider = ({ children }) => {
       //varaiveis de referencia 
       //lembrete nao usar use state re-recompopnentizaçao 
       const mypizzas = useRef([])
       const pedidosFilePath = "./pedidosdb.json";
-
-
-
-
-      
-
-
-
 
       class Carinho {
         constructor() {
@@ -69,7 +59,7 @@
       
       return (
         //passanddo o componente para as rotas
-        //                                enviando valores alteraveis do contexto
+        //enviando valores alteraveis do contexto
         <pedidosContext.Provider value={{ carrinhopedidos, mypizzas }}>
           {children}
         </pedidosContext.Provider>

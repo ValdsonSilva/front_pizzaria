@@ -30,7 +30,7 @@ function Header() {
                 </Link>
 
 
-                <Link to="/cadastrados" className="botao_itens_cadastros" >Itens cadastrados</Link>
+                <Link to="/cadastrados" className="botao_itens_cadastros">Itens cadastrados</Link>
 
                 {/* <nav className={`navegacao ${isNavegationVisible ? 'on' : ''}`}>
 
